@@ -1,0 +1,34 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+node_modules
+
+# production
+dist
+build
+
+# misc
+.DS_Store
+.env
+
+# npm
+package-lock.json
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+vite-plugin-electron.log*
+
+# IDEs and editors
+.idea
+.vscode
+
+# dist
+storybook-static
+
+# build log file of storybook
+build-storybook.log
+
+# error logs
+*error.log
