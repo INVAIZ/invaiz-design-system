@@ -10,7 +10,6 @@
   "engines": {
     "node": ">=16.0.0"
   },
-  "private": true,
   "homepage": "https://github.com/INVAIZ/invaiz-design-system#readme",
   "repository": {
     "type": "git",
