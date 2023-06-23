@@ -1,8 +1,6 @@
-name: IDS-CI
+name: IDS-Pull-Request-CI
 
 on:
-  push:
-    branches: [main]
   pull_request:
     branches: [main]
 
@@ -52,18 +50,8 @@ jobs:
         
     - name: Lint Format Check
       run: |
-        yarn run lint
+        yarn run eslint
         
     - name: Jest Integration Test
       run: |
         yarn test --passWithNoTests
-      
-    - name: NPM publish
-      uses: actions/setup-node@v3
-      with:
-        node-version: 16
-        registry-url: https://registry.npmjs.org    
-    - run: npm ci
-    - run: npm publish
-      env:
-        NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
