@@ -2,9 +2,9 @@ name: IDS-CI
 
 on:
   push:
-    branches: [master]
+    branches: [main]
   pull_request:
-    branches: [master]
+    branches: [main]
 
 jobs:
   build:
@@ -57,3 +57,13 @@ jobs:
     - name: Jest Integration Test
       run: |
         yarn test --passWithNoTests
+      
+    - name: NPM publish
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16
+        registry-url: https://registry.npmjs.org    
+      run: npm ci
+    - run: npm publish
+      env:
+        NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}

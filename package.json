@@ -2,7 +2,7 @@
   "name": "invaiz-design-system",
   "productName": "INVAIZ Design System",
   "description": "INVAIZ Design System development project",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "author": "INVAIZ Inc.",
   "license": "MIT",
   "main": "./dist/modules.mjs",
@@ -11,13 +11,13 @@
     "node": ">=16.0.0"
   },
   "private": true,
-  "homepage": "https://github.com/INVAIZ/INVAIZ-Design-System#readme",
+  "homepage": "https://github.com/INVAIZ/invaiz-design-system#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/INVAIZ/INVAIZ-Design-System.git"
+    "url": "git+https://github.com/invaiz/invaiz-design-system.git"
   },
   "bugs": {
-    "url": "https://github.com/INVAIZ/INVAIZ-Design-System/issues"
+    "url": "https://github.com/invaiz/invaiz-design-system/issues"
   },
   "scripts": {
     "start": "vite",
@@ -55,7 +55,6 @@
     "@typescript-eslint/eslint-plugin": "^5.60.0",
     "@typescript-eslint/parser": "^5.60.0",
     "@vitejs/plugin-react": "^2.0.0",
-    "chromatic": "^6.7.3",
     "eslint": "^8.43.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-config-react-app": "^7.0.1",
