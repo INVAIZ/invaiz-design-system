@@ -10,7 +10,7 @@ export default {
   component: RadioButton,
 };
 
-export const Template: Story<ComponentProps<typeof RadioButton>> = (props) => (
+export const Template: Story<ComponentProps<typeof RadioButton>> = props => (
   <RadioButton {...props} />
 );
 Template.storyName = "Playground";

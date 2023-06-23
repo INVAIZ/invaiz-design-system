@@ -12,9 +12,7 @@ export default {
   component: NestedCheckbox,
 };
 
-export const Template: Story<ComponentProps<typeof NestedCheckbox>> = (
-  props
-) => (
+export const Template: Story<ComponentProps<typeof NestedCheckbox>> = props => (
   <NestedCheckbox {...props}>
     <NestedCheckbox.Item text="Children" />
   </NestedCheckbox>
@@ -38,8 +36,8 @@ export const Usage = () => {
   ]);
 
   const onChange = (newChecked: boolean, setId: number) => {
-    setCheckedList((prevList) =>
-      prevList.map((prev) => ({
+    setCheckedList(prevList =>
+      prevList.map(prev => ({
         ...prev,
         checked: prev.id === setId ? newChecked : prev.checked,
       }))
@@ -49,8 +47,8 @@ export const Usage = () => {
   const allCheck = checkedList.every(({ checked }) => checked);
 
   const onAllChange = () => {
-    setCheckedList((prevList) =>
-      prevList.map((prev) => ({ ...prev, checked: !allCheck }))
+    setCheckedList(prevList =>
+      prevList.map(prev => ({ ...prev, checked: !allCheck }))
     );
   };
 
@@ -68,7 +66,7 @@ export const Usage = () => {
           key={id}
           text={`Test ${id}`}
           checked={checked}
-          onChange={(c) => onChange(c, id)}
+          onChange={c => onChange(c, id)}
         />
       ))}
     </NestedCheckbox>

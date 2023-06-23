@@ -10,7 +10,7 @@ function Toggle({ checked, onChange, disabled }: CheckboxDefaultProps) {
       <Input
         type="checkbox"
         checked={checked}
-        onChange={(e) => onChange?.(e.target.checked)}
+        onChange={e => onChange?.(e.target.checked)}
         disabled={disabled}
       />
       <Span />

@@ -7,7 +7,7 @@ function useOnClickOutside<T extends HTMLElement | null = HTMLElement>(
   handler: Handler,
   mouseEvent: "mousedown" | "mouseup" = "mousedown"
 ): void {
-  useEventListener(mouseEvent, (event) => {
+  useEventListener(mouseEvent, event => {
     if (!(event.target instanceof Node)) {
       return;
     }

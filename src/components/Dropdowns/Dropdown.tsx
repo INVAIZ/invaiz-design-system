@@ -48,7 +48,7 @@ export default function Dropdown<T>({
   const [focused, setFocused] = useState<number>(-1);
   const [open, setOpen] = useState(false);
 
-  const toggle = () => setOpen((prev) => !prev);
+  const toggle = () => setOpen(prev => !prev);
 
   const resetDropdown = () => {
     setOpen(false);
@@ -62,7 +62,7 @@ export default function Dropdown<T>({
     const dropdownList = Array.from(
       ref.current.querySelectorAll<HTMLElement>(`.${DROPDOWN_ITEM}`)
     );
-    dropdownList.forEach((item) => item.classList.remove(FOCUSED));
+    dropdownList.forEach(item => item.classList.remove(FOCUSED));
     const focusedItem = dropdownList.at(focused);
     switch (e.key) {
       case "Enter":
@@ -72,14 +72,14 @@ export default function Dropdown<T>({
         }
         break;
       case "ArrowDown":
-        setFocused((prev) => {
+        setFocused(prev => {
           const next = (prev + 1) % dropdownList.length;
           dropdownList.at(next)?.classList.add(FOCUSED);
           return next;
         });
         break;
       case "ArrowUp":
-        setFocused((prev) => {
+        setFocused(prev => {
           const next = (prev + dropdownList.length - 1) % dropdownList.length;
           dropdownList.at(next)?.classList.add(FOCUSED);
           return next;
@@ -101,7 +101,7 @@ export default function Dropdown<T>({
 
   useOnClickOutside(ref.current, resetDropdown);
 
-  useEventListener("keydown", (e) => {
+  useEventListener("keydown", e => {
     if (e.key === "Escape") {
       resetDropdown();
     }
@@ -117,7 +117,7 @@ export default function Dropdown<T>({
     return normalColor.grayScale.basic.black;
   })();
 
-  const text = list.find((item) => item.value === selected)?.label;
+  const text = list.find(item => item.value === selected)?.label;
 
   const content = icon ? (
     <WithIcon>

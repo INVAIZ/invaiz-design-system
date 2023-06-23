@@ -1,0 +1,47 @@
+# git ci
+.github
+
+# ide
+.idea
+.vscode
+
+# misc
+.DS_Store
+.env
+
+# setup files
+.eslintrc
+.gitignore
+.prettierignore
+.prettierrc
+jest.config.ts
+tsconfig.json
+vite.config.ts
+
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# setup folder
+.storybook
+config
+
+# dev-ocuments
+docs
+
+# dependencies
+node_modules
+
+# source files
+public
+src
+index.html
+
+# not needs
+storybook-static
+
+# log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+vite-plugin-electron.log*

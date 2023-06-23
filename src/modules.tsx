@@ -5,6 +5,8 @@ export { default as Media } from "@themes/media";
 export { default as Style } from "@themes/style";
 export { default as WhiteSpace } from "@themes/whiteSpace";
 
+export { default as Alert } from "@components/Alerts/Alert";
+
 export { default as Button } from "@components/Buttons/Button";
 export { default as ContainButton } from "@components/Buttons/ContainButton";
 export { default as IconButton } from "@components/Buttons/IconButton";
@@ -25,6 +27,8 @@ export { default as Input } from "@components/Inputs/Input";
 export { default as SvgIcon } from "@components/SvgIcons/SvgIcon";
 
 export { default as Toggle } from "@components/Toggles/Toggle";
+export { default as TabLine } from "@components/Tabs/TabLine";
+export { default as TabPanel } from "@components/Tabs/TabPanel";
 
 export { default as Tooltip } from "@components/Tooltips/Tooltip";
 export { default as IconTooltip } from "@components/Tooltips/IconTooltip";

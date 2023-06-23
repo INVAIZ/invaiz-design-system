@@ -9,7 +9,7 @@ export default {
   component: Toggle,
 };
 
-const Template: Story<CheckboxDefaultProps> = (props) => <Toggle {...props} />;
+const Template: Story<CheckboxDefaultProps> = props => <Toggle {...props} />;
 
 export const Primary = Template.bind({});
 

@@ -6,7 +6,7 @@ export default {
   component: SvgIcon,
 };
 
-const Template: Story<SvgIconProps> = (props) => <SvgIcon {...props} />;
+const Template: Story<SvgIconProps> = props => <SvgIcon {...props} />;
 
 export const Primary = Template.bind({});
 Primary.args = {

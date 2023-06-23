@@ -61,15 +61,15 @@ export const useNestedCheckboxState = (
     checkList.some(({ checked, disabled }) => !disabled && checked);
 
   const onChange = (checked: boolean, id: CheckItemId) =>
-    setCheckList((prevList) =>
-      prevList.map((checkItem) =>
+    setCheckList(prevList =>
+      prevList.map(checkItem =>
         id === checkItem.id ? { ...checkItem, checked } : checkItem
       )
     );
 
   const onAllChange = () =>
-    setCheckList((prevList) =>
-      prevList.map((checkItem) =>
+    setCheckList(prevList =>
+      prevList.map(checkItem =>
         checkItem.disabled ? checkItem : { ...checkItem, checked: !allCheck }
       )
     );
@@ -104,10 +104,10 @@ const ImplementedNestedCheckbox = ({
       onChange={onAllChange}
     />
     <StyleNestedCheckList>
-      {checkList.map((checkItem) => (
+      {checkList.map(checkItem => (
         <StyleNestedCheckItem key={checkItem.id}>
           <OutlineCheckbox
-            onChange={(curChecked) => onChange?.(curChecked, checkItem.id)}
+            onChange={curChecked => onChange?.(curChecked, checkItem.id)}
             {...checkItem}
             disabled={disabled || checkItem.disabled}
           />

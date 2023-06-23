@@ -48,7 +48,7 @@ describe("Tab", () => {
       </>
     );
 
-    const results = panels.map((panel) => queryByText(panel));
+    const results = panels.map(panel => queryByText(panel));
 
     results.forEach((result, index) => {
       if (index !== currentIndex) {

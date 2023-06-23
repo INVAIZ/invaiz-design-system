@@ -11,7 +11,7 @@ export default {
 const InputTemplate: Story<InputProps> = ({ ...args }) => {
   const [input, setInput] = useState("");
 
-  const onChange: ChangeEventHandler<HTMLInputElement> = (e) =>
+  const onChange: ChangeEventHandler<HTMLInputElement> = e =>
     setInput(e.target.value);
 
   const onClear = () => setInput("");

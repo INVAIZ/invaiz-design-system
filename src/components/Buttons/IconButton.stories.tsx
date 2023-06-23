@@ -7,7 +7,7 @@ export default {
   component: IconButton,
 };
 
-const Template: Story<IconButtonProps> = (props) => <IconButton {...props} />;
+const Template: Story<IconButtonProps> = props => <IconButton {...props} />;
 
 export const Primary = Template.bind({});
 Primary.args = {

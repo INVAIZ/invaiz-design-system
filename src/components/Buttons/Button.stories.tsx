@@ -10,7 +10,7 @@ export default {
   component: TextButton,
 };
 
-const TextButtonTemplate: Story<ButtonProps> = (props) => (
+const TextButtonTemplate: Story<ButtonProps> = props => (
   <TextButton {...props} />
 );
 
@@ -20,7 +20,7 @@ Text.args = {
   children: "Button",
 };
 
-const ContainButtonTemplate: Story<ButtonProps> = (props) => (
+const ContainButtonTemplate: Story<ButtonProps> = props => (
   <ContainButton {...props} />
 );
 
@@ -30,7 +30,7 @@ Contain.args = {
   children: "Button",
 };
 
-const OutlineButtonTemplate: Story<ButtonProps> = (props) => (
+const OutlineButtonTemplate: Story<ButtonProps> = props => (
   <OutlineButton {...props} />
 );
 

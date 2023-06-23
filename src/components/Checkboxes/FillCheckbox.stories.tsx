@@ -10,7 +10,7 @@ export default {
   component: FillCheckbox,
 };
 
-export const Template: Story<ComponentProps<typeof FillCheckbox>> = (props) => (
+export const Template: Story<ComponentProps<typeof FillCheckbox>> = props => (
   <FillCheckbox {...props} />
 );
 Template.storyName = "Playground";

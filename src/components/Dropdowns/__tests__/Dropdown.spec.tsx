@@ -37,7 +37,7 @@ describe("Dropdown", () => {
 
     getByRole("button").click();
     await waitFor(() =>
-      dropdownOptions.every((option) =>
+      dropdownOptions.every(option =>
         expect(getByText(option.label)).toBeInTheDocument()
       )
     );
@@ -54,7 +54,7 @@ describe("Dropdown", () => {
 
     getByRole("button").click();
     await waitFor(() =>
-      dropdownOptions.every((option) =>
+      dropdownOptions.every(option =>
         expect(getByText(option.label)).toBeInTheDocument()
       )
     );
@@ -63,7 +63,7 @@ describe("Dropdown", () => {
     firstItem.click();
 
     await waitFor(() =>
-      dropdownOptions.every((option) =>
+      dropdownOptions.every(option =>
         expect(queryByText(option.label)).not.toBeInTheDocument()
       )
     );
@@ -80,14 +80,14 @@ describe("Dropdown", () => {
     const button = getByRole("button");
     button.click();
     await waitFor(() =>
-      dropdownOptions.every((option) =>
+      dropdownOptions.every(option =>
         expect(getByText(option.label)).toBeInTheDocument()
       )
     );
 
     fireEvent.keyDown(document, { key: "Escape" });
     await waitFor(() =>
-      dropdownOptions.every((option) =>
+      dropdownOptions.every(option =>
         expect(queryByText(option.label)).not.toBeInTheDocument()
       )
     );
@@ -104,7 +104,7 @@ describe("Dropdown", () => {
     const button = getByRole("button");
     button.click();
     await waitFor(() =>
-      dropdownOptions.every((option) =>
+      dropdownOptions.every(option =>
         expect(getByText(option.label)).toBeInTheDocument()
       )
     );
@@ -121,7 +121,7 @@ describe("Dropdown", () => {
     fireEvent.keyDown(button, { key: "Enter" });
 
     await waitFor(() =>
-      dropdownOptions.every((option) =>
+      dropdownOptions.every(option =>
         expect(queryByText(option.label)).not.toBeInTheDocument()
       )
     );

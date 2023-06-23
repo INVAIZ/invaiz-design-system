@@ -43,14 +43,14 @@ const Popper = ({
       if (popperRef) {
         const { x: deltaX, width } = popperRef.getBoundingClientRect();
         if (deltaX < OUTLINE_PIXEL) {
-          setDelta((prev) => ({ ...prev, x: OUTLINE_PIXEL - deltaX }));
+          setDelta(prev => ({ ...prev, x: OUTLINE_PIXEL - deltaX }));
         } else if (deltaX > window.innerWidth - OUTLINE_PIXEL) {
-          setDelta((prev) => ({
+          setDelta(prev => ({
             ...prev,
             x: window.innerHeight - OUTLINE_PIXEL - deltaX,
           }));
         }
-        setDelta((prev) => ({ ...prev, width }));
+        setDelta(prev => ({ ...prev, width }));
       }
     };
     calculateDelta();

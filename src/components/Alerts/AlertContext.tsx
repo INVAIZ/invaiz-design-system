@@ -53,8 +53,7 @@ const AlertProvider = ({ children }: AlertProviderProps) => {
   const [alert, setAlert] = useState<AlertProps>(initialState);
 
   const openAlert = useCallback(
-    (alertProps: AlertProps) =>
-      setAlert((prev) => ({ ...prev, ...alertProps })),
+    (alertProps: AlertProps) => setAlert(prev => ({ ...prev, ...alertProps })),
     []
   );
 
@@ -63,7 +62,7 @@ const AlertProvider = ({ children }: AlertProviderProps) => {
       alert.onConfirm();
     }
 
-    setAlert((prev) => ({ ...prev, open: false }));
+    setAlert(prev => ({ ...prev, open: false }));
   }, [alert]);
 
   return (

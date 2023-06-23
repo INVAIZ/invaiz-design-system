@@ -21,7 +21,7 @@ const RadioButton = ({
   <HoverCircle disabled={disabled}>
     <StyleRadioButtonInput
       type="checkbox"
-      onChange={(e) => onChange?.(e.target.checked)}
+      onChange={e => onChange?.(e.target.checked)}
       disabled={disabled}
       {...props}
     />

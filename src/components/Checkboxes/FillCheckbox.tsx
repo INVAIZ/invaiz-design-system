@@ -22,7 +22,7 @@ const FillCheckbox = ({
   <HoverCircle disabled={disabled}>
     <StyleFillCheckboxInput
       type="checkbox"
-      onChange={(e) => onChange?.(e.target.checked)}
+      onChange={e => onChange?.(e.target.checked)}
       disabled={disabled}
       {...props}
     />

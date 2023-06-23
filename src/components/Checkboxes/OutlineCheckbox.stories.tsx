@@ -10,9 +10,9 @@ export default {
   component: OutlineCheckbox,
 };
 
-export const Template: Story<ComponentProps<typeof OutlineCheckbox>> = (
-  props
-) => <OutlineCheckbox {...props} />;
+export const Template: Story<
+  ComponentProps<typeof OutlineCheckbox>
+> = props => <OutlineCheckbox {...props} />;
 Template.args = {
   text: "You can control to OutlineCheckbox",
 };
