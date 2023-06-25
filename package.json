@@ -13,10 +13,10 @@
   "homepage": "https://github.com/INVAIZ/invaiz-design-system#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/invaiz/invaiz-design-system.git"
+    "url": "git+https://github.com/INVAIZ/invaiz-design-system.git"
   },
   "bugs": {
-    "url": "https://github.com/invaiz/invaiz-design-system/issues"
+    "url": "https://github.com/INVAIZ/invaiz-design-system/issues"
   },
   "scripts": {
     "start": "vite",
