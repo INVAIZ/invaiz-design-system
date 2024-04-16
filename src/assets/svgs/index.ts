@@ -1,5 +1,6 @@
 import { ReactComponent as Add } from "@assets/svgs/Add.svg";
 import { ReactComponent as Add2 } from "@assets/svgs/Add2.svg";
+import { ReactComponent as Add3 } from "@assets/svgs/Add3.svg";
 import { ReactComponent as AddF } from "@assets/svgs/AddF.svg";
 import { ReactComponent as AddK } from "@assets/svgs/AddK.svg";
 import { ReactComponent as Alarm } from "@assets/svgs/Alarm.svg";
@@ -34,6 +35,8 @@ import { ReactComponent as Delete } from "@assets/svgs/Delete.svg";
 import { ReactComponent as Dial } from "@assets/svgs/Dial.svg";
 import { ReactComponent as Download } from "@assets/svgs/Download.svg";
 import { ReactComponent as DragList } from "@assets/svgs/DragList.svg";
+import { ReactComponent as DragList2 } from "@assets/svgs/DragList2.svg";
+import { ReactComponent as DragList3 } from "@assets/svgs/DragList3.svg";
 import { ReactComponent as EMail } from "@assets/svgs/EMail.svg";
 import { ReactComponent as Export } from "@assets/svgs/Export.svg";
 import { ReactComponent as FadeIn } from "@assets/svgs/FadeIn.svg";
@@ -72,6 +75,7 @@ import { ReactComponent as Macro2 } from "@assets/svgs/Macro2.svg";
 import { ReactComponent as Map } from "@assets/svgs/Map.svg";
 import { ReactComponent as Maximize } from "@assets/svgs/Maximize.svg";
 import { ReactComponent as Menu } from "@assets/svgs/Menu.svg";
+import { ReactComponent as Menu2 } from "@assets/svgs/Menu2.svg";
 import { ReactComponent as Middle } from "@assets/svgs/Middle.svg";
 import { ReactComponent as Minimize } from "@assets/svgs/Minimize.svg";
 import { ReactComponent as Mobile } from "@assets/svgs/Mobile.svg";
@@ -126,6 +130,7 @@ import { ReactComponent as ZoomOut } from "@assets/svgs/ZoomOut.svg";
 const SVG_ICONS = {
   Add,
   Add2,
+  Add3,
   AddF,
   AddK,
   Alarm,
@@ -160,6 +165,8 @@ const SVG_ICONS = {
   Dial,
   Download,
   DragList,
+  DragList2,
+  DragList3,
   EMail,
   Export,
   FadeIn,
@@ -198,6 +205,7 @@ const SVG_ICONS = {
   Map,
   Maximize,
   Menu,
+  Menu2,
   Middle,
   Minimize,
   Mobile,
