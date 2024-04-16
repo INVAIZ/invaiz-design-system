@@ -1,9 +1,8 @@
-import type { ComponentProps } from "react";
-// types
-
 import { Story } from "@storybook/react";
 
-import IconTooltip from "@components/Tooltips/IconTooltip";
+import IconTooltip, {
+  type IconTooltipProps,
+} from "@components/Tooltips/IconTooltip";
 import Input from "@components/Inputs/Input";
 
 export default {
@@ -11,7 +10,7 @@ export default {
   component: IconTooltip,
 };
 
-const Template: Story<ComponentProps<typeof IconTooltip>> = props => (
+const Template: Story<IconTooltipProps> = props => (
   <IconTooltip {...props}>
     <Input placeholder="툴팁을 위한 인풋입니다." />
   </IconTooltip>

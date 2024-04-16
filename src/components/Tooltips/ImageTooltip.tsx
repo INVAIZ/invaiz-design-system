@@ -8,7 +8,7 @@ import TooltipBase from "@components/Tooltips/TooltipBase";
 import { StyleTooltipText } from "@components/Tooltips/styles/Tooltip.style";
 // styles
 
-interface HaveImageTooltipProps extends TooltipProps {
+export interface ImageTooltipProps extends TooltipProps {
   /**
    * 툴팁과 함께 보여질 이미지의 경로(이름)입니다.
    */
@@ -25,7 +25,7 @@ const ImageTooltip = ({
   isArrow,
   imageUrl,
   children,
-}: HaveImageTooltipProps) => (
+}: ImageTooltipProps) => (
   <TooltipBase
     contents={
       <StyleTooltipText textSize={textSize}>

@@ -19,7 +19,7 @@ const BETWEEN_CONTENTS_SPACE = 10 as const;
 const HAVE_ARROW_ADDITIONAL_SPACE = 7 as const;
 // constants
 
-interface TooltipBaseProps extends TooltipCommonProps {
+export interface TooltipBaseProps extends TooltipCommonProps {
   contents: ReactNode;
 }
 

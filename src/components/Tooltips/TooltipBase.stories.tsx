@@ -1,7 +1,8 @@
-import type { ComponentProps } from "react";
-
 import { Story } from "@storybook/react";
-import TooltipBase from "@components/Tooltips/TooltipBase";
+
+import TooltipBase, {
+  type TooltipBaseProps,
+} from "@components/Tooltips/TooltipBase";
 import Input from "@components/Inputs/Input";
 
 export default {
@@ -9,7 +10,7 @@ export default {
   component: TooltipBase,
 };
 
-const Template: Story<ComponentProps<typeof TooltipBase>> = props => (
+const Template: Story<TooltipBaseProps> = props => (
   <TooltipBase {...props}>
     <Input placeholder="툴팁을 위한 인풋입니다." />
   </TooltipBase>

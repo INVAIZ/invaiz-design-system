@@ -11,7 +11,7 @@ import styled from "@themes/styled";
 import { StyleTooltipText } from "@components/Tooltips/styles/Tooltip.style";
 // styles
 
-interface IconTooltipProps extends TooltipProps {
+export interface IconTooltipProps extends TooltipProps {
   /**
    * 텍스트 및 아이콘 사이즈를 조절합니다.
    */

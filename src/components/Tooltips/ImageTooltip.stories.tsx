@@ -1,9 +1,8 @@
-import type { ComponentProps } from "react";
-// types
-
 import { Story } from "@storybook/react";
 
-import ImageTooltip from "@components/Tooltips/ImageTooltip";
+import ImageTooltip, {
+  type ImageTooltipProps,
+} from "@components/Tooltips/ImageTooltip";
 import Input from "@components/Inputs/Input";
 
 export default {
@@ -11,7 +10,7 @@ export default {
   component: ImageTooltip,
 };
 
-const Template: Story<ComponentProps<typeof ImageTooltip>> = props => (
+const Template: Story<ImageTooltipProps> = props => (
   <ImageTooltip {...props}>
     <Input placeholder="툴팁을 위한 인풋입니다." />
   </ImageTooltip>
