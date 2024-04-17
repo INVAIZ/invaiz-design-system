@@ -119,6 +119,7 @@ import { ReactComponent as Temperature } from "@assets/svgs/Temperature.svg";
 import { ReactComponent as Text } from "@assets/svgs/Text.svg";
 import { ReactComponent as Text2 } from "@assets/svgs/Text2.svg";
 import { ReactComponent as Trigger } from "@assets/svgs/Trigger.svg";
+import { ReactComponent as UnLock } from "@assets/svgs/UnLock.svg";
 import { ReactComponent as Vector } from "@assets/svgs/Vector.svg";
 import { ReactComponent as ViewAll } from "@assets/svgs/ViewAll.svg";
 import { ReactComponent as Wait } from "@assets/svgs/Wait.svg";
@@ -249,6 +250,7 @@ const SVG_ICONS = {
   Text,
   Text2,
   Trigger,
+  UnLock,
   Vector,
   ViewAll,
   Wait,
