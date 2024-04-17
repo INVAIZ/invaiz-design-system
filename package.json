@@ -2,7 +2,7 @@
   "name": "invaiz-design-system",
   "productName": "INVAIZ Design System",
   "description": "INVAIZ Design System development project",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "author": "INVAIZ Inc.",
   "license": "MIT",
   "main": "./dist/modules.mjs",

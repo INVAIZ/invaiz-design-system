@@ -1,10 +1,11 @@
-import { useState } from "react";
-import Alert from "@components/Alerts/Alert";
+import Tooltip from "@components/Tooltips/Tooltip";
 
 const App = () => {
   return (
     <div>
-      <Alert open title="test" />
+      <Tooltip text="text" isArrow>
+        <textarea />
+      </Tooltip>
     </div>
   );
 };

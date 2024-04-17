@@ -1,4 +1,10 @@
-import { type ReactNode, useState, useEffect, cloneElement } from "react";
+import {
+  type ReactNode,
+  useState,
+  useEffect,
+  cloneElement,
+  useCallback,
+} from "react";
 import { createPortal } from "react-dom";
 // React modules
 
@@ -13,7 +19,7 @@ const BETWEEN_CONTENTS_SPACE = 10 as const;
 const HAVE_ARROW_ADDITIONAL_SPACE = 7 as const;
 // constants
 
-interface TooltipBaseProps extends TooltipCommonProps {
+export interface TooltipBaseProps extends TooltipCommonProps {
   contents: ReactNode;
 }
 
@@ -34,18 +40,7 @@ const TooltipBase = ({
     y: 0,
   });
 
-  useEffect(() => {
-    const onMouseOver = () => {
-      setVisible(() => true);
-    };
-
-    const onMouseLeave = () => {
-      setVisible(() => false);
-    };
-
-    childrenRef?.addEventListener("mouseover", onMouseOver);
-    childrenRef?.addEventListener("mouseleave", onMouseLeave);
-
+  const calculatePosition = useCallback(() => {
     if (childrenRef) {
       const { x, y, width, height } = childrenRef.getBoundingClientRect();
       setPoint({
@@ -57,12 +52,38 @@ const TooltipBase = ({
           (isArrow ? HAVE_ARROW_ADDITIONAL_SPACE : 0),
       });
     }
+  }, [childrenRef, isArrow]);
+
+  useEffect(() => {
+    calculatePosition();
+  }, [visible, calculatePosition]);
+
+  useEffect(() => {
+    const onMouseOver = () => {
+      setVisible(() => true);
+    };
+
+    const onMouseLeave = () => {
+      setVisible(() => false);
+    };
+
+    const resizeObserver = new ResizeObserver(entries => {
+      calculatePosition();
+    });
+
+    if (childrenRef !== null) {
+      resizeObserver.observe(childrenRef);
+    }
+
+    childrenRef?.addEventListener("mouseover", onMouseOver);
+    childrenRef?.addEventListener("mouseleave", onMouseLeave);
 
     return () => {
       childrenRef?.removeEventListener("mouseover", onMouseOver);
       childrenRef?.removeEventListener("mouseleave", onMouseLeave);
+      resizeObserver.disconnect();
     };
-  }, [childrenRef, isArrow]);
+  }, [childrenRef, calculatePosition]);
 
   return (
     <>
