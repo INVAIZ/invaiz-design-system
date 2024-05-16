@@ -28,6 +28,7 @@ export interface IconTooltipProps extends TooltipProps {
 const IconTooltip = ({
   text,
   textSize = 16,
+  zIndex,
   borderRadiusRatio,
   isArrow,
   icon,
@@ -40,6 +41,7 @@ const IconTooltip = ({
         <StyleText>{text}</StyleText>
       </StyleTooltipText>
     }
+    zIndex={zIndex}
     borderRadiusRatio={borderRadiusRatio}
     isArrow={isArrow}
   >

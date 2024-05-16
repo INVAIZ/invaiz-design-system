@@ -49,4 +49,34 @@ describe("Tooltip", () => {
 
     expect(renderTooltip).not.toBeInTheDocument();
   });
+
+  it("툴팁의 `z-index` 기본값은 `1,000`이다.", async () => {
+    const { getByRole } = render(
+      <Tooltip text={TOOLTIP_TEXT}>
+        <button type="button">{BUTTON_CONTENT}</button>
+      </Tooltip>
+    );
+    const button = getByRole("button");
+
+    fireEvent.mouseOver(button);
+
+    const renderTooltip = getByRole("tooltip");
+    expect(renderTooltip).toBeInTheDocument();
+    expect(renderTooltip).toHaveStyle("z-index: 1000");
+  });
+
+  it("툴팁의 `z-index`는 설정할 수 있다.", async () => {
+    const { getByRole } = render(
+      <Tooltip text={TOOLTIP_TEXT} zIndex={1500}>
+        <button type="button">{BUTTON_CONTENT}</button>
+      </Tooltip>
+    );
+    const button = getByRole("button");
+
+    fireEvent.mouseOver(button);
+
+    const renderTooltip = getByRole("tooltip");
+    expect(renderTooltip).toBeInTheDocument();
+    expect(renderTooltip).toHaveStyle("z-index: 1500");
+  });
 });

@@ -13,12 +13,14 @@ import { StyleTooltipText } from "@components/Tooltips/styles/Tooltip.style";
 const Tooltip = ({
   text,
   textSize,
+  zIndex,
   borderRadiusRatio,
   isArrow,
   children,
 }: TooltipProps) => (
   <TooltipBase
     contents={<StyleTooltipText textSize={textSize}>{text}</StyleTooltipText>}
+    zIndex={zIndex}
     borderRadiusRatio={borderRadiusRatio}
     isArrow={isArrow}
   >

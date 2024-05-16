@@ -3,6 +3,12 @@ import type { ReactElement } from "react";
 
 export interface TooltipCommonProps {
   /**
+   * 툴팁의 `z-index` 높이를 조절합니다.
+   *
+   * * 기본값은 `1000`입니다.
+   */
+  zIndex?: number;
+  /**
    * 모서리 라운드 값을 조정합니다.
    *
    * * 5의 배수로 적용됩니다.
