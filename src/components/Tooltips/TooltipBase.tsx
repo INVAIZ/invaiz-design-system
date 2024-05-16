@@ -67,7 +67,7 @@ const TooltipBase = ({
       setVisible(() => false);
     };
 
-    const resizeObserver = new ResizeObserver(entries => {
+    const resizeObserver = new ResizeObserver(_entries => {
       calculatePosition();
     });
 
@@ -96,7 +96,7 @@ const TooltipBase = ({
           >
             {contents}
           </Popper>,
-          document.body
+          document.body,
         )}
       {cloneElement(children, {
         ref: setChildrenRef,

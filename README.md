@@ -60,38 +60,38 @@
 ## 📑 프로젝트 환경 요구 사항
 
 - `node`: `v16.x.x` 이상
-- `yarn`: `v1.22.x` 이상
+- `pnpm`: `v1.22.x` 이상
 
 ## 💬 사용 가능한 스크립트
 
-- ### **`yarn start`**
+- ### **`pnpm start`**
   - `Vite` 개발 환경으로 동작합니다.
   - `/src/**/*` 내의 파일 수정 시 `Hot-Loader`가 적용됩니다.
   - `8080` 포트에서 개발 서버를 오픈합니다.
-- ### **`yarn build`**
+- ### **`pnpm build`**
   - `Vite`를 사용해서 패키지 소스를 외부에서 사용할 수 있도록 번들링, 빌드합니다.
   - 결과물이 `d.ts`와 함께 `ESM` 모듈로 `dist` 폴더에 생성됩니다.
-- ### **`yarn test`**
+- ### **`pnpm test`**
   - `Jest`를 사용하여 프로젝트 폴더 내의 테스트를 모두 실행합니다.
   - `*.test.js`, `*.test.ts`, `*.spec.js`, `*.spec.ts` 파일을 테스트 파일로 인식합니다.`
-- ### `yarn test:watch`
+- ### `pnpm test:watch`
   - `Jest`를 사용하여 프로젝트 폴더 내의 테스트를 모두 실행하고, 파일의 변경을 지속적으로 감시합니다.`
-- ### `yarn test:snapshot`
+- ### `pnpm test:snapshot`
   - `Jest`를 사용해 스냅샷 테스트를 수행합니다.
   - 스냅샷 테스트로 선언되어 있는 파일들의 컴포넌트 렌더링 상태를 확인하고, 새로 찍어냅니다.
-- ### `yarn test:clear`
+- ### `pnpm test:clear`
   - `Jest`에 캐시된 파일을 모두 삭제합니다.`
-- ### `yarn eslint`
+- ### `pnpm eslint`
   - `src` 내의 소스 코드를 `eslint`를 사용하여 검사합니다.
-- ### `yarn eslint:fix`
+- ### `pnpm eslint:fix`
   - `src` 내의 소스 코드를 `eslint`를 사용하여 검사하고, 수정할 수 있는 부분은 자동으로 수정합니다.
-- ### `yarn prettier`
+- ### `pnpm prettier`
   - `src` 내의 소스 코드를 `prettier`를 사용하여 검사합니다.
-- ### `yarn prettier:fix`
+- ### `pnpm prettier:fix`
   - `src` 내의 소스 코드를 `prettier`를 사용하여 검사하고, 수정할 수 있는 부분은 자동으로 수정합니다.
-- ### `yarn storybook`
+- ### `pnpm storybook`
   - `Storybook` 페이지를 개발 환경을 오픈합니다.
   - `6006` 포트에서 페이지를 오픈합니다.
-- ### `yarn build-storybook`
+- ### `pnpm build-storybook`
   - `Storybook` 페이지를 빌드합니다.
   - 빌드 완료된 파일은 `storybook-static` 폴더에 생성됩니다.

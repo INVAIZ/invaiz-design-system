@@ -21,13 +21,13 @@ export interface ComponentSelector {
 }
 
 export type PropsOf<
-  C extends keyof JSX.IntrinsicElements | JSXElementConstructor<any>
+  C extends keyof JSX.IntrinsicElements | JSXElementConstructor<any>,
 > = JSX.LibraryManagedAttributes<C, ComponentProps<C>>;
 
 /** Same as StyledOptions but shouldForwardProp must be a type guard */
 export interface FilteringStyledOptions<
   Props = Record<string, any>,
-  ForwardedProps extends keyof Props & string = keyof Props & string
+  ForwardedProps extends keyof Props & string = keyof Props & string,
 > {
   label?: string;
   shouldForwardProp?: (propName: string) => propName is ForwardedProps;
@@ -37,7 +37,7 @@ export interface FilteringStyledOptions<
 // eslint-disable-next-line no-unused-vars
 export interface StyledOptions<Props = Record<string, any>> {
   label?: string;
-  shouldForwardProp?: (propName: string) => boolean;
+  shouldForwardProp?: (_propName: string) => boolean;
   target?: string;
 }
 
@@ -48,21 +48,21 @@ export interface StyledOptions<Props = Record<string, any>> {
 export interface StyledComponent<
   ComponentProps extends {},
   SpecificComponentProps extends {} = {},
-  JSXProps extends {} = {}
+  JSXProps extends {} = {},
 > extends FC<ComponentProps & SpecificComponentProps & JSXProps>,
     ComponentSelector {
   withComponent<C extends ComponentClass<React.ComponentProps<C>>>(
-    component: C
+    _component: C,
   ): StyledComponent<
     ComponentProps & PropsOf<C>,
     {},
     { ref?: Ref<InstanceType<C>> }
   >;
   withComponent<C extends ComponentType<React.ComponentProps<C>>>(
-    component: C
+    _component: C,
   ): StyledComponent<ComponentProps & PropsOf<C>>;
   withComponent<Tag extends keyof JSX.IntrinsicElements>(
-    tag: Tag
+    _tag: Tag,
   ): StyledComponent<ComponentProps, JSX.IntrinsicElements[Tag]>;
 }
 
@@ -73,13 +73,13 @@ export interface StyledComponent<
 export interface CreateStyledComponent<
   ComponentProps extends {},
   SpecificComponentProps extends {} = {},
-  JSXProps extends {} = {}
+  JSXProps extends {} = {},
 > {
   /**
    * @typeparam AdditionalProps  Additional props to add to your styled component
    */
   <AdditionalProps extends {} = {}>(
-    ...styles: Array<
+    ..._styles: Array<
       Interpolation<
         ComponentProps &
           SpecificComponentProps &
@@ -93,8 +93,8 @@ export interface CreateStyledComponent<
   >;
 
   (
-    template: TemplateStringsArray,
-    ...styles: Array<
+    _template: TemplateStringsArray,
+    ..._styles: Array<
       Interpolation<
         ComponentProps & SpecificComponentProps & { theme: EmotionTheme }
       >
@@ -105,8 +105,8 @@ export interface CreateStyledComponent<
    * @typeparam AdditionalProps  Additional props to add to your styled component
    */
   <AdditionalProps extends {}>(
-    template: TemplateStringsArray,
-    ...styles: Array<
+    _template: TemplateStringsArray,
+    ..._styles: Array<
       Interpolation<
         ComponentProps &
           SpecificComponentProps &
@@ -133,10 +133,10 @@ export interface BaseCreateStyled {
   <
     C extends ComponentClass<ComponentProps<C>>,
     ForwardedProps extends keyof ComponentProps<C> &
-      string = keyof ComponentProps<C> & string
+      string = keyof ComponentProps<C> & string,
   >(
-    component: C,
-    options: FilteringStyledOptions<ComponentProps<C>, ForwardedProps>
+    _component: C,
+    _options: FilteringStyledOptions<ComponentProps<C>, ForwardedProps>,
   ): CreateStyledComponent<
     Pick<PropsOf<C>, ForwardedProps> & {
       theme?: EmotionTheme;
@@ -148,8 +148,8 @@ export interface BaseCreateStyled {
   >;
 
   <C extends ComponentClass<ComponentProps<C>>>(
-    component: C,
-    options?: StyledOptions<ComponentProps<C>>
+    _component: C,
+    _options?: StyledOptions<ComponentProps<C>>,
   ): CreateStyledComponent<
     PropsOf<C> & {
       theme?: EmotionTheme;
@@ -163,10 +163,10 @@ export interface BaseCreateStyled {
   <
     C extends ComponentType<ComponentProps<C>>,
     ForwardedProps extends keyof ComponentProps<C> &
-      string = keyof ComponentProps<C> & string
+      string = keyof ComponentProps<C> & string,
   >(
-    component: C,
-    options: FilteringStyledOptions<ComponentProps<C>, ForwardedProps>
+    _component: C,
+    _options: FilteringStyledOptions<ComponentProps<C>, ForwardedProps>,
   ): CreateStyledComponent<
     Pick<PropsOf<C>, ForwardedProps> & {
       theme?: EmotionTheme;
@@ -174,8 +174,8 @@ export interface BaseCreateStyled {
   >;
 
   <C extends ComponentType<ComponentProps<C>>>(
-    component: C,
-    options?: StyledOptions<ComponentProps<C>>
+    _component: C,
+    _options?: StyledOptions<ComponentProps<C>>,
   ): CreateStyledComponent<
     PropsOf<C> & {
       theme?: EmotionTheme;
@@ -185,18 +185,21 @@ export interface BaseCreateStyled {
   <
     Tag extends keyof JSX.IntrinsicElements,
     ForwardedProps extends keyof JSX.IntrinsicElements[Tag] &
-      string = keyof JSX.IntrinsicElements[Tag] & string
+      string = keyof JSX.IntrinsicElements[Tag] & string,
   >(
-    tag: Tag,
-    options: FilteringStyledOptions<JSX.IntrinsicElements[Tag], ForwardedProps>
+    _tag: Tag,
+    _options: FilteringStyledOptions<
+      JSX.IntrinsicElements[Tag],
+      ForwardedProps
+    >,
   ): CreateStyledComponent<
     { theme?: EmotionTheme; as?: ElementType },
     Pick<JSX.IntrinsicElements[Tag], ForwardedProps>
   >;
 
   <Tag extends keyof JSX.IntrinsicElements>(
-    tag: Tag,
-    options?: StyledOptions<JSX.IntrinsicElements[Tag]>
+    _tag: Tag,
+    _options?: StyledOptions<JSX.IntrinsicElements[Tag]>,
   ): CreateStyledComponent<
     { theme?: EmotionTheme; as?: ElementType },
     JSX.IntrinsicElements[Tag]

@@ -13,7 +13,7 @@ describe("Tab", () => {
     const { getByRole } = render(
       <TabLine index={0} currentIndex={currentIndex} changeTab={changeTab}>
         {tabs[0]}
-      </TabLine>
+      </TabLine>,
     );
 
     const button = getByRole("button");
@@ -30,7 +30,7 @@ describe("Tab", () => {
         disabled
       >
         {tabs[0]}
-      </TabLine>
+      </TabLine>,
     );
 
     const button = getByRole("button");
@@ -45,7 +45,7 @@ describe("Tab", () => {
             {panel}
           </TabPanel>
         ))}
-      </>
+      </>,
     );
 
     const results = panels.map(panel => queryByText(panel));

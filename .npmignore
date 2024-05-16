@@ -44,4 +44,4 @@ storybook-static
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-vite-plugin-electron.log*
+pnpm-debug.log*

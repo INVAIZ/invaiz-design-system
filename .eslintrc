@@ -6,11 +6,10 @@
     "jest": true
   },
   "extends": [
-    "react-app",
     "prettier",
     "eslint:recommended"
   ],
-  "plugins": ["react", "@typescript-eslint", "prettier", "jest"],
+  "plugins": ["@typescript-eslint", "prettier", "jest"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
@@ -22,30 +21,12 @@
   "rules": {
     "prettier/prettier": "error",
     "@typescript-eslint/no-unused-vars": "off",
-    "react/react-in-jsx-scope": "off",
-    "react/jsx-props-no-spreading": "off",
-    "react/jsx-filename-extension": ["error", { "extensions": [".ts", ".tsx"] }],
-    "react/function-component-definition": ["off"],
-    "react/prop-types": "off",
-    "react/require-default-props": "off",
-    "import/extensions": "off",
-    "import/no-extraneous-dependencies": ["warn", { "devDependencies": true }],
-    "import/newline-after-import": "error",
-    "import/order": "error",
-    "no-unused-vars": "warn",
+    "no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
     "no-undef": "off",
     "no-case-declarations": "off",
     "no-console": ["warn", { "allow": ["error", "info"] }],
     "spaced-comment": "error",
     "camelcase": "error"
   },
-  "ignorePatterns": ["node_modules", "dist", "build", "@types"],
-  "overrides": [
-    {
-      "files": ["*.stories.ts", "*.stories.tsx"],
-      "rules": {
-        "import/no-anonymous-default-export": ["off"]
-      }
-    }
-  ]
+  "ignorePatterns": ["node_modules", "dist", "build", "@types"]
 }

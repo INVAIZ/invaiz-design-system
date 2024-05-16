@@ -70,7 +70,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         )}
       </Label>
     );
-  }
+  },
 );
 
 export default Input;

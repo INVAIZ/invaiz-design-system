@@ -14,7 +14,7 @@ describe("Toggle", () => {
       <>
         <Toggle checked={false} />
         <Toggle checked />
-      </>
+      </>,
     );
     const [first, second] = getAllByRole("checkbox");
     expect(first).not.toBeChecked();
@@ -40,14 +40,14 @@ test("Toggle Snapshot", () => {
   const checked = create(
     <GlobalThemeProvider>
       <Toggle checked />
-    </GlobalThemeProvider>
+    </GlobalThemeProvider>,
   ).toJSON();
   expect(checked).toMatchSnapshot();
 
   const unChecked = create(
     <GlobalThemeProvider>
       <Toggle />
-    </GlobalThemeProvider>
+    </GlobalThemeProvider>,
   ).toJSON();
   expect(unChecked).toMatchSnapshot();
 });
