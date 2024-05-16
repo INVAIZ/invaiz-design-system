@@ -5,6 +5,30 @@ const basicColor = {
   white: "#000",
 } as const;
 
+const grayScaleLightColor = {
+  light100: "#B5B5B5",
+  light200: "#C1C1C1",
+  light300: "#CACACA",
+  light400: "#D2D2D2",
+  light500: "#DBDBDB",
+  light600: "#E8E8E8",
+  light700: "#F2F2F2",
+  light800: "#FBFBFB",
+  light900: "#FFF",
+};
+
+const grayScaleDarkColor = {
+  dark100: "#000",
+  dark200: "#101010",
+  dark300: "#171717",
+  dark400: "#242424",
+  dark500: "#2B2B2B",
+  dark600: "#2F2F2F",
+  dark700: "#3A3A3A",
+  dark800: "#474747",
+  dark900: "#4F4F4F",
+};
+
 const grayColor = {
   gray100: "#2D2D2D",
   gray200: "#4C4C4C",
@@ -100,6 +124,8 @@ const lightColor = {
     basic: basicColor,
     ...grayColor,
     ...coolGrayColor,
+    ...grayScaleLightColor,
+    ...grayScaleDarkColor,
   },
   /**
    * `INVAIZ`의 브랜드 컬러로써 화면과 구성요 요소에서 가장 자주 사용되는 포인트 컬러입니다.
