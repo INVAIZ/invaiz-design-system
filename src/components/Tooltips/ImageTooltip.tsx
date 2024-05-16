@@ -21,6 +21,7 @@ export interface ImageTooltipProps extends TooltipProps {
 const ImageTooltip = ({
   text,
   textSize,
+  zIndex,
   borderRadiusRatio,
   isArrow,
   imageUrl,
@@ -33,6 +34,7 @@ const ImageTooltip = ({
         {text}
       </StyleTooltipText>
     }
+    zIndex={zIndex}
     borderRadiusRatio={borderRadiusRatio}
     isArrow={isArrow}
   >

@@ -19,13 +19,14 @@ const OUTLINE_PIXEL = 10 as const;
 
 type PopperBaseProps = Required<Pick<TooltipCommonProps, "borderRadiusRatio">>;
 type PopperProps = PropsWithChildren<
-  PopperBaseProps & Pick<TooltipCommonProps, "isArrow"> & Point
+  PopperBaseProps & Pick<TooltipCommonProps, "zIndex" | "isArrow"> & Point
 >;
 // types
 
 const Popper = ({
   x,
   y,
+  zIndex,
   borderRadiusRatio,
   isArrow,
   children,
@@ -67,7 +68,15 @@ const Popper = ({
   }, [popperRef]);
 
   return (
-    <StylePopperWrapper ref={setPopperRef} role="tooltip" x={x} y={y}>
+    <StylePopperWrapper
+      ref={setPopperRef}
+      style={{
+        zIndex: zIndex,
+      }}
+      role="tooltip"
+      x={x}
+      y={y}
+    >
       <StylePopper {...delta} borderRadiusRatio={borderRadiusRatio}>
         {children}
       </StylePopper>
