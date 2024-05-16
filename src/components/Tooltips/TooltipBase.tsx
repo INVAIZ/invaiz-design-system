@@ -28,6 +28,7 @@ export interface TooltipBaseProps extends TooltipCommonProps {
  */
 const TooltipBase = ({
   contents,
+  zIndex = 1000,
   borderRadiusRatio = 2,
   isArrow,
   children,
@@ -91,6 +92,7 @@ const TooltipBase = ({
         createPortal(
           <Popper
             {...point}
+            zIndex={zIndex}
             borderRadiusRatio={borderRadiusRatio}
             isArrow={isArrow}
           >
