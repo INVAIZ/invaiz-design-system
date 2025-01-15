@@ -22,7 +22,7 @@ jobs:
         cache-name: cache-node-modules
       with:
         path: node_modules
-        key: node_modules-${{ hashFiles('**/pnpm-lock.yaml') }}
+        key: node_modules-${{ hashFiles('**/yarn.lock') }}
         restore-keys: |
           node-modules-
 
@@ -34,24 +34,24 @@ jobs:
     - name: Install Dependencies
       if: steps.node-cache.outputs.cache-hit != 'true'
       run: |
-        pnpm install
+        yarn
 
     - name: Build
       run: |
-        pnpm build
+        yarn build
         
     - name: Build:StoryBook
       run: |
-        pnpm build-storybook
+        yarn build-storybook
         
     - name: Prettier Format Check
       run: |
-        pnpm run prettier
+        yarn run prettier
         
     - name: Lint Format Check
       run: |
-        pnpm run eslint
+        yarn run eslint
         
     - name: Jest Integration Test
       run: |
-        pnpm test --passWithNoTests
+        yarn test --passWithNoTests
