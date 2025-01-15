@@ -26,7 +26,7 @@ jobs:
           cache-name: cache-node-modules
         with:
           path: node_modules
-          key: node_modules-${{ hashFiles('**/yarn.lock') }}
+          key: node_modules-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             node-modules-
 
@@ -38,11 +38,11 @@ jobs:
       - name: Install Dependencies
         if: steps.node-cache.outputs.cache-hit != 'true'
         run: |
-          yarn
+          pnpm isntall
 
       - name: Build
         run: |
-          yarn build
+          pnpm build
 
       - name: NPM publish
         run: npm publish
