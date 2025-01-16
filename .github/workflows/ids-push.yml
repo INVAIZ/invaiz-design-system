@@ -38,6 +38,10 @@ jobs:
         run: |
           pnpm install --shamefully-hoist
 
+      - name: Jest Integration Test
+        run: |
+          pnpm run test --passWithNoTests
+
       - name: Build
         run: |
           pnpm build

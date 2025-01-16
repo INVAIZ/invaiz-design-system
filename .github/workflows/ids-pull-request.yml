@@ -56,4 +56,4 @@ jobs:
 
       - name: Jest Integration Test
         run: |
-          pnpm test --passWithNoTests
+          pnpm run test --passWithNoTests
