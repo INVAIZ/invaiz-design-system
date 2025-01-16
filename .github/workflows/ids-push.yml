@@ -10,14 +10,10 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16.x]
-    
+        node-version: [20.x]
+
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-          registry-url: https://registry.npmjs.org
 
       - name: Cache node modules
         id: node-cache
@@ -26,23 +22,29 @@ jobs:
           cache-name: cache-node-modules
         with:
           path: node_modules
-          key: node_modules-${{ hashFiles('**/yarn.lock') }}
+          key: node_modules-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             node-modules-
 
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
+          registry-url: https://registry.npmjs.org
+      - uses: pnpm/action-setup@v4
 
       - name: Install Dependencies
         if: steps.node-cache.outputs.cache-hit != 'true'
         run: |
-          yarn
+          pnpm install --shamefully-hoist
+
+      - name: Jest Integration Test
+        run: |
+          pnpm run test --passWithNoTests
 
       - name: Build
         run: |
-          yarn build
+          pnpm build
 
       - name: NPM publish
         run: npm publish
