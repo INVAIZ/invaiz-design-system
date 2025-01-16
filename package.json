@@ -2,14 +2,15 @@
   "name": "invaiz-design-system",
   "productName": "INVAIZ Design System",
   "description": "INVAIZ Design System development project",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "author": "INVAIZ Inc.",
   "license": "MIT",
   "main": "./dist/modules.mjs",
   "types": "./dist/modules.d.ts",
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=20.0.0"
   },
+  "packageManager": "pnpm@9.0.0",
   "homepage": "https://github.com/INVAIZ/invaiz-design-system#readme",
   "repository": {
     "type": "git",
