@@ -1,20 +1,22 @@
-import { type PropsWithChildren, useState, useEffect } from "react";
+import { type PropsWithChildren, useState, useEffect, useMemo } from "react";
 // React modules
 
 import {
   type TooltipCommonProps,
   TOOLTIP_BORDER_RADIUS_UNIT,
 } from "@components/Tooltips/interfaces/Tooltip.interface";
-import type {
-  Point,
-  Rect,
-} from "@components/Tooltips/interfaces/Popper.interface";
+import type { Point } from "@components/Tooltips/interfaces/Popper.interface";
 // interfaces
 
 import styled, { css } from "@themes/styled";
 // styles
 
 const OUTLINE_PIXEL = 10 as const;
+const PADDING_PIXEL = 8 as const;
+const MAX_WIDTH_DIFF = OUTLINE_PIXEL * 2 + PADDING_PIXEL * 2;
+/** 화살표가 포함될 경우 필요한 추가 간격 */
+const ARROW_HEIGHT = 7 as const;
+const THRESHOLDS = Array.from({ length: 1001 }, (_, i) => i * 0.001);
 // constants
 
 type PopperBaseProps = Required<Pick<TooltipCommonProps, "borderRadiusRatio">>;
@@ -23,90 +25,126 @@ type PopperProps = PropsWithChildren<
 >;
 // types
 
+/**
+ * 실질적으로 `Tooltip`을 `DOM`에 표현하는 컴포넌트입니다.
+ */
 const Popper = ({
-  x,
+  x: centerX,
   y,
   zIndex,
   borderRadiusRatio,
   isArrow,
   children,
 }: PopperProps) => {
+  /** `Popper`의 `ref` */
   const [popperRef, setPopperRef] = useState<HTMLDivElement | null>(null);
-  const [delta, setDelta] = useState<Rect>({
+
+  /** 스크롤 상태 */
+  const [scrollAmount, setScrollAmount] = useState<Point>({
     x: 0,
     y: 0,
-    width: 0,
-    height: 0,
   });
+
+  const boundingBox = useMemo(
+    () =>
+      popperRef?.getBoundingClientRect() ?? { x: 0, y: 0, width: 0, height: 0 },
+    [popperRef, centerX, y]
+  );
+
+  const tX = centerX - boundingBox.width / 2;
+  const tXBar = Math.min(
+    Math.max(scrollAmount.x + OUTLINE_PIXEL, tX),
+    window.innerWidth -
+      (boundingBox.width + MAX_WIDTH_DIFF) +
+      scrollAmount.x +
+      OUTLINE_PIXEL
+  );
+  const arrowX = Math.min(
+    Math.max(centerX - tXBar, PADDING_PIXEL),
+    boundingBox.width - (OUTLINE_PIXEL + PADDING_PIXEL)
+  );
 
   useEffect(() => {
     const calculateDelta = () => {
-      if (popperRef) {
-        const { x: deltaX, width } = popperRef.getBoundingClientRect();
-        if (deltaX < OUTLINE_PIXEL) {
-          setDelta(prev => ({ ...prev, x: OUTLINE_PIXEL - deltaX }));
-        } else if (deltaX > window.innerWidth - OUTLINE_PIXEL) {
-          setDelta(prev => ({
-            ...prev,
-            x: window.innerHeight - OUTLINE_PIXEL - deltaX,
-          }));
-        }
-        setDelta(prev => ({ ...prev, width }));
+      if (popperRef === null) {
+        return;
       }
+      // const { x: popperX, width } = popperRef.getBoundingClientRect();
+      // if (x - width / 2 < OUTLINE_PIXEL) {
+      //   setBoundingBox(prev => ({
+      //     ...prev,
+      //     x: OUTLINE_PIXEL - (x - width / 2),
+      //   }));
+      // } else if (x + width > window.innerWidth - OUTLINE_PIXEL) {
+      //   setBoundingBox(prev => ({
+      //     ...prev,
+      //     x: window.innerHeight - OUTLINE_PIXEL - (x + width / 2),
+      //   }));
+      // }
     };
+
     calculateDelta();
 
+    const intersectionObserver = new IntersectionObserver(
+      entry => {
+        setScrollAmount({
+          x: window.scrollX,
+          y: window.scrollY,
+        });
+      },
+      {
+        threshold: THRESHOLDS,
+        rootMargin: `${OUTLINE_PIXEL}px`,
+      }
+    );
     const resizeObserver = new ResizeObserver(calculateDelta);
     if (popperRef) {
       resizeObserver.observe(popperRef);
+      intersectionObserver.observe(popperRef);
     }
     return () => {
       if (popperRef) {
         resizeObserver.unobserve(popperRef);
+        intersectionObserver.unobserve(popperRef);
       }
     };
-  }, [popperRef]);
+  }, [popperRef, centerX, y]);
 
   return (
-    <StylePopperWrapper
+    <Wrapper
+      role="tooltip"
       ref={setPopperRef}
       style={{
-        zIndex: zIndex,
+        zIndex,
       }}
-      role="tooltip"
-      x={x}
-      y={y}
+      x={tXBar}
+      y={y + (isArrow ? ARROW_HEIGHT : 0)}
     >
-      <StylePopper {...delta} borderRadiusRatio={borderRadiusRatio}>
-        {children}
-      </StylePopper>
-      {isArrow && <StylePopperArrow />}
-    </StylePopperWrapper>
+      <ContentBox borderRadiusRatio={borderRadiusRatio}>{children}</ContentBox>
+      {isArrow && <Arrow x={arrowX} />}
+    </Wrapper>
   );
 };
 
 export default Popper;
 
-const StylePopperWrapper = styled.div<Point>`
-  position: fixed;
-  max-width: calc(100vw - ${OUTLINE_PIXEL * 2}px);
+const Wrapper = styled.div<Point>`
+  position: absolute;
 
-  ${({ x, y }) =>
-    (x !== 0 || y !== 0) &&
-    css`
-      top: ${y}px;
-      left: ${x}px;
-    `};
+  max-width: calc(100vw - ${MAX_WIDTH_DIFF}px);
 
   color: ${({ theme }) => theme.color.grayScale.coolGray800}e6; // 투명도 90%
 
-  transform: translateX(-50%);
+  inset: 0 auto auto 0;
+
+  ${({ x, y }) =>
+    css`
+      transform: translate(${x}px, ${y}px);
+    `};
 `;
 
-interface StylePopperProps extends Point, PopperBaseProps {}
-
-const StylePopper = styled.div<StylePopperProps>`
-  padding: 20px;
+const ContentBox = styled.div<PopperBaseProps>`
+  padding: 8px;
 
   background: currentColor;
 
@@ -115,20 +153,19 @@ const StylePopper = styled.div<StylePopperProps>`
 
   ${({ theme }) => theme.style.boxShadow.dropdownEmphasis};
 
-  transform: translateX(${({ x }) => x}px);
   overflow: hidden;
 `;
 
-const StylePopperArrow = styled.div`
+const Arrow = styled.div<{ x: number }>`
   position: absolute;
-  top: -7px;
-  left: 50%;
+  top: -${ARROW_HEIGHT}px;
+  left: -4px;
 
   display: flex;
   width: 8px;
-  height: 7px;
+  height: ${ARROW_HEIGHT}px;
 
-  transform: translateX(-50%);
+  transform: translateX(${({ x }) => Math.max(x, 12)}px);
 
   overflow: hidden;
 
