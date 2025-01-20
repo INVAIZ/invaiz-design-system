@@ -30,8 +30,8 @@ export { default as Toggle } from "@components/Toggles/Toggle";
 export { default as TabLine } from "@components/Tabs/TabLine";
 export { default as TabPanel } from "@components/Tabs/TabPanel";
 
-export { default as TooltipBase } from "@components/Tooltips/TooltipBase";
 export { default as Tooltip } from "@components/Tooltips/Tooltip";
+export { default as TextTooltip } from "@components/Tooltips/TextTooltip";
 export { default as IconTooltip } from "@components/Tooltips/IconTooltip";
 export { default as ImageTooltip } from "@components/Tooltips/ImageTooltip";
 

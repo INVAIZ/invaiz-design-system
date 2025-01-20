@@ -1,14 +1,13 @@
-import type { TooltipProps } from "@components/Tooltips/interfaces/Tooltip.interface";
-
+import type { TextTooltipProps } from "@components/Tooltips/TextTooltip";
 // types
 
-import TooltipBase from "@components/Tooltips/TooltipBase";
+import Tooltip from "@components/Tooltips/Tooltip";
 // components
 
 import { StyleTooltipText } from "@components/Tooltips/styles/Tooltip.style";
 // styles
 
-export interface ImageTooltipProps extends TooltipProps {
+export interface ImageTooltipProps extends TextTooltipProps {
   /**
    * 툴팁과 함께 보여질 이미지의 경로(이름)입니다.
    */
@@ -21,25 +20,21 @@ export interface ImageTooltipProps extends TooltipProps {
 const ImageTooltip = ({
   text,
   textSize,
-  zIndex,
-  borderRadiusRatio,
-  isArrow,
   imageUrl,
   children,
+  ...restProps
 }: ImageTooltipProps) => (
-  <TooltipBase
+  <Tooltip
     contents={
       <StyleTooltipText textSize={textSize}>
         <img src={imageUrl} alt="TooltipImage" />
         {text}
       </StyleTooltipText>
     }
-    zIndex={zIndex}
-    borderRadiusRatio={borderRadiusRatio}
-    isArrow={isArrow}
+    {...restProps}
   >
     {children}
-  </TooltipBase>
+  </Tooltip>
 );
 
 export default ImageTooltip;

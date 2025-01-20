@@ -1,31 +1,68 @@
-import type { TooltipProps } from "@components/Tooltips/interfaces/Tooltip.interface";
-// types
+import { type ReactNode, cloneElement, useState, useEffect } from "react";
+import { createPortal } from "react-dom";
+// React modules
 
-import TooltipBase from "@components/Tooltips/TooltipBase";
+import Popper from "@components/Tooltips/Popper";
+// components
+
+import type { TooltipCommonProps } from "@components/Tooltips/interfaces/Tooltip.interface";
 // interfaces
 
-import { StyleTooltipText } from "@components/Tooltips/styles/Tooltip.style";
-// styles
+export interface TooltipProps extends TooltipCommonProps {
+  /** `Tooltip`에 보여질 컴포넌트입니다. */
+  contents: ReactNode;
+}
 
 /**
- * 기본적인 툴팁입니다.
+ * 기본 툴팁 컴포넌트입니다.
  */
 const Tooltip = ({
-  text,
-  textSize,
-  zIndex,
-  borderRadiusRatio,
+  contents,
+  zIndex = 1000,
+  borderRadiusRatio = 2,
+  direction = "bottom",
   isArrow,
   children,
-}: TooltipProps) => (
-  <TooltipBase
-    contents={<StyleTooltipText textSize={textSize}>{text}</StyleTooltipText>}
-    zIndex={zIndex}
-    borderRadiusRatio={borderRadiusRatio}
-    isArrow={isArrow}
-  >
-    {children}
-  </TooltipBase>
-);
+}: TooltipProps) => {
+  /** `Tooltip`의 표시 기준이 되는 컴포넌트 */
+  const [childrenRef, setChildrenRef] = useState<HTMLElement | null>(null);
+
+  /** 표시 여부 */
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const onMouseOver = () => setVisible(() => true);
+    const onMouseLeave = () => setVisible(() => false);
+
+    childrenRef?.addEventListener("mouseover", onMouseOver);
+    childrenRef?.addEventListener("mouseleave", onMouseLeave);
+
+    return () => {
+      childrenRef?.removeEventListener("mouseover", onMouseOver);
+      childrenRef?.removeEventListener("mouseleave", onMouseLeave);
+    };
+  }, [childrenRef]);
+
+  return (
+    <>
+      {visible &&
+        createPortal(
+          <Popper
+            zIndex={zIndex}
+            borderRadiusRatio={borderRadiusRatio}
+            direction={direction}
+            isArrow={isArrow}
+            baseRef={childrenRef}
+          >
+            {contents}
+          </Popper>,
+          document.body
+        )}
+      {cloneElement(children, {
+        ref: setChildrenRef,
+      })}
+    </>
+  );
+};
 
 export default Tooltip;
