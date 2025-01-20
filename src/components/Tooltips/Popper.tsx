@@ -1,27 +1,43 @@
-import { type PropsWithChildren, useState, useEffect, useMemo } from "react";
+import { type PropsWithChildren, useState, useEffect } from "react";
 // React modules
 
 import {
   type TooltipCommonProps,
   TOOLTIP_BORDER_RADIUS_UNIT,
 } from "@components/Tooltips/interfaces/Tooltip.interface";
-import type { Point } from "@components/Tooltips/interfaces/Popper.interface";
+import type {
+  Point,
+  Rect,
+} from "@components/Tooltips/interfaces/Popper.interface";
 // interfaces
 
 import styled, { css } from "@themes/styled";
 // styles
 
+/** `Tooltip`이 screen으로부터 떨어져야 하는 최소 거리 */
 const OUTLINE_PIXEL = 10 as const;
+/** `Tooltip` 내부의 `padding` 값  */
 const PADDING_PIXEL = 8 as const;
+/** `Tooltip` 최대 넓이에서 위의 두 기준 거리를 뺌 */
 const MAX_WIDTH_DIFF = OUTLINE_PIXEL * 2 + PADDING_PIXEL * 2;
 /** 화살표가 포함될 경우 필요한 추가 간격 */
 const ARROW_HEIGHT = 7 as const;
+/** `Tooltip`과 `Tooltip`이 렌더링 될 요소간의 최소 간격 */
+const BETWEEN_CONTENTS_SPACE = 10 as const;
+
 const THRESHOLDS = Array.from({ length: 1001 }, (_, i) => i * 0.001);
+/** `Tooltip`과 `Tooltip`이 표현될 컴포넌트 사이의 간격 */
 // constants
 
-type PopperBaseProps = Required<Pick<TooltipCommonProps, "borderRadiusRatio">>;
+type PopperBaseProps = Required<
+  Pick<TooltipCommonProps, "borderRadiusRatio" | "direction">
+>;
 type PopperProps = PropsWithChildren<
-  PopperBaseProps & Pick<TooltipCommonProps, "zIndex" | "isArrow"> & Point
+  PopperBaseProps &
+    Omit<TooltipCommonProps, "borderRadiusRatio" | "direction" | "children"> & {
+      /** `Tooltip`이 표현되어야 할 자식 요소의 사이즈 */
+      baseRef: HTMLElement | null;
+    }
 >;
 // types
 
@@ -29,75 +45,108 @@ type PopperProps = PropsWithChildren<
  * 실질적으로 `Tooltip`을 `DOM`에 표현하는 컴포넌트입니다.
  */
 const Popper = ({
-  x: centerX,
-  y,
+  baseRef,
+
   zIndex,
   borderRadiusRatio,
+  direction: initialDirection,
   isArrow,
   children,
 }: PopperProps) => {
   /** `Popper`의 `ref` */
   const [popperRef, setPopperRef] = useState<HTMLDivElement | null>(null);
-
-  /** 스크롤 상태 */
-  const [scrollAmount, setScrollAmount] = useState<Point>({
-    x: 0,
-    y: 0,
-  });
-
-  const boundingBox = useMemo(
-    () =>
-      popperRef?.getBoundingClientRect() ?? { x: 0, y: 0, width: 0, height: 0 },
-    [popperRef, centerX, y]
-  );
-
-  const tX = centerX - boundingBox.width / 2;
-  const tXBar = Math.min(
-    Math.max(scrollAmount.x + OUTLINE_PIXEL, tX),
-    window.innerWidth -
-      (boundingBox.width + MAX_WIDTH_DIFF) +
-      scrollAmount.x +
-      OUTLINE_PIXEL
-  );
-  const arrowX = Math.min(
-    Math.max(centerX - tXBar, PADDING_PIXEL),
-    boundingBox.width - (OUTLINE_PIXEL + PADDING_PIXEL)
-  );
+  /** 실제 `Tooltip`이 뜰 방향, 현재 뷰 포트 위치에 따라 변경될 수 있음 */
+  const [direction, setDirection] = useState(initialDirection);
 
   useEffect(() => {
-    const calculateDelta = () => {
+    const reposition = () => {
       if (popperRef === null) {
         return;
       }
-      // const { x: popperX, width } = popperRef.getBoundingClientRect();
-      // if (x - width / 2 < OUTLINE_PIXEL) {
-      //   setBoundingBox(prev => ({
-      //     ...prev,
-      //     x: OUTLINE_PIXEL - (x - width / 2),
-      //   }));
-      // } else if (x + width > window.innerWidth - OUTLINE_PIXEL) {
-      //   setBoundingBox(prev => ({
-      //     ...prev,
-      //     x: window.innerHeight - OUTLINE_PIXEL - (x + width / 2),
-      //   }));
-      // }
+      const baseRect = getRectOrDefault(baseRef);
+      const popperRect = getRectOrDefault(popperRef);
+
+      /** 뷰 포트 기준으로 `Tooltip` 중심점 설정 */
+      const centerPointFromBaseByViewport: Point = {
+        x: baseRect.x + Math.floor(baseRect.width / 2),
+        y:
+          baseRect.y +
+          (direction === "top"
+            ? -BETWEEN_CONTENTS_SPACE
+            : baseRect.height + BETWEEN_CONTENTS_SPACE),
+      };
+
+      const y =
+        window.scrollY +
+        centerPointFromBaseByViewport.y +
+        (direction === "top" ? -popperRect.height : 0) +
+        (isArrow ? (direction === "top" ? -ARROW_HEIGHT : ARROW_HEIGHT) : 0);
+
+      if (direction === "top") {
+        if (
+          centerPointFromBaseByViewport.y <
+          popperRect.height +
+            OUTLINE_PIXEL +
+            ARROW_HEIGHT +
+            BETWEEN_CONTENTS_SPACE
+        ) {
+          setDirection("bottom");
+          return;
+        }
+      } else {
+        if (
+          centerPointFromBaseByViewport.y >
+          window.innerHeight -
+            popperRect.height -
+            OUTLINE_PIXEL -
+            ARROW_HEIGHT -
+            BETWEEN_CONTENTS_SPACE
+        ) {
+          setDirection("top");
+          return;
+        }
+      }
+
+      /** 스크린의 위치를 벗어나지 않는 `x` 좌표 설정 */
+      const xInScreen = Math.min(
+        Math.max(
+          // 왼쪽 위 모서리 좌표 계산: 중심점에서 `Tooltip`의 절반 넓이를 뺌
+          centerPointFromBaseByViewport.x - Math.floor(popperRect.width / 2),
+          // 왼쪽 위 모서리 좌표가 `OUTLINE_PIXEL`보다 작아지지 않도록 함
+          OUTLINE_PIXEL
+        ),
+        // 오른쪽 아래 모서리 좌표가 `window.innerWidth + OUTLINE_PIXEL`보다 커지지 않도록 함
+        window.innerWidth + OUTLINE_PIXEL - (popperRect.width + MAX_WIDTH_DIFF)
+      );
+
+      /** 화살표의 위치 설정 */
+      const xArrow = Math.min(
+        // 화살표의 위치가 `popupRect`를 벗어나지 않음
+        Math.max(centerPointFromBaseByViewport.x - xInScreen, PADDING_PIXEL),
+        popperRect.width - (OUTLINE_PIXEL + PADDING_PIXEL)
+      );
+
+      const x = window.scrollX + xInScreen;
+
+      popperRef.style.setProperty("transform", `translate(${x}px, ${y}px)`);
+      // 첫 렌더링 시에 `reposition` 함수 호출 후 보이도록 함
+      popperRef.style.setProperty("visibility", `visible`);
+
+      popperRef
+        .querySelector("span")
+        ?.style.setProperty(
+          "transform",
+          `translateX(${Math.max(xArrow, 12)}px)`
+        );
     };
 
-    calculateDelta();
+    reposition();
 
-    const intersectionObserver = new IntersectionObserver(
-      entry => {
-        setScrollAmount({
-          x: window.scrollX,
-          y: window.scrollY,
-        });
-      },
-      {
-        threshold: THRESHOLDS,
-        rootMargin: `${OUTLINE_PIXEL}px`,
-      }
-    );
-    const resizeObserver = new ResizeObserver(calculateDelta);
+    const intersectionObserver = new IntersectionObserver(reposition, {
+      threshold: THRESHOLDS,
+      rootMargin: `${OUTLINE_PIXEL}px`,
+    });
+    const resizeObserver = new ResizeObserver(reposition);
     if (popperRef) {
       resizeObserver.observe(popperRef);
       intersectionObserver.observe(popperRef);
@@ -108,7 +157,7 @@ const Popper = ({
         intersectionObserver.unobserve(popperRef);
       }
     };
-  }, [popperRef, centerX, y]);
+  }, [popperRef, baseRef, direction, isArrow]);
 
   return (
     <Wrapper
@@ -117,18 +166,18 @@ const Popper = ({
       style={{
         zIndex,
       }}
-      x={tXBar}
-      y={y + (isArrow ? ARROW_HEIGHT : 0)}
     >
-      <ContentBox borderRadiusRatio={borderRadiusRatio}>{children}</ContentBox>
-      {isArrow && <Arrow x={arrowX} />}
+      <ContentBox borderRadiusRatio={borderRadiusRatio} direction={direction}>
+        {children}
+      </ContentBox>
+      {isArrow && <Arrow direction={direction} />}
     </Wrapper>
   );
 };
 
 export default Popper;
 
-const Wrapper = styled.div<Point>`
+const Wrapper = styled.div`
   position: absolute;
 
   max-width: calc(100vw - ${MAX_WIDTH_DIFF}px);
@@ -137,10 +186,7 @@ const Wrapper = styled.div<Point>`
 
   inset: 0 auto auto 0;
 
-  ${({ x, y }) =>
-    css`
-      transform: translate(${x}px, ${y}px);
-    `};
+  visibility: hidden;
 `;
 
 const ContentBox = styled.div<PopperBaseProps>`
@@ -156,23 +202,31 @@ const ContentBox = styled.div<PopperBaseProps>`
   overflow: hidden;
 `;
 
-const Arrow = styled.div<{ x: number }>`
+const Arrow = styled.span<{
+  direction: TooltipCommonProps["direction"];
+}>`
   position: absolute;
-  top: -${ARROW_HEIGHT}px;
+  ${({ direction }) => css`
+    ${direction === "top"
+      ? css`
+          bottom: -${ARROW_HEIGHT}px;
+        `
+      : css`
+          top: -${ARROW_HEIGHT}px;
+        `}
+  `}
   left: -4px;
 
   display: flex;
   width: 8px;
   height: ${ARROW_HEIGHT}px;
 
-  transform: translateX(${({ x }) => Math.max(x, 12)}px);
-
   overflow: hidden;
 
   &::after {
     content: "";
     position: absolute;
-    top: 5.5px;
+    top: ${({ direction }) => (direction === "top" ? -5.5 : 5.5)}px;
     left: 50%;
 
     display: block;
@@ -185,3 +239,13 @@ const Arrow = styled.div<{ x: number }>`
       rotate(45deg);
   }
 `;
+
+/**
+ * `HTMLElement`의 `Rect` 정보를 가져오거나 기본값을 반환합니다.
+ */
+function getRectOrDefault(element: HTMLElement | null): Rect {
+  if (element === null) {
+    return { x: 0, y: 0, width: 0, height: 0 };
+  }
+  return element.getBoundingClientRect();
+}

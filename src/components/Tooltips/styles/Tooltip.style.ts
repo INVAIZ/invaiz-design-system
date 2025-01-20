@@ -1,4 +1,4 @@
-import type { TooltipProps } from "@components/Tooltips/interfaces/Tooltip.interface";
+import type { TooltipProps } from "@components/Tooltips/Tooltip";
 // interfaces
 
 import styled, { css } from "@themes/styled";
