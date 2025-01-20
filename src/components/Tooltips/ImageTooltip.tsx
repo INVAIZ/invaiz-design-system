@@ -1,5 +1,4 @@
-import type { TooltipProps } from "@components/Tooltips/interfaces/Tooltip.interface";
-
+import type { TooltipProps } from "@components/Tooltips/Tooltip";
 // types
 
 import TooltipBase from "@components/Tooltips/TooltipBase";
@@ -21,11 +20,9 @@ export interface ImageTooltipProps extends TooltipProps {
 const ImageTooltip = ({
   text,
   textSize,
-  zIndex,
-  borderRadiusRatio,
-  isArrow,
   imageUrl,
   children,
+  ...restProps
 }: ImageTooltipProps) => (
   <TooltipBase
     contents={
@@ -34,9 +31,7 @@ const ImageTooltip = ({
         {text}
       </StyleTooltipText>
     }
-    zIndex={zIndex}
-    borderRadiusRatio={borderRadiusRatio}
-    isArrow={isArrow}
+    {...restProps}
   >
     {children}
   </TooltipBase>

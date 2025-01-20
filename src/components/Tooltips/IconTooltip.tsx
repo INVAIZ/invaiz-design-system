@@ -1,5 +1,5 @@
 import type SVG_ICONS from "@assets/svgs";
-import type { TooltipProps } from "@components/Tooltips/interfaces/Tooltip.interface";
+import type { TooltipProps } from "@components/Tooltips/Tooltip";
 // types
 
 import SvgIcon from "@components/SvgIcons/SvgIcon";
@@ -28,11 +28,9 @@ export interface IconTooltipProps extends TooltipProps {
 const IconTooltip = ({
   text,
   textSize = 16,
-  zIndex,
-  borderRadiusRatio,
-  isArrow,
   icon,
   children,
+  ...restProps
 }: IconTooltipProps) => (
   <TooltipBase
     contents={
@@ -41,9 +39,7 @@ const IconTooltip = ({
         <StyleText>{text}</StyleText>
       </StyleTooltipText>
     }
-    zIndex={zIndex}
-    borderRadiusRatio={borderRadiusRatio}
-    isArrow={isArrow}
+    {...restProps}
   >
     {children}
   </TooltipBase>
