@@ -4,7 +4,7 @@ import { render, fireEvent } from "@tests/test-utils";
 import Tooltip from "@components/Tooltips/Tooltip";
 // components
 
-import { initializeResizeObserver } from "@components/Tooltips/__tests__/__mock__/mockResizeObserver";
+import { initializeObserver } from "@components/Tooltips/__tests__/__mock__/mockResizeObserver";
 // mocks
 
 const TOOLTIP_TEXT = "text" as const;
@@ -13,7 +13,7 @@ const BUTTON_CONTENT = "This is button" as const;
 
 describe("Tooltip", () => {
   beforeAll(() => {
-    initializeResizeObserver();
+    initializeObserver();
   });
 
   it("툴팁은 하위 요소 렌더링에 영향을 주지 않는다.", () => {
