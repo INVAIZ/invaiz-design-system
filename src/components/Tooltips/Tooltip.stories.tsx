@@ -1,9 +1,6 @@
-import type { TooltipProps } from "@components/Tooltips/interfaces/Tooltip.interface";
-// types
-
 import { Story } from "@storybook/react";
 
-import Tooltip from "@components/Tooltips/Tooltip";
+import Tooltip, { type TooltipProps } from "@components/Tooltips/Tooltip";
 import Input from "@components/Inputs/Input";
 
 export default {
@@ -19,11 +16,10 @@ const Template: Story<TooltipProps> = props => (
 
 export const Primary = Template.bind({});
 Primary.args = {
-  text: "기본적인 툴팁입니다.",
-};
-
-export const Arrow = Template.bind({});
-Arrow.args = {
-  text: "화살표가 있는 툴팁입니다.",
-  isArrow: true,
+  contents: (
+    <div>
+      <p>두 줄로 적기</p>
+      <p style={{ color: "red" }}>가능합니다.</p>
+    </div>
+  ),
 };

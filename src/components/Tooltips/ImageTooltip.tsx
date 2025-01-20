@@ -1,13 +1,13 @@
-import type { TooltipProps } from "@components/Tooltips/Tooltip";
+import type { TextTooltipProps } from "@components/Tooltips/TextTooltip";
 // types
 
-import TooltipBase from "@components/Tooltips/TooltipBase";
+import Tooltip from "@components/Tooltips/Tooltip";
 // components
 
 import { StyleTooltipText } from "@components/Tooltips/styles/Tooltip.style";
 // styles
 
-export interface ImageTooltipProps extends TooltipProps {
+export interface ImageTooltipProps extends TextTooltipProps {
   /**
    * 툴팁과 함께 보여질 이미지의 경로(이름)입니다.
    */
@@ -24,7 +24,7 @@ const ImageTooltip = ({
   children,
   ...restProps
 }: ImageTooltipProps) => (
-  <TooltipBase
+  <Tooltip
     contents={
       <StyleTooltipText textSize={textSize}>
         <img src={imageUrl} alt="TooltipImage" />
@@ -34,7 +34,7 @@ const ImageTooltip = ({
     {...restProps}
   >
     {children}
-  </TooltipBase>
+  </Tooltip>
 );
 
 export default ImageTooltip;

@@ -1,9 +1,9 @@
 import type SVG_ICONS from "@assets/svgs";
-import type { TooltipProps } from "@components/Tooltips/Tooltip";
+import type { TextTooltipProps } from "@components/Tooltips/TextTooltip";
 // types
 
 import SvgIcon from "@components/SvgIcons/SvgIcon";
-import TooltipBase from "@components/Tooltips/TooltipBase";
+import Tooltip from "@components/Tooltips/Tooltip";
 // components
 
 import styled from "@themes/styled";
@@ -11,7 +11,7 @@ import styled from "@themes/styled";
 import { StyleTooltipText } from "@components/Tooltips/styles/Tooltip.style";
 // styles
 
-export interface IconTooltipProps extends TooltipProps {
+export interface IconTooltipProps extends TextTooltipProps {
   /**
    * 텍스트 및 아이콘 사이즈를 조절합니다.
    */
@@ -32,7 +32,7 @@ const IconTooltip = ({
   children,
   ...restProps
 }: IconTooltipProps) => (
-  <TooltipBase
+  <Tooltip
     contents={
       <StyleTooltipText textSize={textSize}>
         <StyleSvgIcon icon={icon} size={textSize} color="#fff" />
@@ -42,7 +42,7 @@ const IconTooltip = ({
     {...restProps}
   >
     {children}
-  </TooltipBase>
+  </Tooltip>
 );
 
 export const StyleSvgIcon = styled(SvgIcon)`
