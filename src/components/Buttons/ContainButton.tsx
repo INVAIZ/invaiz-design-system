@@ -38,7 +38,7 @@ export default function ContainButton({
 
 const StyledButton = styled(Button)`
   background-color: ${({ theme }) => theme.color.primary.blue500};
-  color: ${({ theme }) => theme.color.grayScale.basic.white};
+  color: ${({ theme }) => theme.normal.grayScale.basic.white};
 
   &.selected {
     background-color: ${({ theme }) => theme.color.grayScale.coolGray300};
