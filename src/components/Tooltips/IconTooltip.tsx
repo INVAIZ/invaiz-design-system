@@ -35,7 +35,7 @@ const IconTooltip = ({
   <Tooltip
     contents={
       <StyleTooltipText textSize={textSize}>
-        <StyleSvgIcon icon={icon} size={textSize} color="#fff" />
+        <StyleSvgIcon icon={icon} size={textSize} />
         <StyleText>{text}</StyleText>
       </StyleTooltipText>
     }
@@ -46,6 +46,7 @@ const IconTooltip = ({
 );
 
 export const StyleSvgIcon = styled(SvgIcon)`
+  fill: ${({ theme }) => theme.color.grayScale.basic.white};
   vertical-align: middle;
 
   margin-right: 4px;

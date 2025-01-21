@@ -1,10 +1,7 @@
 import { type PropsWithChildren, useState, useEffect } from "react";
 // React modules
 
-import {
-  type TooltipCommonProps,
-  TOOLTIP_BORDER_RADIUS_UNIT,
-} from "@components/Tooltips/interfaces/Tooltip.interface";
+import type { TooltipCommonProps } from "@components/Tooltips/interfaces/Tooltip.interface";
 import type {
   Point,
   Rect,
@@ -17,14 +14,14 @@ import styled, { css } from "@themes/styled";
 /** `Tooltip`이 screen으로부터 떨어져야 하는 최소 거리 */
 const OUTLINE_PIXEL = 10 as const;
 /** `Tooltip` 내부의 `padding` 값  */
-const PADDING_PIXEL = 8 as const;
+const PADDING_PIXEL = 10 as const;
 /** `Tooltip` 최대 넓이에서 위의 두 기준 거리를 뺌 */
 const MAX_WIDTH_DIFF = OUTLINE_PIXEL * 2 + PADDING_PIXEL * 2;
 /** 화살표가 포함될 경우 필요한 추가 간격 */
 const ARROW_HEIGHT = 7 as const;
 /** `Tooltip`과 `Tooltip`이 렌더링 될 요소간의 최소 간격 */
-const BETWEEN_CONTENTS_SPACE = 10 as const;
-
+const BETWEEN_CONTENTS_SPACE = 16 as const;
+const TOOLTIP_BORDER_RADIUS_UNIT = 5 as const;
 const THRESHOLDS = Array.from({ length: 1001 }, (_, i) => i * 0.001);
 /** `Tooltip`과 `Tooltip`이 표현될 컴포넌트 사이의 간격 */
 // constants
@@ -207,7 +204,7 @@ const Wrapper = styled.div`
 `;
 
 const ContentBox = styled.div<PopperBaseProps>`
-  padding: 8px;
+  padding: ${PADDING_PIXEL}px;
 
   background: currentColor;
 

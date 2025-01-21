@@ -29,5 +29,3 @@ export interface TooltipCommonProps {
    */
   children: ReactElement;
 }
-
-export const TOOLTIP_BORDER_RADIUS_UNIT = 5 as const;
