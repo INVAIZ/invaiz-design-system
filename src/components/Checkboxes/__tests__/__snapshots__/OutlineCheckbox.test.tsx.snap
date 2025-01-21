@@ -9,7 +9,7 @@ exports[`OutlineCheckbox Snapshot 1`] = `
   >
     <input
       checked={true}
-      className="css-18gtr08"
+      className="css-1gyy7tz"
       onChange={[Function]}
       type="checkbox"
     />
@@ -27,7 +27,7 @@ exports[`OutlineCheckbox Snapshot 1`] = `
     </div>
   </span>
   <p
-    className="css-1hxuaob"
+    className="css-1k6xh2w"
   >
     Outline Checkbox
   </p>
@@ -42,7 +42,7 @@ exports[`OutlineCheckbox Snapshot 2`] = `
     className="css-1u8zmlt"
   >
     <input
-      className="css-18gtr08"
+      className="css-1gyy7tz"
       onChange={[Function]}
       type="checkbox"
     />
@@ -60,7 +60,7 @@ exports[`OutlineCheckbox Snapshot 2`] = `
     </div>
   </span>
   <p
-    className="css-1hxuaob"
+    className="css-1k6xh2w"
   >
     Outline Checkbox
   </p>

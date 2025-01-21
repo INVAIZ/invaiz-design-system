@@ -6,7 +6,7 @@ exports[`FillCheckbox Snapshot 1`] = `
 >
   <input
     checked={true}
-    className="css-10ql71c"
+    className="css-15n5e16"
     onChange={[Function]}
     type="checkbox"
   />
@@ -30,7 +30,7 @@ exports[`FillCheckbox Snapshot 2`] = `
   className="css-srlyvc"
 >
   <input
-    className="css-10ql71c"
+    className="css-15n5e16"
     onChange={[Function]}
     type="checkbox"
   />
