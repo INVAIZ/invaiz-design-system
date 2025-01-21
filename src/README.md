@@ -26,10 +26,12 @@
 
 ### 컴포넌트
 
+- Alerts
 - Buttons
 - CheckBoxes
 - Dropdowns
 - Inputs
+- Steps
 - Tabs
 - Toggles
 - Tooltips
@@ -40,8 +42,10 @@
   - Light
   - Dark
 - Font
+- Border
+- BoxShadow
 - WhiteSpace
-- Style
+- Media
 - `styled`
   - `@emotion/styled`의 사용 방법과 유사하지만, 내부적으로 타입 선언이 지정되어 있어 테마 요소에 접근할 수 있는 스타일 지정자 요소입니다.
 
@@ -155,4 +159,3 @@
 - Windows
 - ZoomIn
 - ZoomOut
- 
