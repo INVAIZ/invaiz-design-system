@@ -2,7 +2,8 @@ export { colorMap as Color } from "@themes/colors/color";
 export { default as Font } from "@themes/font";
 export { default as ThemeProvider } from "@themes/GlobalThemeProvider";
 export { default as Media } from "@themes/media";
-export { default as Style } from "@themes/style";
+export { default as Border } from "@themes/border";
+export { boxShadowMap as BoxShadow } from "@themes/box-shadows/box-shadow";
 export { default as WhiteSpace } from "@themes/whiteSpace";
 
 export { default as Alert } from "@components/Alerts/Alert";
