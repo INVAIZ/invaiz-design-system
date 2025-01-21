@@ -28,14 +28,14 @@ export const StyleFillCheckboxInput = styled(StyleCommonCheckboxInput)`
     & + div {
       background: ${({ theme }) => theme.color.grayScale.gray300};
       & > svg {
-        fill: ${({ theme }) => theme.color.system.off1};
+        fill: ${({ theme }) => theme.color.system.off2};
       }
     }
     &:checked {
       & + div {
         background: ${({ theme }) => theme.color.system.off1};
         & > svg {
-          fill: ${({ theme }) => theme.color.system.off2};
+          fill: ${({ theme }) => theme.color.system.off3};
         }
       }
     }
