@@ -6,7 +6,7 @@ exports[`FillCheckbox Snapshot 1`] = `
 >
   <input
     checked={true}
-    className="css-15n5e16"
+    className="css-5eq3a5"
     onChange={[Function]}
     type="checkbox"
   />
@@ -19,6 +19,11 @@ exports[`FillCheckbox Snapshot 1`] = `
       data-svg-name="Check"
       data-testid="Check"
       height={20}
+      style={
+        {
+          "fill": undefined,
+        }
+      }
       width={20}
     />
   </div>
@@ -30,7 +35,7 @@ exports[`FillCheckbox Snapshot 2`] = `
   className="css-srlyvc"
 >
   <input
-    className="css-15n5e16"
+    className="css-5eq3a5"
     onChange={[Function]}
     type="checkbox"
   />
@@ -43,6 +48,11 @@ exports[`FillCheckbox Snapshot 2`] = `
       data-svg-name="Check"
       data-testid="Check"
       height={20}
+      style={
+        {
+          "fill": undefined,
+        }
+      }
       width={20}
     />
   </div>
