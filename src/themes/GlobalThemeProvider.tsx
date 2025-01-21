@@ -13,7 +13,7 @@ import font, {
   textAlign,
   fontColor,
 } from "@themes/font";
-import { colorMap, normal, light } from "@themes/colors/color";
+import { colorMap, normal, inverse } from "@themes/colors/color";
 import whiteSpace from "@themes/whiteSpace";
 import style from "@themes/style";
 import GlobalStyle from "@themes/GlobalStyle";
@@ -28,7 +28,7 @@ export default function GlobalThemeProvider({
 }: PropsWithChildren<GlobalThemeProviderProps>) {
   const theme: EmotionTheme = {
     normal,
-    light,
+    inverse,
     color: colorMap[colorTheme],
     currentThemeName: colorTheme,
 

@@ -1,0 +1,113 @@
+import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs';
+
+import { inverse } from "./color";
+
+<Meta title="Themes/Colors/Inverse" />
+
+<ColorPalette>
+  <ColorItem
+    title="회색 기본"
+    subtitle="theme.inverse.grayScale.basic"
+    colors={inverse.grayScale.basic}
+  />
+  <ColorItem
+    title="밝은 톤"
+    subtitle="theme.inverse.grayScale.inverse"
+    colors={{
+      100: inverse.grayScale.light100,
+      200: inverse.grayScale.light200,
+      300: inverse.grayScale.light300,
+      400: inverse.grayScale.light400,
+      500: inverse.grayScale.light500,
+      600: inverse.grayScale.light600,
+      700: inverse.grayScale.light700,
+      800: inverse.grayScale.light800,
+      900: inverse.grayScale.light900,
+    }}
+  />
+  <ColorItem
+    title="어두운 톤"
+    subtitle="theme.inverse.grayScale.dark"
+    colors={{
+      100: inverse.grayScale.dark100,
+      200: inverse.grayScale.dark200,
+      300: inverse.grayScale.dark300,
+      400: inverse.grayScale.dark400,
+      500: inverse.grayScale.dark500,
+      600: inverse.grayScale.dark600,
+      700: inverse.grayScale.dark700,
+      800: inverse.grayScale.dark800,
+      900: inverse.grayScale.dark900,
+    }}
+  />
+  <ColorItem
+    title="회색 웜톤"
+    subtitle="theme.inverse.grayScale.gray"
+    colors={{
+      100: inverse.grayScale.gray100,
+      200: inverse.grayScale.gray200,
+      300: inverse.grayScale.gray300,
+      400: inverse.grayScale.gray400,
+      500: inverse.grayScale.gray500,
+      600: inverse.grayScale.gray600,
+      700: inverse.grayScale.gray700,
+      800: inverse.grayScale.gray800,
+      900: inverse.grayScale.gray900,
+    }}
+  />
+  <ColorItem
+    title="회색 쿨톤"
+    subtitle="theme.inverse.grayScale.coolGray"
+    colors={{
+      100: inverse.grayScale.coolGray100,
+      200: inverse.grayScale.coolGray200,
+      300: inverse.grayScale.coolGray300,
+      400: inverse.grayScale.coolGray400,
+      500: inverse.grayScale.coolGray500,
+      600: inverse.grayScale.coolGray600,
+      700: inverse.grayScale.coolGray700,
+      800: inverse.grayScale.coolGray800,
+      900: inverse.grayScale.coolGray900,
+    }}
+  />
+  <ColorItem
+    title="포인트 컬러"
+    subtitle="theme.inverse.primary"
+    colors={inverse.primary}
+  />
+  <ColorItem
+    title="보조 컬러"
+    subtitle="theme.inverse.secondary"
+    colors={inverse.secondary}
+  />
+  <ColorItem
+    title="시스템 컬러 - off"
+    subtitle="theme.inverse.system.off"
+    colors={{
+      1: inverse.system.off1,
+      2: inverse.system.off2,
+      3: inverse.system.off3,
+      4: inverse.system.off4,
+    }}
+  />
+  <ColorItem
+    title="시스템 컬러 - caution"
+    subtitle="theme.inverse.system.caution"
+    colors={{
+      1: inverse.system.caution1,
+      2: inverse.system.caution2,
+      3: inverse.system.caution3,
+      4: inverse.system.caution4,
+    }}
+  />
+  <ColorItem
+    title="시스템 컬러 - check"
+    subtitle="theme.inverse.system.check"
+    colors={{
+      1: inverse.system.check1,
+      2: inverse.system.check2,
+      3: inverse.system.check3,
+      4: inverse.system.check4,
+    }}
+  />
+</ColorPalette>
