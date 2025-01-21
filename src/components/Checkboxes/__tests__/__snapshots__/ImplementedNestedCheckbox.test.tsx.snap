@@ -22,6 +22,11 @@ exports[`ImplementedNestedCheckbox Snapshot 1`] = `
           data-svg-name="Subtract"
           data-testid="Subtract"
           height={20}
+          style={
+            {
+              "fill": undefined,
+            }
+          }
           width={20}
         />
       </div>
@@ -60,6 +65,11 @@ exports[`ImplementedNestedCheckbox Snapshot 1`] = `
               data-svg-name="Check"
               data-testid="Check"
               height={20}
+              style={
+                {
+                  "fill": undefined,
+                }
+              }
               width={20}
             />
           </div>
@@ -96,6 +106,11 @@ exports[`ImplementedNestedCheckbox Snapshot 1`] = `
               data-svg-name="Check"
               data-testid="Check"
               height={20}
+              style={
+                {
+                  "fill": undefined,
+                }
+              }
               width={20}
             />
           </div>
@@ -133,6 +148,11 @@ exports[`ImplementedNestedCheckbox Snapshot 2`] = `
           data-svg-name="Check"
           data-testid="Check"
           height={20}
+          style={
+            {
+              "fill": undefined,
+            }
+          }
           width={20}
         />
       </div>
@@ -171,6 +191,11 @@ exports[`ImplementedNestedCheckbox Snapshot 2`] = `
               data-svg-name="Check"
               data-testid="Check"
               height={20}
+              style={
+                {
+                  "fill": undefined,
+                }
+              }
               width={20}
             />
           </div>
@@ -207,6 +232,11 @@ exports[`ImplementedNestedCheckbox Snapshot 2`] = `
               data-svg-name="Check"
               data-testid="Check"
               height={20}
+              style={
+                {
+                  "fill": undefined,
+                }
+              }
               width={20}
             />
           </div>

@@ -52,7 +52,7 @@ const Span = styled.span`
   left: 0;
   right: 0;
   bottom: 0;
-  background: ${({ theme }) => theme.normal.grayScale.coolGray200};
+  background: ${({ theme }) => theme.color.grayScale.coolGray200};
   border-radius: 12px;
   transition: background 0.15s;
   &:before {

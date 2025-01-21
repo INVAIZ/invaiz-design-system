@@ -22,6 +22,11 @@ exports[`OutlineCheckbox Snapshot 1`] = `
         data-svg-name="Check"
         data-testid="Check"
         height={20}
+        style={
+          {
+            "fill": undefined,
+          }
+        }
         width={20}
       />
     </div>
@@ -55,6 +60,11 @@ exports[`OutlineCheckbox Snapshot 2`] = `
         data-svg-name="Check"
         data-testid="Check"
         height={20}
+        style={
+          {
+            "fill": undefined,
+          }
+        }
         width={20}
       />
     </div>
