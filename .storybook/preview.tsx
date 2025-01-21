@@ -26,7 +26,6 @@ export const decorators = [
         );
       }
     }
-    console.log(theme);
     return (
       <GlobalThemeProvider colorTheme={theme}>
         <ThemeBlock left fill>
