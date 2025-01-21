@@ -5,11 +5,7 @@
     "es6": true,
     "jest": true
   },
-  "extends": [
-    "react-app",
-    "prettier",
-    "eslint:recommended"
-  ],
+  "extends": ["react-app", "prettier", "eslint:recommended"],
   "plugins": ["react", "@typescript-eslint", "prettier", "jest"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -24,7 +20,10 @@
     "@typescript-eslint/no-unused-vars": "off",
     "react/react-in-jsx-scope": "off",
     "react/jsx-props-no-spreading": "off",
-    "react/jsx-filename-extension": ["error", { "extensions": [".ts", ".tsx"] }],
+    "react/jsx-filename-extension": [
+      "error",
+      { "extensions": [".ts", ".tsx"] }
+    ],
     "react/function-component-definition": ["off"],
     "react/prop-types": "off",
     "react/require-default-props": "off",
@@ -35,7 +34,7 @@
     "no-unused-vars": "warn",
     "no-undef": "off",
     "no-case-declarations": "off",
-    "no-console": ["warn", { "allow": ["error", "info"] }],
+    "no-console": ["warn", { "allow": ["error", "warn"] }],
     "spaced-comment": "error",
     "camelcase": "error"
   },

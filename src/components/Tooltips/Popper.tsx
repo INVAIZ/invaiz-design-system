@@ -55,6 +55,7 @@ const Popper = ({
 }: PopperProps) => {
   /** `Popper`의 `ref` */
   const [popperRef, setPopperRef] = useState<HTMLDivElement | null>(null);
+  const [arrowRef, setArrowRef] = useState<HTMLSpanElement | null>(null);
   /** 실제 `Tooltip`이 뜰 방향, 현재 뷰 포트 위치에 따라 변경될 수 있음 */
   const [direction, setDirection] = useState(initialDirection);
 
@@ -82,7 +83,15 @@ const Popper = ({
         (direction === "top" ? -popperRect.height : 0) +
         (isArrow ? (direction === "top" ? -ARROW_HEIGHT : ARROW_HEIGHT) : 0);
 
-      if (direction === "top") {
+      if (
+        popperRect.height +
+          OUTLINE_PIXEL +
+          ARROW_HEIGHT +
+          BETWEEN_CONTENTS_SPACE >
+        window.innerHeight
+      ) {
+        console.warn("innerHeight is too small to show tooltip");
+      } else if (direction === "top") {
         if (
           centerPointFromBaseByViewport.y <
           popperRect.height +
@@ -132,12 +141,10 @@ const Popper = ({
       // 첫 렌더링 시에 `reposition` 함수 호출 후 보이도록 함
       popperRef.style.setProperty("visibility", `visible`);
 
-      popperRef
-        .querySelector("span")
-        ?.style.setProperty(
-          "transform",
-          `translateX(${Math.max(xArrow, 12)}px)`
-        );
+      arrowRef?.style.setProperty(
+        "transform",
+        `translateX(${Math.max(xArrow, 12)}px)`
+      );
     };
 
     reposition();
@@ -157,7 +164,7 @@ const Popper = ({
         intersectionObserver.unobserve(popperRef);
       }
     };
-  }, [popperRef, baseRef, direction, isArrow]);
+  }, [popperRef, arrowRef, baseRef, direction, isArrow]);
 
   return (
     <Wrapper
@@ -168,14 +175,24 @@ const Popper = ({
       }}
     >
       <ContentBox borderRadiusRatio={borderRadiusRatio} direction={direction}>
-        {children}
+        <Contents>{children}</Contents>
       </ContentBox>
-      {isArrow && <Arrow direction={direction} />}
+      {isArrow && <Arrow ref={setArrowRef} direction={direction} />}
     </Wrapper>
   );
 };
 
 export default Popper;
+
+/**
+ * `HTMLElement`의 `Rect` 정보를 가져오거나 기본값을 반환합니다.
+ */
+function getRectOrDefault(element: HTMLElement | null): Rect {
+  if (element === null) {
+    return { x: 0, y: 0, width: 0, height: 0 };
+  }
+  return element.getBoundingClientRect();
+}
 
 const Wrapper = styled.div`
   position: absolute;
@@ -200,6 +217,10 @@ const ContentBox = styled.div<PopperBaseProps>`
   ${({ theme }) => theme.style.boxShadow.dropdownEmphasis};
 
   overflow: hidden;
+`;
+
+const Contents = styled.div`
+  color: ${({ theme }) => theme.color.grayScale.gray200};
 `;
 
 const Arrow = styled.span<{
@@ -239,13 +260,3 @@ const Arrow = styled.span<{
       rotate(45deg);
   }
 `;
-
-/**
- * `HTMLElement`의 `Rect` 정보를 가져오거나 기본값을 반환합니다.
- */
-function getRectOrDefault(element: HTMLElement | null): Rect {
-  if (element === null) {
-    return { x: 0, y: 0, width: 0, height: 0 };
-  }
-  return element.getBoundingClientRect();
-}
