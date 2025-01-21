@@ -1,5 +1,6 @@
 import { SVGProps } from "react";
 import SVG_ICONS from "@assets/svgs";
+import styled from "@themes/styled";
 
 export interface SvgIconProps extends SVGProps<SVGSVGElement> {
   /** 아이콘의 형태 */
@@ -10,12 +11,13 @@ export interface SvgIconProps extends SVGProps<SVGSVGElement> {
   color?: string;
 }
 
-export default function SvgIcon({
-  icon,
-  size = 24,
-  color,
-  ...props
-}: SvgIconProps) {
+function IconComponent({ icon, size = 24, color, ...props }: SvgIconProps) {
   const Icon = SVG_ICONS[icon];
   return <Icon width={size} height={size} fill={color} {...props} />;
 }
+
+const SvgIcon = styled(IconComponent)`
+  fill: ${({ theme }) => theme.color.grayScale.basic.black};
+`;
+
+export default SvgIcon;
