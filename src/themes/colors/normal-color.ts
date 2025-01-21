@@ -110,6 +110,11 @@ const hover = {
   inverse: "#0002",
 } as const;
 
+const font = {
+  primary: basicColor.white,
+  secondary: grayColor.gray300,
+} as const;
+
 /**
  * `INVAIZ`에서 사용하는 음영, 색조, 테마 등을 포함한 공식 색상입니다.
  * 일반적으로 사용하는 색상을 제외하고 포인트, 경고와 같은 특수한 상황의 색상은 드물게 사용합니다.
@@ -147,6 +152,10 @@ const normalColor = {
   },
   overlay: { ...overlay },
   hover: { ...hover },
+
+  font: {
+    ...font,
+  },
 } as const;
 
 export default normalColor;
