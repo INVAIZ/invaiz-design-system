@@ -13,7 +13,7 @@ export interface SvgIconProps extends SVGProps<SVGSVGElement> {
 
 function IconComponent({ icon, size = 24, color, ...props }: SvgIconProps) {
   const Icon = SVG_ICONS[icon];
-  return <Icon width={size} height={size} fill={color} {...props} />;
+  return <Icon width={size} height={size} style={{ fill: color }} {...props} />;
 }
 
 const SvgIcon = styled(IconComponent)`
