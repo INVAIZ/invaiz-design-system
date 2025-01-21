@@ -79,8 +79,8 @@ export const StyleCheckboxText = styled.p<StyleOutlineCheckboxTextProps>`
   display: inline-block;
 
   color: ${({ theme }) => theme.color.grayScale.basic.black};
-  ${({ theme }) => theme.font.kopub.contents7};
-  line-height: ${({ theme }) => theme.lineHeight};
+  ${({ theme }) => theme.font.systems.kopub.contents7};
+  line-height: ${({ theme }) => theme.font.lineHeight};
   word-break: keep-all;
 
   margin: 10px 0 0 0;

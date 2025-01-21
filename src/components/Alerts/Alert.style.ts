@@ -6,17 +6,17 @@ export const Dialog = styled.dialog`
   padding: 24px;
   border: none;
   border-radius: 5px;
-  ${({ theme }) => theme.style.boxShadow.alert};
+  ${({ theme }) => theme.boxShadow.alert};
 `;
 
 export const Title = styled.h1`
   margin: 0 0 10px;
-  ${({ theme }) => theme.font.kopub.contents3};
+  ${({ theme }) => theme.font.systems.kopub.contents3};
 `;
 
 export const Description = styled.p`
   margin: 0 0 20px;
-  ${({ theme }) => theme.font.kopub.contents7}
+  ${({ theme }) => theme.font.systems.kopub.contents7}
 `;
 
 export const ButtonWrapper = styled.div`

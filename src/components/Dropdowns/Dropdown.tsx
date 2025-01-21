@@ -174,7 +174,7 @@ const WithIcon = styled.div`
   display: flex;
   align-items: center;
   gap: 4px;
-  font-size: ${({ theme }) => theme.fontSize.size14}px;
+  font-size: ${({ theme }) => theme.font.fontSize.size14}px;
 `;
 
 const Icon = styled.div`
@@ -207,7 +207,7 @@ const Trigger = styled.button<{
   justify-content: space-between;
   border-radius: 5px;
   color: ${({ theme }) => theme.color.grayScale.basic.black};
-  font-size: ${({ theme }) => theme.fontSize.size14}px;
+  font-size: ${({ theme }) => theme.font.fontSize.size14}px;
   &:focus {
     outline: ${({ theme }) => `2px solid ${theme.color.primary.blue500}`};
   }
@@ -236,7 +236,7 @@ const Trigger = styled.button<{
       &:before {
         position: absolute;
         content: "${error}";
-        font-size: ${theme.fontSize.size10}px;
+        font-size: ${theme.font.fontSize.size10}px;
         color: ${theme.color.system.caution1};
         top: -15px;
         left: 0;
@@ -253,5 +253,5 @@ const Menu = styled.ul`
   margin: 0;
   max-height: 144px;
   overflow: auto;
-  ${({ theme }) => theme.style.boxShadow.dropdownEmphasis};
+  ${({ theme }) => theme.boxShadow.dropdownEmphasis};
 `;

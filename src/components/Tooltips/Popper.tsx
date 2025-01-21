@@ -214,7 +214,7 @@ const ContentBox = styled.div<PopperBaseProps>`
   border-radius: ${({ borderRadiusRatio }) =>
     borderRadiusRatio * TOOLTIP_BORDER_RADIUS_UNIT}px;
 
-  ${({ theme }) => theme.style.boxShadow.dropdownEmphasis};
+  ${({ theme }) => theme.boxShadow.dropdownEmphasis};
 
   overflow: hidden;
 `;

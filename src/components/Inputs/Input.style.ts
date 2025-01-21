@@ -35,7 +35,6 @@ export const StyleInput = styled.input<InputProps>`
   border: none;
   outline: none;
 
-  ${({ theme }) => theme.font.kopub};
   font-size: 14px;
   color: ${({ theme, disabled }) =>
     disabled ? theme.color.system.off1 : theme.color.grayScale.basic.black};
@@ -106,7 +105,6 @@ interface ErrorMessageProps {
 export const ErrorMessage = styled.p<ErrorMessageProps>`
   position: absolute;
   transform: translate(4px, ${({ shape }) => (shape === "box" ? -30 : -20)}px);
-  ${({ theme }) => theme.font.kopub};
   font-size: 10px;
   color: ${({ theme }) => theme.color.system.caution1};
 `;

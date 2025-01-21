@@ -1,5 +1,8 @@
-import type { Story as StoryComponent } from '@storybook/react';
-import GlobalThemeProvider from '../src/themes/GlobalThemeProvider';
+import type { Story as StoryComponent } from "@storybook/react";
+
+import React from "react";
+
+import GlobalThemeProvider from "../src/themes/GlobalThemeProvider";
 
 export const decorators = [
   (Story: StoryComponent) => (
@@ -10,7 +13,7 @@ export const decorators = [
 ];
 
 export const parameters = {
-  actions: { argTypesRegex: '^on[A-Z].*' },
+  actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {
     matchers: {
       color: /(background|color)$/i,
