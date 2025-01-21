@@ -55,7 +55,7 @@ const Li = styled.li`
 const Button = styled.button<{ selected: boolean }>`
   position: relative;
   padding: 0;
-  background: ${({ theme }) => theme.color.grayScale.basic.white};
+  background: ${({ theme }) => theme.color.grayScale.coolGray100};
   outline: none;
   cursor: pointer;
   border: none;
@@ -66,10 +66,10 @@ const Button = styled.button<{ selected: boolean }>`
   &:hover,
   &:focus,
   &.${FOCUSED} {
-    background: ${({ theme }) => theme.color.grayScale.coolGray100};
+    background: ${({ theme }) => theme.color.grayScale.coolGray200};
   }
   &:active {
-    background: ${({ theme }) => theme.color.grayScale.coolGray200};
+    background: ${({ theme }) => theme.color.grayScale.coolGray300};
   }
   &:disabled {
     color: ${({ theme }) => theme.color.grayScale.gray400};

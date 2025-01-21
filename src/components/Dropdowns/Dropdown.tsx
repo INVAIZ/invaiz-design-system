@@ -198,7 +198,7 @@ const Trigger = styled.button<{
   height: 100%;
   padding: 0;
   background: ${({ theme, dropdownType }) =>
-    dropdownType !== "outline" ? theme.color.grayScale.coolGray100 : "none"};
+    dropdownType !== "outline" ? theme.color.grayScale.coolGray200 : "none"};
   outline: none;
   border: none;
   cursor: pointer;
