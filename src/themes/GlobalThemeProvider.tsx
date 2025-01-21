@@ -6,17 +6,11 @@ import type { ColorTheme } from "@themes/colors/color";
 import { ThemeProvider } from "@emotion/react";
 // React modules
 
-import font, {
-  fontSize,
-  fontWeight,
-  lineHeight,
-  textAlign,
-  fontColor,
-} from "@themes/font";
-import { colorMap, normal, light } from "@themes/colors/color";
+import font from "@themes/font";
+import { colorMap, normal, inverse } from "@themes/colors/color";
+import { boxShadowMap } from "@themes/box-shadows/box-shadow";
+import border from "@themes/border";
 import whiteSpace from "@themes/whiteSpace";
-import style from "@themes/style";
-import GlobalStyle from "@themes/GlobalStyle";
 
 interface GlobalThemeProviderProps {
   colorTheme?: ColorTheme;
@@ -28,27 +22,15 @@ export default function GlobalThemeProvider({
 }: PropsWithChildren<GlobalThemeProviderProps>) {
   const theme: EmotionTheme = {
     normal,
-    light,
+    inverse,
     color: colorMap[colorTheme],
     currentThemeName: colorTheme,
 
     font,
-    fontSize,
-    lineHeight,
-    fontWeight,
-    fontColor,
 
+    boxShadow: boxShadowMap[colorTheme],
+    border,
     whiteSpace,
-    textAlign,
-
-    style,
   };
-  return (
-    <ThemeProvider theme={theme}>
-      <>
-        {children}
-        <GlobalStyle />
-      </>
-    </ThemeProvider>
-  );
+  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 }

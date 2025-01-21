@@ -6,7 +6,7 @@ interface ButtonProps {
 }
 
 export const Button = styled.button<ButtonProps>`
-  ${({ theme }) => theme.style.fontFace.kopub};
+  ${({ theme }) => theme.font.fontFace.kopub};
   outline: none;
   cursor: ${({ disabled }) => !disabled && "pointer"};
   font-size: 14px;
@@ -14,7 +14,7 @@ export const Button = styled.button<ButtonProps>`
 `;
 
 export const Line = styled(Button)`
-  font-weight: ${({ theme }) => theme.fontWeight.medium};
+  font-weight: ${({ theme }) => theme.font.fontWeight.medium};
   color: ${({ theme, selected }) =>
     selected
       ? theme.color.grayScale.basic.black
@@ -43,7 +43,7 @@ export const Line = styled(Button)`
 `;
 
 export const Contain = styled(Button)`
-  font-weight: ${({ theme }) => theme.fontWeight.medium};
+  font-weight: ${({ theme }) => theme.font.fontWeight.medium};
   color: ${({ theme, selected }) =>
     selected
       ? theme.color.grayScale.basic.white
@@ -84,7 +84,7 @@ export const Vertical = styled(Button)`
   height: 40px;
   border: none;
   text-align: left;
-  font-weight: ${({ theme }) => theme.fontWeight.semiBold};
+  font-weight: ${({ theme }) => theme.font.fontWeight.semiBold};
   color: ${({ theme, selected }) =>
     selected
       ? theme.color.grayScale.basic.black

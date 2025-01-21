@@ -111,11 +111,16 @@ const hover = {
   inverse: "#fff2",
 } as const;
 
+const font = {
+  primary: basicColor.white,
+  secondary: grayColor.gray300,
+} as const;
+
 /**
  * `INVAIZ`에서 사용하는 음영, 색조, 테마 등을 포함한 공식 색상입니다.
  * 일반적으로 사용하는 색상을 제외하고 포인트, 경고와 같은 특수한 상황의 색상은 드물게 사용합니다.
  */
-const lightColor = {
+const inverseColor = {
   /**
    * 범용적으로 사용할 수 있는 그레이 컬러 팔레트입니다.
    * 상황에 맞게 웜/쿨 톤 중에 선택할 수 있으며, 배경색으로도 사용할 수 있습니다.
@@ -148,6 +153,10 @@ const lightColor = {
   },
   overlay: { ...overlay },
   hover: { ...hover },
+
+  font: {
+    ...font,
+  },
 } as const;
 
-export default lightColor;
+export default inverseColor;

@@ -1,29 +1,23 @@
 import type { Color, ColorMap, ColorTheme } from "@themes/colors/color";
-import font, {
-  fontWeight,
-  fontSize,
-  lineHeight,
-  fontColor,
-  textAlign,
-} from "@themes/font";
-import whiteSpace from "@themes/whiteSpace";
+import type font from "@themes/font";
 
-import type style from "@themes/style";
+import type { BoxShadow } from "@themes/box-shadows/box-shadow";
+import type border from "@themes/border";
+import type whiteSpace from "@themes/whiteSpace";
 
 export interface EmotionTheme extends ColorMap {
   /** 모든 테마의 Color */
   color: Color;
   /** 현재 테마의 이름 */
   currentThemeName: ColorTheme;
+
   /** font size, weight 등의 정보 접근자 */
   font: typeof font;
-  fontSize: typeof fontSize;
-  lineHeight: typeof lineHeight;
-  fontWeight: typeof fontWeight;
-  fontColor: typeof fontColor;
-  textAlign: typeof textAlign;
-  /** 모든 테마에서 사용 가능한 CSS */
-  style: typeof style;
+
+  /** 그림자 */
+  boxShadow: BoxShadow;
+  /** 테두리 */
+  border: typeof border;
   /** 여백 */
   whiteSpace: typeof whiteSpace;
 }

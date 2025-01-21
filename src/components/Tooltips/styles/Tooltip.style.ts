@@ -5,7 +5,7 @@ import styled, { css } from "@themes/styled";
 // styles
 
 export const StyleTooltipText = styled.p<Pick<TextTooltipProps, "textSize">>`
-  ${({ theme }) => theme.font.kopub.contents5}
+  ${({ theme }) => theme.font.systems.kopub.contents5}
 
   line-height: 1.2;
 

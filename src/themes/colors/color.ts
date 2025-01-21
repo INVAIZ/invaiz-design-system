@@ -1,16 +1,16 @@
 import normalColor from "@themes/colors/normal-color";
-import lightColor from "@themes/colors/light-color";
+import inverseColor from "@themes/colors/inverse-color";
 
 export const normal = normalColor;
-export const light = lightColor;
+export const inverse = inverseColor;
 
-export type Color = typeof normal | typeof light;
+export type Color = typeof normal | typeof inverse;
 
-export type ColorTheme = "normal" | "light";
+export type ColorTheme = "normal" | "inverse";
 
 export type ColorMap = Record<ColorTheme, Color>;
 
 export const colorMap: ColorMap = {
   normal,
-  light,
+  inverse,
 };

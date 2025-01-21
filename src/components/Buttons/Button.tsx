@@ -35,22 +35,22 @@ const Button = styled.button`
   &.small {
     min-width: 72px;
     min-height: 32px;
-    ${({ theme }) => theme.font.kopub.contents6};
+    ${({ theme }) => theme.font.systems.kopub.contents6};
   }
   &.default {
     min-width: 80px;
     min-height: 36px;
-    ${({ theme }) => theme.font.kopub.contents4};
+    ${({ theme }) => theme.font.systems.kopub.contents4};
   }
   &.large {
     min-width: 108px;
     min-height: 40px;
-    ${({ theme }) => theme.font.kopub.contents1};
+    ${({ theme }) => theme.font.systems.kopub.contents1};
   }
   &.x-large {
     min-width: 128px;
     min-height: 56px;
-    ${({ theme }) => theme.font.kopub.subT1};
+    ${({ theme }) => theme.font.systems.kopub.subT1};
   }
 `;
 

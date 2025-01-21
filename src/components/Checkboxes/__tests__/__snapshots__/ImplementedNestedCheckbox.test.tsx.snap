@@ -9,7 +9,7 @@ exports[`ImplementedNestedCheckbox Snapshot 1`] = `
       className="css-1u8zmlt"
     >
       <input
-        className="css-18gtr08"
+        className="css-1gyy7tz"
         onChange={[Function]}
         type="checkbox"
       />
@@ -17,7 +17,7 @@ exports[`ImplementedNestedCheckbox Snapshot 1`] = `
         className="css-3xhjcj"
       >
         <svg
-          className="visible css-bw5rgr"
+          className="visible css-15h4xjp"
           data-file-name="Subtract.svg"
           data-svg-name="Subtract"
           data-testid="Subtract"
@@ -27,7 +27,7 @@ exports[`ImplementedNestedCheckbox Snapshot 1`] = `
       </div>
     </span>
     <p
-      className="css-1hxuaob"
+      className="css-1k6xh2w"
     >
       Parent Checkbox
     </p>
@@ -46,7 +46,7 @@ exports[`ImplementedNestedCheckbox Snapshot 1`] = `
         >
           <input
             checked={true}
-            className="css-18gtr08"
+            className="css-1gyy7tz"
             id={1}
             onChange={[Function]}
             type="checkbox"
@@ -55,7 +55,7 @@ exports[`ImplementedNestedCheckbox Snapshot 1`] = `
             className="css-3xhjcj"
           >
             <svg
-              className="css-bw5rgr"
+              className="css-15h4xjp"
               data-file-name="Check.svg"
               data-svg-name="Check"
               data-testid="Check"
@@ -65,7 +65,7 @@ exports[`ImplementedNestedCheckbox Snapshot 1`] = `
           </div>
         </span>
         <p
-          className="css-1hxuaob"
+          className="css-1k6xh2w"
         >
           Children
         </p>
@@ -82,7 +82,7 @@ exports[`ImplementedNestedCheckbox Snapshot 1`] = `
         >
           <input
             checked={false}
-            className="css-18gtr08"
+            className="css-1gyy7tz"
             id={2}
             onChange={[Function]}
             type="checkbox"
@@ -91,7 +91,7 @@ exports[`ImplementedNestedCheckbox Snapshot 1`] = `
             className="css-3xhjcj"
           >
             <svg
-              className="css-bw5rgr"
+              className="css-15h4xjp"
               data-file-name="Check.svg"
               data-svg-name="Check"
               data-testid="Check"
@@ -101,7 +101,7 @@ exports[`ImplementedNestedCheckbox Snapshot 1`] = `
           </div>
         </span>
         <p
-          className="css-1hxuaob"
+          className="css-1k6xh2w"
         >
           Children
         </p>
@@ -120,7 +120,7 @@ exports[`ImplementedNestedCheckbox Snapshot 2`] = `
       className="css-1u8zmlt"
     >
       <input
-        className="css-18gtr08"
+        className="css-1gyy7tz"
         onChange={[Function]}
         type="checkbox"
       />
@@ -128,7 +128,7 @@ exports[`ImplementedNestedCheckbox Snapshot 2`] = `
         className="css-3xhjcj"
       >
         <svg
-          className="css-bw5rgr"
+          className="css-15h4xjp"
           data-file-name="Check.svg"
           data-svg-name="Check"
           data-testid="Check"
@@ -138,7 +138,7 @@ exports[`ImplementedNestedCheckbox Snapshot 2`] = `
       </div>
     </span>
     <p
-      className="css-1hxuaob"
+      className="css-1k6xh2w"
     >
       Parent Checkbox
     </p>
@@ -157,7 +157,7 @@ exports[`ImplementedNestedCheckbox Snapshot 2`] = `
         >
           <input
             checked={true}
-            className="css-18gtr08"
+            className="css-1gyy7tz"
             id={1}
             onChange={[Function]}
             type="checkbox"
@@ -166,7 +166,7 @@ exports[`ImplementedNestedCheckbox Snapshot 2`] = `
             className="css-3xhjcj"
           >
             <svg
-              className="css-bw5rgr"
+              className="css-15h4xjp"
               data-file-name="Check.svg"
               data-svg-name="Check"
               data-testid="Check"
@@ -176,7 +176,7 @@ exports[`ImplementedNestedCheckbox Snapshot 2`] = `
           </div>
         </span>
         <p
-          className="css-1hxuaob"
+          className="css-1k6xh2w"
         >
           Children
         </p>
@@ -193,7 +193,7 @@ exports[`ImplementedNestedCheckbox Snapshot 2`] = `
         >
           <input
             checked={false}
-            className="css-18gtr08"
+            className="css-1gyy7tz"
             id={2}
             onChange={[Function]}
             type="checkbox"
@@ -202,7 +202,7 @@ exports[`ImplementedNestedCheckbox Snapshot 2`] = `
             className="css-3xhjcj"
           >
             <svg
-              className="css-bw5rgr"
+              className="css-15h4xjp"
               data-file-name="Check.svg"
               data-svg-name="Check"
               data-testid="Check"
@@ -212,7 +212,7 @@ exports[`ImplementedNestedCheckbox Snapshot 2`] = `
           </div>
         </span>
         <p
-          className="css-1hxuaob"
+          className="css-1k6xh2w"
         >
           Children
         </p>

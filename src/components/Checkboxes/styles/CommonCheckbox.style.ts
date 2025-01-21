@@ -23,10 +23,4 @@ export const StyleCommonCheckboxInput = styled.input`
   cursor: inherit;
 
   z-index: 1;
-
-  // &:focus {
-  //   & + div {
-  //     outline: solid 2px ${({ theme }) => theme.color.primary.blue500};
-  //   }
-  // }
 `;

@@ -6,7 +6,7 @@ exports[`RadioButton Snapshot 1`] = `
 >
   <input
     checked={true}
-    className="css-1nwbmtb"
+    className="css-1glgzkh"
     onChange={[Function]}
     type="checkbox"
   />
@@ -21,7 +21,7 @@ exports[`RadioButton Snapshot 2`] = `
   className="css-srlyvc"
 >
   <input
-    className="css-1nwbmtb"
+    className="css-1glgzkh"
     onChange={[Function]}
     type="checkbox"
   />
