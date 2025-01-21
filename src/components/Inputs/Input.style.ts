@@ -69,6 +69,7 @@ export const StyleInput = styled.input<InputProps>`
       : css`
           height: 21px;
           border-bottom: 1px solid ${theme.color.grayScale.coolGray700};
+          background: transparent;
           ${isClearable &&
           css`
             padding-right: 18px;
