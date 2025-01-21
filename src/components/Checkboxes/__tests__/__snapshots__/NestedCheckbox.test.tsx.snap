@@ -17,7 +17,7 @@ exports[`NestedCheckbox Snapshot 1`] = `
         className="css-3xhjcj"
       >
         <svg
-          className="visible css-bw5rgr"
+          className="visible css-15h4xjp"
           data-file-name="Subtract.svg"
           data-svg-name="Subtract"
           data-testid="Subtract"
@@ -53,7 +53,7 @@ exports[`NestedCheckbox Snapshot 1`] = `
             className="css-3xhjcj"
           >
             <svg
-              className="css-bw5rgr"
+              className="css-15h4xjp"
               data-file-name="Check.svg"
               data-svg-name="Check"
               data-testid="Check"
@@ -90,7 +90,7 @@ exports[`NestedCheckbox Snapshot 2`] = `
         className="css-3xhjcj"
       >
         <svg
-          className="css-bw5rgr"
+          className="css-15h4xjp"
           data-file-name="Check.svg"
           data-svg-name="Check"
           data-testid="Check"
@@ -126,7 +126,7 @@ exports[`NestedCheckbox Snapshot 2`] = `
             className="css-3xhjcj"
           >
             <svg
-              className="css-bw5rgr"
+              className="css-15h4xjp"
               data-file-name="Check.svg"
               data-svg-name="Check"
               data-testid="Check"
