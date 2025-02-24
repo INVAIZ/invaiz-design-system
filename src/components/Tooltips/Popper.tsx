@@ -151,11 +151,20 @@ const Popper = ({
       rootMargin: `${OUTLINE_PIXEL}px`,
     });
     const resizeObserver = new ResizeObserver(reposition);
+    const mutationObserver = new MutationObserver(reposition);
+    if (baseRef) {
+      mutationObserver.observe(baseRef, {
+        attributes: true,
+      });
+    }
     if (popperRef) {
       resizeObserver.observe(popperRef);
-      intersectionObserver.observe(popperRef);
     }
+
     return () => {
+      if (baseRef) {
+        mutationObserver.disconnect();
+      }
       if (popperRef) {
         resizeObserver.unobserve(popperRef);
         intersectionObserver.unobserve(popperRef);
@@ -201,6 +210,8 @@ const Wrapper = styled.div`
   inset: 0 auto auto 0;
 
   visibility: hidden;
+
+  pointer-events: none;
 `;
 
 const ContentBox = styled.div<PopperBaseProps>`
