@@ -41,7 +41,7 @@ describe("ImplementedNestedCheckbox", () => {
           text={PARENT_TEXT}
           checkList={trueCheckboxList}
         />
-      </>
+      </>,
     );
     const [
       ,
@@ -92,7 +92,7 @@ describe("ImplementedNestedCheckbox", () => {
           text={PARENT_TEXT}
           checkList={trueCheckboxList}
         />
-      </>
+      </>,
     );
     const [isNested, , , isFalse, , ,] = getAllByRole("checkbox");
     expect(isNested).not.toBeChecked();
@@ -113,7 +113,7 @@ describe("ImplementedNestedCheckbox", () => {
         text={PARENT_TEXT}
         checkList={nestedCheckboxList}
         onAllChange={onAllChange}
-      />
+      />,
     );
     const [isNested, ,] = getAllByRole("checkbox");
     isNested.click();
@@ -143,7 +143,7 @@ describe("ImplementedNestedCheckbox", () => {
         checkList={nestedCheckboxList}
         onAllChange={onAllChange}
         onChange={onChange}
-      />
+      />,
     );
     const [, one, two] = getAllByRole("checkbox");
 
@@ -173,7 +173,7 @@ test("ImplementedNestedCheckbox Snapshot", () => {
         checkList={nestedCheckboxList}
         isIndeterminate
       />
-    </GlobalThemeProvider>
+    </GlobalThemeProvider>,
   );
   expect(indeterminate).toMatchSnapshot();
 
@@ -183,7 +183,7 @@ test("ImplementedNestedCheckbox Snapshot", () => {
         text={PARENT_TEXT}
         checkList={nestedCheckboxList}
       />
-    </GlobalThemeProvider>
+    </GlobalThemeProvider>,
   );
   expect(determinate).toMatchSnapshot();
 });

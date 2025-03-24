@@ -20,7 +20,7 @@ describe("Tooltip", () => {
     const { getByRole } = render(
       <TextTooltip text={TOOLTIP_TEXT}>
         <button type="button">{BUTTON_CONTENT}</button>
-      </TextTooltip>
+      </TextTooltip>,
     );
 
     const button = getByRole("button");
@@ -32,7 +32,7 @@ describe("Tooltip", () => {
     const { getByRole, queryByRole } = render(
       <TextTooltip text={TOOLTIP_TEXT}>
         <button type="button">{BUTTON_CONTENT}</button>
-      </TextTooltip>
+      </TextTooltip>,
     );
 
     const button = getByRole("button");
@@ -54,7 +54,7 @@ describe("Tooltip", () => {
     const { getByRole } = render(
       <TextTooltip text={TOOLTIP_TEXT}>
         <button type="button">{BUTTON_CONTENT}</button>
-      </TextTooltip>
+      </TextTooltip>,
     );
     const button = getByRole("button");
 
@@ -69,7 +69,7 @@ describe("Tooltip", () => {
     const { getByRole } = render(
       <TextTooltip text={TOOLTIP_TEXT} zIndex={1500}>
         <button type="button">{BUTTON_CONTENT}</button>
-      </TextTooltip>
+      </TextTooltip>,
     );
     const button = getByRole("button");
 

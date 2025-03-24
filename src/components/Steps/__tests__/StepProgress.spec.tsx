@@ -17,7 +17,7 @@ const mockTheme = {
 describe("StepProgress", () => {
   it("정확한 개수의 단계를 렌더링해야 합니다", () => {
     const { container } = renderWidthTheme(
-      <StepProgress currentStep={0} totalSteps={5} />
+      <StepProgress currentStep={0} totalSteps={5} />,
     );
     const stepProgressContainer = container.firstChild as Element;
 
@@ -26,7 +26,7 @@ describe("StepProgress", () => {
 
   it("현재 단계를 강조해야 합니다", () => {
     const { container } = renderWidthTheme(
-      <StepProgress currentStep={3} totalSteps={6} />
+      <StepProgress currentStep={3} totalSteps={6} />,
     );
 
     const steps = container.firstChild?.childNodes as NodeListOf<ChildNode>;
@@ -47,14 +47,14 @@ test("StepProgress Snapshot", () => {
   const currentStep = create(
     <GlobalThemeProvider>
       <StepProgress currentStep={0} totalSteps={5} />
-    </GlobalThemeProvider>
+    </GlobalThemeProvider>,
   ).toJSON();
   expect(currentStep).toMatchSnapshot();
 
   const color = create(
     <GlobalThemeProvider>
       <StepProgress currentStep={3} totalSteps={6} />
-    </GlobalThemeProvider>
+    </GlobalThemeProvider>,
   ).toJSON();
   expect(color).toMatchSnapshot();
 });

@@ -14,7 +14,7 @@ describe("FillCheckbox", () => {
       <>
         <FillCheckbox />
         <FillCheckbox checked />
-      </>
+      </>,
     );
     const [isNotChanged, isChanged] = getAllByRole("checkbox");
 
@@ -53,14 +53,14 @@ test("FillCheckbox Snapshot", () => {
   const checked = create(
     <GlobalThemeProvider>
       <FillCheckbox checked />
-    </GlobalThemeProvider>
+    </GlobalThemeProvider>,
   );
   expect(checked).toMatchSnapshot();
 
   const unChecked = create(
     <GlobalThemeProvider>
       <FillCheckbox />
-    </GlobalThemeProvider>
+    </GlobalThemeProvider>,
   );
   expect(unChecked).toMatchSnapshot();
 });

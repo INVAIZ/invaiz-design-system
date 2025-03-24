@@ -60,7 +60,7 @@ export default function Dropdown<T>({
       return;
     }
     const dropdownList = Array.from(
-      ref.current.querySelectorAll<HTMLElement>(`.${DROPDOWN_ITEM}`)
+      ref.current.querySelectorAll<HTMLElement>(`.${DROPDOWN_ITEM}`),
     );
     dropdownList.forEach(item => item.classList.remove(FOCUSED));
     const focusedItem = dropdownList.at(focused);

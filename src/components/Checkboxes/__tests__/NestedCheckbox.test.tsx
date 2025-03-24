@@ -17,7 +17,7 @@ test("NestedCheckbox Snapshot", () => {
       <NestedCheckbox text={PARENT_TEXT} isIndeterminate>
         <NestedCheckbox.Item text={CHILDREN_TEXT} />
       </NestedCheckbox>
-    </GlobalThemeProvider>
+    </GlobalThemeProvider>,
   );
   expect(indeterminate).toMatchSnapshot();
 
@@ -26,7 +26,7 @@ test("NestedCheckbox Snapshot", () => {
       <NestedCheckbox text={PARENT_TEXT}>
         <NestedCheckbox.Item text={CHILDREN_TEXT} />
       </NestedCheckbox>
-    </GlobalThemeProvider>
+    </GlobalThemeProvider>,
   );
   expect(determinate).toMatchSnapshot();
 });

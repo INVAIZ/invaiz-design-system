@@ -48,12 +48,12 @@ export interface ImplementedNestedCheckboxProps
  * `checkList`를 함께 내보내며, 이는 위의 `onChange`, `onAllChange` 이벤트 리스너를 통해 관리되는 상태입니다.
  */
 export const useNestedCheckboxState = (
-  initCheckList: CheckList
+  initCheckList: CheckList,
 ): Omit<ImplementedNestedCheckboxProps, "text" | "disabled"> => {
   const [checkList, setCheckList] = useState<CheckList>(initCheckList);
 
   const allCheck = checkList.every(
-    ({ checked, disabled }) => disabled || checked
+    ({ checked, disabled }) => disabled || checked,
   );
 
   const isIndeterminate =
@@ -63,15 +63,15 @@ export const useNestedCheckboxState = (
   const onChange = (checked: boolean, id: CheckItemId) =>
     setCheckList(prevList =>
       prevList.map(checkItem =>
-        id === checkItem.id ? { ...checkItem, checked } : checkItem
-      )
+        id === checkItem.id ? { ...checkItem, checked } : checkItem,
+      ),
     );
 
   const onAllChange = () =>
     setCheckList(prevList =>
       prevList.map(checkItem =>
-        checkItem.disabled ? checkItem : { ...checkItem, checked: !allCheck }
-      )
+        checkItem.disabled ? checkItem : { ...checkItem, checked: !allCheck },
+      ),
     );
 
   return {

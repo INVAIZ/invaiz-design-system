@@ -40,7 +40,7 @@ export const Usage = () => {
       prevList.map(prev => ({
         ...prev,
         checked: prev.id === setId ? newChecked : prev.checked,
-      }))
+      })),
     );
   };
 
@@ -48,7 +48,7 @@ export const Usage = () => {
 
   const onAllChange = () => {
     setCheckedList(prevList =>
-      prevList.map(prev => ({ ...prev, checked: !allCheck }))
+      prevList.map(prev => ({ ...prev, checked: !allCheck })),
     );
   };
 

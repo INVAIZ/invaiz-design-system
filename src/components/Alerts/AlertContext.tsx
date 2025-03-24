@@ -30,7 +30,7 @@ export const useAlert = () => {
       title: string,
       description: string,
       onConfirm?: () => void,
-      confirmButtonLabel?: string
+      confirmButtonLabel?: string,
     ) => {
       openAlert({
         open: true,
@@ -41,7 +41,7 @@ export const useAlert = () => {
       });
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    []
+    [],
   );
 };
 
@@ -54,7 +54,7 @@ const AlertProvider = ({ children }: AlertProviderProps) => {
 
   const openAlert = useCallback(
     (alertProps: AlertProps) => setAlert(prev => ({ ...prev, ...alertProps })),
-    []
+    [],
   );
 
   const closeAlert = useCallback(() => {

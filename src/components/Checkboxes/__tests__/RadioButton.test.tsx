@@ -14,7 +14,7 @@ describe("RadioButton", () => {
       <>
         <RadioButton />
         <RadioButton checked />
-      </>
+      </>,
     );
     const [isNotChanged, isChanged] = getAllByRole("checkbox");
 
@@ -53,14 +53,14 @@ test("RadioButton Snapshot", () => {
   const checked = create(
     <GlobalThemeProvider>
       <RadioButton checked />
-    </GlobalThemeProvider>
+    </GlobalThemeProvider>,
   );
   expect(checked).toMatchSnapshot();
 
   const unChecked = create(
     <GlobalThemeProvider>
       <RadioButton />
-    </GlobalThemeProvider>
+    </GlobalThemeProvider>,
   );
   expect(unChecked).toMatchSnapshot();
 });

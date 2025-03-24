@@ -119,17 +119,17 @@ const Popper = ({
           // 왼쪽 위 모서리 좌표 계산: 중심점에서 `Tooltip`의 절반 넓이를 뺌
           centerPointFromBaseByViewport.x - Math.floor(popperRect.width / 2),
           // 왼쪽 위 모서리 좌표가 `OUTLINE_PIXEL`보다 작아지지 않도록 함
-          OUTLINE_PIXEL
+          OUTLINE_PIXEL,
         ),
         // 오른쪽 아래 모서리 좌표가 `window.innerWidth + OUTLINE_PIXEL`보다 커지지 않도록 함
-        window.innerWidth + OUTLINE_PIXEL - (popperRect.width + MAX_WIDTH_DIFF)
+        window.innerWidth + OUTLINE_PIXEL - (popperRect.width + MAX_WIDTH_DIFF),
       );
 
       /** 화살표의 위치 설정 */
       const xArrow = Math.min(
         // 화살표의 위치가 `popupRect`를 벗어나지 않음
         Math.max(centerPointFromBaseByViewport.x - xInScreen, PADDING_PIXEL),
-        popperRect.width - (OUTLINE_PIXEL + PADDING_PIXEL)
+        popperRect.width - (OUTLINE_PIXEL + PADDING_PIXEL),
       );
 
       const x = window.scrollX + xInScreen;
@@ -140,7 +140,7 @@ const Popper = ({
 
       arrowRef?.style.setProperty(
         "transform",
-        `translateX(${Math.max(xArrow, 12)}px)`
+        `translateX(${Math.max(xArrow, 12)}px)`,
       );
     };
 
