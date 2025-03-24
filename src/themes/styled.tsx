@@ -78,7 +78,6 @@ export interface FilteringStyledOptions<
   target?: string;
 }
 
-// eslint-disable-next-line no-unused-vars
 export interface StyledOptions<Props = Record<string, any>> {
   label?: string;
   shouldForwardProp?: (propName: string) => boolean;
