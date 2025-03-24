@@ -106,7 +106,7 @@ describe("ImplementedNestedCheckbox", () => {
       { id: 2, checked: false, text: CHILDREN_TEXT },
     ];
 
-    const onAllChange = jest.fn();
+    const onAllChange = vi.fn();
 
     const { getAllByRole } = render(
       <ImplementedNestedCheckbox
@@ -134,8 +134,8 @@ describe("ImplementedNestedCheckbox", () => {
       { id: 2, checked: false, text: CHILDREN_TEXT },
     ];
 
-    const onAllChange = jest.fn();
-    const onChange = jest.fn();
+    const onAllChange = vi.fn();
+    const onChange = vi.fn();
 
     const { getAllByRole } = render(
       <ImplementedNestedCheckbox

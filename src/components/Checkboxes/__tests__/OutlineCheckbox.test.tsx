@@ -26,7 +26,7 @@ describe("OutlineCheckbox", () => {
   });
 
   it("체크박스는 클릭할 수 있으며, 클릭 시 `checked` 상태 변경이 가능하다.", () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const { getByRole } = render(
       <OutlineCheckbox text={OUTLINE_TEXT} onChange={onChange} />,
     );

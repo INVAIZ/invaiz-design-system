@@ -27,6 +27,7 @@
     "test:watch": "jest --watch",
     "test:snapshot": "jest --updateSnapshot",
     "test:clear": "jest --clearCache",
+    "vitest": "vitest",
     "eslint": "eslint \"src/**/*.{ts,tsx}\"",
     "eslint:fix": "eslint --fix \"src/**/*.{ts,tsx}\"",
     "prettier": "prettier --check \"src/**/*.{ts,tsx}\"",
@@ -75,6 +76,7 @@
     "vite": "^6.2.2",
     "vite-plugin-dts": "^4.5.3",
     "vite-plugin-eslint": "^1.8.1",
-    "vite-plugin-svgr": "^2.2.1"
+    "vite-plugin-svgr": "^2.2.1",
+    "vitest": "^3.0.9"
   }
 }

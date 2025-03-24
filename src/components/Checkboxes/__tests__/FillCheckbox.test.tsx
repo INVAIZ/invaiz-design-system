@@ -23,7 +23,7 @@ describe("FillCheckbox", () => {
   });
 
   it("체크박스는 클릭할 수 있으며, 클릭 시 `checked` 상태 변경이 가능하다.", () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const { getByRole } = render(<FillCheckbox onChange={onChange} />);
     const checkbox = getByRole("checkbox");
 

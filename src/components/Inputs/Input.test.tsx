@@ -1,51 +1,43 @@
-import { render } from "@tests/test-utils";
+import { render, screen } from "@tests/test-utils";
 
 import Input from "@components/Inputs/Input";
 
 describe("Input", () => {
   const VALUE = "filled";
-  const onClear = jest.fn();
+  const onClear = vi.fn();
 
   it("clearable이 true일 때 value에 값이 없으면 내용을 지우는 버튼이 렌더링되지 않는다.", () => {
-    const onChange = jest.fn();
-    const { queryByRole } = render(
-      <Input value="" onClear={onClear} onChange={onChange} />,
-    );
+    const onChange = vi.fn();
+    render(<Input value="" onClear={onClear} onChange={onChange} />);
 
-    const button = queryByRole("button");
+    const button = screen.queryByRole("button");
 
     expect(button).toBeNull();
   });
 
   it("clearable이 true일 때 value에 값이 있으면 내용을 지우는 버튼이 렌더링된다.", () => {
-    const onChange = jest.fn();
-    const { getByRole } = render(
-      <Input value={VALUE} onClear={onClear} onChange={onChange} />,
-    );
+    const onChange = vi.fn();
+    render(<Input value={VALUE} onClear={onClear} onChange={onChange} />);
 
-    const button = getByRole("button");
+    const button = screen.getByRole("button");
 
     expect(button).toBeInTheDocument();
   });
 
   it("required가 true일 때 value에 값이 없으면 required icon이 렌더링된다.", () => {
-    const onChange = jest.fn();
-    const { getByTestId } = render(
-      <Input value="" required onChange={onChange} />,
-    );
+    const onChange = vi.fn();
+    render(<Input value="" required onChange={onChange} />);
 
-    const requiredIcon = getByTestId("Caution");
+    const requiredIcon = screen.getByTestId("Caution");
 
     expect(requiredIcon).toBeInTheDocument();
   });
 
   it("required가 true일 때 value에 값이 있으면 required icon이 렌더링되지 않는다.", () => {
-    const onChange = jest.fn();
-    const { queryByTestId } = render(
-      <Input value={VALUE} required onChange={onChange} />,
-    );
+    const onChange = vi.fn();
+    render(<Input value={VALUE} required onChange={onChange} />);
 
-    const requiredIcon = queryByTestId("Caution");
+    const requiredIcon = screen.queryByTestId("Caution");
 
     expect(requiredIcon).toBeNull();
   });

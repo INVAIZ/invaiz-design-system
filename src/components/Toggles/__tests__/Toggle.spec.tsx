@@ -22,7 +22,7 @@ describe("Toggle", () => {
   });
 
   it("토글을 클릭할 수 있다.", () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const { getByRole } = render(<Toggle onChange={onChange} />);
     const checkbox = getByRole("checkbox");
 
