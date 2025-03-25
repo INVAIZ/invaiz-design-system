@@ -1,16 +1,9 @@
-import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import { Meta, Story, Canvas } from '@storybook/blocks';
 import styled from '@themes/styled';
 import font from '@themes/font';
+import * as FontStories from './font.stories';
 
-<Meta
-  title='Themes/Text'
-  parameters={{
-    viewMode: 'docs',
-    previewTabs: {
-      canvas: { hidden: true },
-    },
-  }}
-/>
+<Meta of={FontStories} />
 
 # INVAIZ
 
@@ -34,9 +27,7 @@ export function INVAIZTextSystems() {
 }
 
 <Canvas>
-  <Story name='INVAIZ'>
-    <INVAIZTextSystems />
-  </Story>
+  <Story of={FontStories.Invaiz} />
 </Canvas>
 
 ## Text Systems
@@ -51,7 +42,7 @@ export function INVAIZTextSystems() {
 
 <br />
 
----
+***
 
 # KopubWorld Dotum
 
@@ -76,9 +67,7 @@ export function KopubTextSystems() {
 }
 
 <Canvas>
-  <Story name='KopubWorld Dotum'>
-    <KopubTextSystems />
-  </Story>
+  <Story of={FontStories.KopubWorldDotum} />
 </Canvas>
 
 ## Text Systems
@@ -103,7 +92,7 @@ export function KopubTextSystems() {
 
 <br />
 
----
+***
 
 # Noto Sans
 
@@ -127,9 +116,7 @@ export function NotoSansTextSystems() {
 }
 
 <Canvas>
-  <Story name='Noto Sans'>
-    <NotoSansTextSystems />
-  </Story>
+  <Story of={FontStories.NotoSans} />
 </Canvas>
 
 ## Text Systems
@@ -147,7 +134,7 @@ export function NotoSansTextSystems() {
 
 <br />
 
----
+***
 
 # Rules
 
@@ -170,14 +157,7 @@ export const Point2 = styled.span`
 `;
 
 <Canvas>
-  <Story name='Emphasis Text'>
-    <p>
-      오늘 반찬은 <Point1>제육볶음</Point1>입니다.
-    </p>
-    <p>
-      오늘 반찬은 <Point2>제육볶음</Point2>입니다.
-    </p>
-  </Story>
+  <Story of={FontStories.EmphasisText} />
 </Canvas>
 
 ## No Input Text
@@ -190,9 +170,7 @@ export const NoInputText = styled.p`
 `;
 
 <Canvas>
-  <Story name='No Input Text'>
-    <NoInputText>Windows 2.2.1 2022.05.31</NoInputText>
-  </Story>
+  <Story of={FontStories.NoInputText_} />
 </Canvas>
 
 ## Text Link
@@ -204,11 +182,5 @@ export const TextLink = styled.span`
 `;
 
 <Canvas>
-  <Story name='Text Link'>
-    <p>
-      제육 볶음의 자세한 정보를 확인하려면 <TextLink>여기</TextLink>를 클릭하세요.
-    </p>
-    <br />
-    <TextLink>자세한 정보 ></TextLink>
-  </Story>
+  <Story of={FontStories.TextLink_} />
 </Canvas>

@@ -1,15 +1,12 @@
-import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs';
+import { Meta, ColorPalette, ColorItem } from '@storybook/blocks';
 
 import { inverse } from "./color";
 
 <Meta title="Themes/Colors/Inverse" />
 
 <ColorPalette>
-  <ColorItem
-    title="회색 기본"
-    subtitle="theme.inverse.grayScale.basic"
-    colors={inverse.grayScale.basic}
-  />
+  <ColorItem title="회색 기본" subtitle="theme.inverse.grayScale.basic" colors={inverse.grayScale.basic} />
+
   <ColorItem
     title="밝은 톤"
     subtitle="theme.inverse.grayScale.inverse"
@@ -25,6 +22,7 @@ import { inverse } from "./color";
       900: inverse.grayScale.light900,
     }}
   />
+
   <ColorItem
     title="어두운 톤"
     subtitle="theme.inverse.grayScale.dark"
@@ -40,6 +38,7 @@ import { inverse } from "./color";
       900: inverse.grayScale.dark900,
     }}
   />
+
   <ColorItem
     title="회색 웜톤"
     subtitle="theme.inverse.grayScale.gray"
@@ -55,6 +54,7 @@ import { inverse } from "./color";
       900: inverse.grayScale.gray900,
     }}
   />
+
   <ColorItem
     title="회색 쿨톤"
     subtitle="theme.inverse.grayScale.coolGray"
@@ -70,16 +70,11 @@ import { inverse } from "./color";
       900: inverse.grayScale.coolGray900,
     }}
   />
-  <ColorItem
-    title="포인트 컬러"
-    subtitle="theme.inverse.primary"
-    colors={inverse.primary}
-  />
-  <ColorItem
-    title="보조 컬러"
-    subtitle="theme.inverse.secondary"
-    colors={inverse.secondary}
-  />
+
+  <ColorItem title="포인트 컬러" subtitle="theme.inverse.primary" colors={inverse.primary} />
+
+  <ColorItem title="보조 컬러" subtitle="theme.inverse.secondary" colors={inverse.secondary} />
+
   <ColorItem
     title="시스템 컬러 - off"
     subtitle="theme.inverse.system.off"
@@ -90,6 +85,7 @@ import { inverse } from "./color";
       4: inverse.system.off4,
     }}
   />
+
   <ColorItem
     title="시스템 컬러 - caution"
     subtitle="theme.inverse.system.caution"
@@ -100,6 +96,7 @@ import { inverse } from "./color";
       4: inverse.system.caution4,
     }}
   />
+
   <ColorItem
     title="시스템 컬러 - check"
     subtitle="theme.inverse.system.check"
