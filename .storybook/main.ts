@@ -1,4 +1,4 @@
-import type { StorybookViteConfig } from "@storybook/builder-vite";
+import type { StorybookConfig } from "@storybook/react-vite";
 // types
 
 import path from "path";
@@ -9,45 +9,51 @@ import { compilerOptions } from "../tsconfig.json";
 // Typescript Config files
 
 const pathsToModuleNameMapper = (
-  paths: Record<string, string[]>
+  paths: Record<string, string[]>,
 ): Record<string, string> =>
   Object.entries(paths).reduce(
     (previous, [alias, [p]]) => ({
       ...previous,
       [alias.replace("/*", "")]: path.resolve(
         process.cwd(),
-        p.replace("/*", "")
+        p.replace("/*", ""),
       ),
     }),
-    {}
+    {},
   );
 
-const config: StorybookViteConfig = {
-  stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
+const config: StorybookConfig = {
+  stories: ["../src/**/*.mdx", "../src/**/*.stories.@(ts|tsx)"],
+
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
+    "@storybook/addon-mdx-gfm",
+    "@chromatic-com/storybook",
+    "@storybook/addon-themes",
   ],
-  framework: "@storybook/react",
-  core: {
-    builder: "@storybook/builder-vite",
+
+  framework: {
+    name: "@storybook/react-vite",
+    options: {},
   },
-  features: {
-    storyStoreV7: true,
-  },
+
+  features: {},
   staticDirs: ["../public"],
+
   async viteFinal(config: UserConfig) {
     return mergeConfig(config, {
       plugins: [svgr()],
       resolve: {
         ...config.resolve,
-        alias: {
-          ...config.resolve?.alias,
-          ...pathsToModuleNameMapper(compilerOptions.paths),
-        },
+        alias: pathsToModuleNameMapper(compilerOptions.paths),
       },
     });
+  },
+
+  docs: {
+    autodocs: true,
   },
 };
 

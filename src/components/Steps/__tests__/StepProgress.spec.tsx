@@ -1,5 +1,4 @@
-import { render } from "@testing-library/react";
-import { create } from "react-test-renderer";
+import { render } from "@tests/test-utils";
 import StepProgress from "@components/Steps/StepProgress";
 import GlobalThemeProvider from "@themes/GlobalThemeProvider";
 
@@ -17,7 +16,7 @@ const mockTheme = {
 describe("StepProgress", () => {
   it("정확한 개수의 단계를 렌더링해야 합니다", () => {
     const { container } = renderWidthTheme(
-      <StepProgress currentStep={0} totalSteps={5} />
+      <StepProgress currentStep={0} totalSteps={5} />,
     );
     const stepProgressContainer = container.firstChild as Element;
 
@@ -26,7 +25,7 @@ describe("StepProgress", () => {
 
   it("현재 단계를 강조해야 합니다", () => {
     const { container } = renderWidthTheme(
-      <StepProgress currentStep={3} totalSteps={6} />
+      <StepProgress currentStep={3} totalSteps={6} />,
     );
 
     const steps = container.firstChild?.childNodes as NodeListOf<ChildNode>;
@@ -44,17 +43,17 @@ describe("StepProgress", () => {
 });
 
 test("StepProgress Snapshot", () => {
-  const currentStep = create(
+  const currentStep = render(
     <GlobalThemeProvider>
       <StepProgress currentStep={0} totalSteps={5} />
-    </GlobalThemeProvider>
-  ).toJSON();
+    </GlobalThemeProvider>,
+  );
   expect(currentStep).toMatchSnapshot();
 
-  const color = create(
+  const color = render(
     <GlobalThemeProvider>
       <StepProgress currentStep={3} totalSteps={6} />
-    </GlobalThemeProvider>
-  ).toJSON();
+    </GlobalThemeProvider>,
+  );
   expect(color).toMatchSnapshot();
 });

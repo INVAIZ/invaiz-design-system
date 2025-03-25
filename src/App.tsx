@@ -1,8 +1,10 @@
 import TextTooltip from "@components/Tooltips/TextTooltip";
+import { SvgIcon } from "./modules";
 
 const App = () => {
   return (
     <div style={{ width: "300vw", height: "200vh" }}>
+      <SvgIcon icon="Add" size={24} />
       {Array.from({ length: 1000 }).map((_, i) => (
         <div style={{ textAlign: "center" }}>
           <TextTooltip

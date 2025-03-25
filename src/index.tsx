@@ -14,5 +14,5 @@ root.render(
     <GlobalThemeProvider>
       <App />
     </GlobalThemeProvider>
-  </StrictMode>
+  </StrictMode>,
 );

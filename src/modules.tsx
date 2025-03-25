@@ -36,4 +36,5 @@ export { default as TextTooltip } from "@components/Tooltips/TextTooltip";
 export { default as IconTooltip } from "@components/Tooltips/IconTooltip";
 export { default as ImageTooltip } from "@components/Tooltips/ImageTooltip";
 
+// eslint-disable-next-line react-refresh/only-export-components
 export { default as styled, css, Global } from "@themes/styled";

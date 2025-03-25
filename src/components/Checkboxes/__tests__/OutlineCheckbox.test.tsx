@@ -1,5 +1,4 @@
 import { render } from "@tests/test-utils";
-import { create } from "react-test-renderer";
 // test utils
 
 import OutlineCheckbox from "@components/Checkboxes/OutlineCheckbox";
@@ -17,7 +16,7 @@ describe("OutlineCheckbox", () => {
       <>
         <OutlineCheckbox text={OUTLINE_TEXT} />
         <OutlineCheckbox text={OUTLINE_TEXT} checked />
-      </>
+      </>,
     );
     const [isNotChanged, isChanged] = getAllByRole("checkbox");
 
@@ -26,9 +25,9 @@ describe("OutlineCheckbox", () => {
   });
 
   it("체크박스는 클릭할 수 있으며, 클릭 시 `checked` 상태 변경이 가능하다.", () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const { getByRole } = render(
-      <OutlineCheckbox text={OUTLINE_TEXT} onChange={onChange} />
+      <OutlineCheckbox text={OUTLINE_TEXT} onChange={onChange} />,
     );
     const checkbox = getByRole("checkbox");
 
@@ -47,7 +46,7 @@ describe("OutlineCheckbox", () => {
 
   it("체크박스는 텍스트 영역을 클릭하여도 상태 변경이 가능하다.", () => {
     const { getByRole, getByText } = render(
-      <OutlineCheckbox text={OUTLINE_TEXT} />
+      <OutlineCheckbox text={OUTLINE_TEXT} />,
     );
 
     const checkbox = getByRole("checkbox");
@@ -59,7 +58,7 @@ describe("OutlineCheckbox", () => {
 
   it("체크박스는 `disabled`일 때, 상태 변경이 불가능하다.", () => {
     const { getByRole } = render(
-      <OutlineCheckbox text={OUTLINE_TEXT} disabled />
+      <OutlineCheckbox text={OUTLINE_TEXT} disabled />,
     );
     const checkbox = getByRole("checkbox");
 
@@ -69,17 +68,17 @@ describe("OutlineCheckbox", () => {
 });
 
 test("OutlineCheckbox Snapshot", () => {
-  const checked = create(
+  const checked = render(
     <GlobalThemeProvider>
       <OutlineCheckbox text={OUTLINE_TEXT} checked />
-    </GlobalThemeProvider>
+    </GlobalThemeProvider>,
   );
   expect(checked).toMatchSnapshot();
 
-  const unChecked = create(
+  const unChecked = render(
     <GlobalThemeProvider>
       <OutlineCheckbox text={OUTLINE_TEXT} />
-    </GlobalThemeProvider>
+    </GlobalThemeProvider>,
   );
   expect(unChecked).toMatchSnapshot();
 });

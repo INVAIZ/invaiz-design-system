@@ -1,5 +1,6 @@
 import {
   ComponentProps,
+  JSX,
   KeyboardEvent,
   ReactNode,
   useEffect,
@@ -13,6 +14,7 @@ import normalColor from "@themes/colors/normal-color";
 import useOnClickOutside from "@components/Dropdowns/hooks/useOnClickOutside";
 
 export const FOCUSED = "focused" as const;
+// eslint-disable-next-line react-refresh/only-export-components
 export const DROPDOWN_ITEM = "dropdown-item" as const;
 
 type Option<T> = {
@@ -60,7 +62,7 @@ export default function Dropdown<T>({
       return;
     }
     const dropdownList = Array.from(
-      ref.current.querySelectorAll<HTMLElement>(`.${DROPDOWN_ITEM}`)
+      ref.current.querySelectorAll<HTMLElement>(`.${DROPDOWN_ITEM}`),
     );
     dropdownList.forEach(item => item.classList.remove(FOCUSED));
     const focusedItem = dropdownList.at(focused);

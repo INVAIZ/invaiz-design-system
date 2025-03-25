@@ -1,6 +1,6 @@
-import Toggle from "@components/Toggles/Toggle";
 import { render } from "@tests/test-utils";
-import { create } from "react-test-renderer";
+
+import Toggle from "@components/Toggles/Toggle";
 import GlobalThemeProvider from "@themes/GlobalThemeProvider";
 
 describe("Toggle", () => {
@@ -14,7 +14,7 @@ describe("Toggle", () => {
       <>
         <Toggle checked={false} />
         <Toggle checked />
-      </>
+      </>,
     );
     const [first, second] = getAllByRole("checkbox");
     expect(first).not.toBeChecked();
@@ -22,7 +22,7 @@ describe("Toggle", () => {
   });
 
   it("토글을 클릭할 수 있다.", () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const { getByRole } = render(<Toggle onChange={onChange} />);
     const checkbox = getByRole("checkbox");
 
@@ -37,17 +37,17 @@ describe("Toggle", () => {
 });
 
 test("Toggle Snapshot", () => {
-  const checked = create(
+  const checked = render(
     <GlobalThemeProvider>
       <Toggle checked />
-    </GlobalThemeProvider>
-  ).toJSON();
+    </GlobalThemeProvider>,
+  );
   expect(checked).toMatchSnapshot();
 
-  const unChecked = create(
+  const unChecked = render(
     <GlobalThemeProvider>
       <Toggle />
-    </GlobalThemeProvider>
-  ).toJSON();
+    </GlobalThemeProvider>,
+  );
   expect(unChecked).toMatchSnapshot();
 });

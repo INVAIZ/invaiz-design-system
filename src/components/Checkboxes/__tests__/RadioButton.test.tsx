@@ -1,5 +1,4 @@
 import { render } from "@tests/test-utils";
-import { create } from "react-test-renderer";
 // test utils
 
 import RadioButton from "@components/Checkboxes/RadioButton";
@@ -14,7 +13,7 @@ describe("RadioButton", () => {
       <>
         <RadioButton />
         <RadioButton checked />
-      </>
+      </>,
     );
     const [isNotChanged, isChanged] = getAllByRole("checkbox");
 
@@ -23,7 +22,7 @@ describe("RadioButton", () => {
   });
 
   it("라디오 버튼은 클릭할 수 있으며, 클릭 시 `checked` 상태 변경이 가능하다.", () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const { getByRole } = render(<RadioButton onChange={onChange} />);
     const checkbox = getByRole("checkbox");
 
@@ -50,17 +49,17 @@ describe("RadioButton", () => {
 });
 
 test("RadioButton Snapshot", () => {
-  const checked = create(
+  const checked = render(
     <GlobalThemeProvider>
       <RadioButton checked />
-    </GlobalThemeProvider>
+    </GlobalThemeProvider>,
   );
   expect(checked).toMatchSnapshot();
 
-  const unChecked = create(
+  const unChecked = render(
     <GlobalThemeProvider>
       <RadioButton />
-    </GlobalThemeProvider>
+    </GlobalThemeProvider>,
   );
   expect(unChecked).toMatchSnapshot();
 });

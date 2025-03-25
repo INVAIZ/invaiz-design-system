@@ -27,5 +27,5 @@ export interface TooltipCommonProps {
   /**
    * 퉅팁을 적용하기 위한 단독 콘텐츠(단일 요소)입니다.
    */
-  children: ReactElement;
+  children: ReactElement<any>;
 }

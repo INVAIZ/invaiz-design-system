@@ -1,3 +1,5 @@
+/// <reference types="vitest" />
+
 import path from "path";
 
 import { defineConfig } from "vite";
@@ -10,7 +12,7 @@ import { compilerOptions } from "./tsconfig.json";
 // Typescript Config files
 
 const pathsToModuleNameMapper = (
-  paths: Record<string, string[]>
+  paths: Record<string, string[]>,
 ): { find: string; replacement: string }[] =>
   Object.entries(paths).map(([alias, [p]]) => ({
     find: alias.replace("/*", ""),
@@ -23,6 +25,11 @@ export default defineConfig({
   mode: process.env.NODE_ENV === "production" ? "production" : "development",
   root: path.resolve("./"),
   publicDir: path.resolve("./public"),
+  test: {
+    globals: true,
+    environment: "jsdom",
+    setupFiles: ["@testing-library/jest-dom"],
+  },
   server: {
     port: 8080,
     open: true,

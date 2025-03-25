@@ -20,7 +20,7 @@ describe("ImageTooltip", () => {
     const { getByRole } = render(
       <ImageTooltip imageUrl={IMAGE_URL} text={TOOLTIP_TEXT}>
         <button type="button">{BUTTON_CONTENT}</button>
-      </ImageTooltip>
+      </ImageTooltip>,
     );
 
     const button = getByRole("button");
@@ -32,7 +32,7 @@ describe("ImageTooltip", () => {
     const { getByRole, queryByRole } = render(
       <ImageTooltip imageUrl={IMAGE_URL} text={TOOLTIP_TEXT}>
         <button type="button">{BUTTON_CONTENT}</button>
-      </ImageTooltip>
+      </ImageTooltip>,
     );
 
     const button = getByRole("button");

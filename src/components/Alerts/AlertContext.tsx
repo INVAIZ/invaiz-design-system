@@ -13,15 +13,14 @@ const initialState: AlertProps = {
   title: "",
   description: "",
   confirmButtonLabel: "확인",
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
   onConfirm: () => {},
 };
 
 type AlertContextProps = (alertProps: AlertProps) => void;
 
-// eslint-disable-next-line @typescript-eslint/no-empty-function
 const AlertContext = createContext<AlertContextProps>(() => {});
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useAlert = () => {
   const openAlert = useContext(AlertContext);
 
@@ -30,7 +29,7 @@ export const useAlert = () => {
       title: string,
       description: string,
       onConfirm?: () => void,
-      confirmButtonLabel?: string
+      confirmButtonLabel?: string,
     ) => {
       openAlert({
         open: true,
@@ -41,7 +40,7 @@ export const useAlert = () => {
       });
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    []
+    [],
   );
 };
 
@@ -54,7 +53,7 @@ const AlertProvider = ({ children }: AlertProviderProps) => {
 
   const openAlert = useCallback(
     (alertProps: AlertProps) => setAlert(prev => ({ ...prev, ...alertProps })),
-    []
+    [],
   );
 
   const closeAlert = useCallback(() => {

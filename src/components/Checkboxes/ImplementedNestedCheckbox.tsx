@@ -47,13 +47,14 @@ export interface ImplementedNestedCheckboxProps
  * 체크박스 데이터 리스트를 통해 `AllChecked`(전체 체크 상태), `isIndeterminate`(불완전한 상태), `onChange`, `onAllChange`를 만들어 내보냅니다.
  * `checkList`를 함께 내보내며, 이는 위의 `onChange`, `onAllChange` 이벤트 리스너를 통해 관리되는 상태입니다.
  */
+// eslint-disable-next-line react-refresh/only-export-components
 export const useNestedCheckboxState = (
-  initCheckList: CheckList
+  initCheckList: CheckList,
 ): Omit<ImplementedNestedCheckboxProps, "text" | "disabled"> => {
   const [checkList, setCheckList] = useState<CheckList>(initCheckList);
 
   const allCheck = checkList.every(
-    ({ checked, disabled }) => disabled || checked
+    ({ checked, disabled }) => disabled || checked,
   );
 
   const isIndeterminate =
@@ -63,15 +64,15 @@ export const useNestedCheckboxState = (
   const onChange = (checked: boolean, id: CheckItemId) =>
     setCheckList(prevList =>
       prevList.map(checkItem =>
-        id === checkItem.id ? { ...checkItem, checked } : checkItem
-      )
+        id === checkItem.id ? { ...checkItem, checked } : checkItem,
+      ),
     );
 
   const onAllChange = () =>
     setCheckList(prevList =>
       prevList.map(checkItem =>
-        checkItem.disabled ? checkItem : { ...checkItem, checked: !allCheck }
-      )
+        checkItem.disabled ? checkItem : { ...checkItem, checked: !allCheck },
+      ),
     );
 
   return {

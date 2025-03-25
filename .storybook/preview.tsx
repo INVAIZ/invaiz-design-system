@@ -1,63 +1,75 @@
-import type { Story as StoryComponent } from "@storybook/react";
-
 import React from "react";
 
-import GlobalThemeProvider from "../src/themes/GlobalThemeProvider";
-import styled, { css } from "../src/themes/styled";
+import { withThemeFromJSXProvider } from "@storybook/addon-themes";
+
+import { ThemeProvider } from "../src/themes/styled";
+import { normal, inverse } from "../src/themes/colors/color";
+import font from "../src/themes/font";
+import { boxShadowMap } from "../src/themes/box-shadows/box-shadow";
+import border from "../src/themes/border";
+import whiteSpace from "../src/themes/whiteSpace";
+
+const basicThemes = {
+  normal,
+  inverse,
+  font,
+  border,
+  whiteSpace,
+};
 
 export const decorators = [
-  (Story: StoryComponent, context) => {
-    const theme = context.globals.theme;
-    switch (theme) {
-      case "side-by-side": {
+  withThemeFromJSXProvider({
+    themes: {
+      normal: {
+        color: normal,
+        boxShadow: boxShadowMap.normal,
+        ...basicThemes,
+      },
+      inverse: {
+        color: inverse,
+        boxShadow: boxShadowMap.inverse,
+        ...basicThemes,
+      },
+    },
+    defaultTheme: "normal",
+    Provider: ThemeProvider,
+  }),
+  (Story, { globals }) => {
+    switch (globals.theme) {
+      case "normal":
         return (
-          <>
-            <GlobalThemeProvider colorTheme="normal">
-              <ThemeBlock left>
-                <Story />
-              </ThemeBlock>
-            </GlobalThemeProvider>
-            <GlobalThemeProvider colorTheme="inverse">
-              <ThemeBlock>
-                <Story />
-              </ThemeBlock>
-            </GlobalThemeProvider>
-          </>
+          <div
+            style={{
+              position: "absolute",
+              width: "100%",
+              background: normal.grayScale.gray100,
+              padding: 10,
+              borderRadius: 4,
+            }}
+          >
+            <Story />
+          </div>
         );
-      }
+      case "inverse":
+        return (
+          <div
+            style={{
+              position: "absolute",
+              width: "100%",
+              background: inverse.grayScale.gray100,
+              padding: 10,
+              borderRadius: 4,
+            }}
+          >
+            <Story />
+          </div>
+        );
     }
-    return (
-      <GlobalThemeProvider colorTheme={theme}>
-        <ThemeBlock left fill>
-          <Story />
-        </ThemeBlock>
-      </GlobalThemeProvider>
-    );
   },
 ];
 
-export const globalTypes = {
-  theme: {
-    name: "Theme",
-    description: "Global theme for components",
-    defaultValue: "normal",
-    toolbar: {
-      // The icon for the toolbar item
-      icon: "circlehollow",
-      // Array of options
-      items: [
-        { value: "normal", icon: "circlehollow", title: "normal" },
-        { value: "inverse", icon: "circle", title: "inverse" },
-        { value: "side-by-side", icon: "sidebar", title: "side by side" },
-      ],
-      // Property that specifies if the name of the item will be displayed
-      showName: true,
-    },
-  },
-};
-
 export const parameters = {
-  actions: { argTypesRegex: "^on[A-Z].*" },
+  actions: { argTypesRegex: "^on.*" },
   controls: {
     matchers: {
       color: /(background|color)$/i,
@@ -65,22 +77,3 @@ export const parameters = {
     },
   },
 };
-
-const ThemeBlock = styled.div<{ left?: boolean; fill?: boolean }>(
-  ({ left, fill, theme }) =>
-    css`
-      position: absolute;
-      top: 0;
-      left: ${left || fill ? 0 : "50vw"};
-      border-right: ${left
-        ? `2px solid ${theme.color.primary.blue500}`
-        : "none"};
-      right: ${left ? "50vw" : 0};
-      width: ${fill ? "100vw" : "50vw"};
-      height: 100vh;
-      bottom: 0;
-      overflow: auto;
-      padding: 1rem;
-      background: ${theme.color.grayScale.gray100};
-    `
-);

@@ -1,5 +1,4 @@
 import { render } from "@tests/test-utils";
-import { create } from "react-test-renderer";
 // test utils
 
 import FillCheckbox from "@components/Checkboxes/FillCheckbox";
@@ -14,7 +13,7 @@ describe("FillCheckbox", () => {
       <>
         <FillCheckbox />
         <FillCheckbox checked />
-      </>
+      </>,
     );
     const [isNotChanged, isChanged] = getAllByRole("checkbox");
 
@@ -23,7 +22,7 @@ describe("FillCheckbox", () => {
   });
 
   it("체크박스는 클릭할 수 있으며, 클릭 시 `checked` 상태 변경이 가능하다.", () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const { getByRole } = render(<FillCheckbox onChange={onChange} />);
     const checkbox = getByRole("checkbox");
 
@@ -50,17 +49,17 @@ describe("FillCheckbox", () => {
 });
 
 test("FillCheckbox Snapshot", () => {
-  const checked = create(
+  const checked = render(
     <GlobalThemeProvider>
       <FillCheckbox checked />
-    </GlobalThemeProvider>
+    </GlobalThemeProvider>,
   );
   expect(checked).toMatchSnapshot();
 
-  const unChecked = create(
+  const unChecked = render(
     <GlobalThemeProvider>
       <FillCheckbox />
-    </GlobalThemeProvider>
+    </GlobalThemeProvider>,
   );
   expect(unChecked).toMatchSnapshot();
 });

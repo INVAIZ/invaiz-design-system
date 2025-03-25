@@ -1,5 +1,4 @@
 import { render } from "@tests/test-utils";
-import { create } from "react-test-renderer";
 // test utils
 
 import ImplementedNestedCheckbox from "@components/Checkboxes/ImplementedNestedCheckbox";
@@ -41,7 +40,7 @@ describe("ImplementedNestedCheckbox", () => {
           text={PARENT_TEXT}
           checkList={trueCheckboxList}
         />
-      </>
+      </>,
     );
     const [
       ,
@@ -92,7 +91,7 @@ describe("ImplementedNestedCheckbox", () => {
           text={PARENT_TEXT}
           checkList={trueCheckboxList}
         />
-      </>
+      </>,
     );
     const [isNested, , , isFalse, , ,] = getAllByRole("checkbox");
     expect(isNested).not.toBeChecked();
@@ -106,14 +105,14 @@ describe("ImplementedNestedCheckbox", () => {
       { id: 2, checked: false, text: CHILDREN_TEXT },
     ];
 
-    const onAllChange = jest.fn();
+    const onAllChange = vi.fn();
 
     const { getAllByRole } = render(
       <ImplementedNestedCheckbox
         text={PARENT_TEXT}
         checkList={nestedCheckboxList}
         onAllChange={onAllChange}
-      />
+      />,
     );
     const [isNested, ,] = getAllByRole("checkbox");
     isNested.click();
@@ -134,8 +133,8 @@ describe("ImplementedNestedCheckbox", () => {
       { id: 2, checked: false, text: CHILDREN_TEXT },
     ];
 
-    const onAllChange = jest.fn();
-    const onChange = jest.fn();
+    const onAllChange = vi.fn();
+    const onChange = vi.fn();
 
     const { getAllByRole } = render(
       <ImplementedNestedCheckbox
@@ -143,7 +142,7 @@ describe("ImplementedNestedCheckbox", () => {
         checkList={nestedCheckboxList}
         onAllChange={onAllChange}
         onChange={onChange}
-      />
+      />,
     );
     const [, one, two] = getAllByRole("checkbox");
 
@@ -166,24 +165,24 @@ test("ImplementedNestedCheckbox Snapshot", () => {
     { id: 2, checked: false, text: CHILDREN_TEXT },
   ];
 
-  const indeterminate = create(
+  const indeterminate = render(
     <GlobalThemeProvider>
       <ImplementedNestedCheckbox
         text={PARENT_TEXT}
         checkList={nestedCheckboxList}
         isIndeterminate
       />
-    </GlobalThemeProvider>
+    </GlobalThemeProvider>,
   );
   expect(indeterminate).toMatchSnapshot();
 
-  const determinate = create(
+  const determinate = render(
     <GlobalThemeProvider>
       <ImplementedNestedCheckbox
         text={PARENT_TEXT}
         checkList={nestedCheckboxList}
       />
-    </GlobalThemeProvider>
+    </GlobalThemeProvider>,
   );
   expect(determinate).toMatchSnapshot();
 });

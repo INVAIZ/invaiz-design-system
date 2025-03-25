@@ -1,25 +1,10 @@
+import { Meta, StoryObj } from "@storybook/react";
 import styled from "@themes/styled";
 import border from "@themes/border";
-
-import { Story } from "@storybook/react";
 
 interface Props {
   type: keyof typeof border;
 }
-
-const Component = (props: Props) => <Box {...props} />;
-
-export default {
-  title: "Themes/Border",
-  component: Component,
-};
-
-const Template: Story<Props> = props => <Box {...props} />;
-
-export const Selected = Template.bind({});
-Selected.args = {
-  type: "selected",
-};
 
 const Box = styled.div<Props>`
   width: 200px;
@@ -29,3 +14,18 @@ const Box = styled.div<Props>`
 
   ${({ theme, type }) => theme.border[type]}
 `;
+
+const meta: Meta<typeof Box> = {
+  title: "Themes/Border",
+  component: Box,
+};
+
+export default meta;
+
+type Story = StoryObj<typeof Box>;
+
+export const Primary: Story = {
+  args: {
+    type: "selected",
+  },
+};

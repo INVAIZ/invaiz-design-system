@@ -1,4 +1,5 @@
 import { type ReactNode, cloneElement, useState, useEffect } from "react";
+
 import { createPortal } from "react-dom";
 // React modules
 
@@ -56,7 +57,7 @@ const Tooltip = ({
           >
             {contents}
           </Popper>,
-          document.body
+          document.body,
         )}
       {cloneElement(children, {
         ref: setChildrenRef,

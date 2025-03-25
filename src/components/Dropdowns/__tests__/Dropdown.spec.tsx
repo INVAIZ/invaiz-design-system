@@ -32,14 +32,14 @@ describe("Dropdown", () => {
         type="default"
         list={dropdownOptions}
         render={renderDefaultItem}
-      />
+      />,
     );
 
     getByRole("button").click();
     await waitFor(() =>
       dropdownOptions.every(option =>
-        expect(getByText(option.label)).toBeInTheDocument()
-      )
+        expect(getByText(option.label)).toBeInTheDocument(),
+      ),
     );
   });
 
@@ -49,14 +49,14 @@ describe("Dropdown", () => {
         type="default"
         list={dropdownOptions}
         render={renderDefaultItem}
-      />
+      />,
     );
 
     getByRole("button").click();
     await waitFor(() =>
       dropdownOptions.every(option =>
-        expect(getByText(option.label)).toBeInTheDocument()
-      )
+        expect(getByText(option.label)).toBeInTheDocument(),
+      ),
     );
 
     const firstItem = getByText(dropdownOptions[0].label);
@@ -64,8 +64,8 @@ describe("Dropdown", () => {
 
     await waitFor(() =>
       dropdownOptions.every(option =>
-        expect(queryByText(option.label)).not.toBeInTheDocument()
-      )
+        expect(queryByText(option.label)).not.toBeInTheDocument(),
+      ),
     );
   });
 
@@ -75,21 +75,21 @@ describe("Dropdown", () => {
         type="default"
         list={dropdownOptions}
         render={renderDefaultItem}
-      />
+      />,
     );
     const button = getByRole("button");
     button.click();
     await waitFor(() =>
       dropdownOptions.every(option =>
-        expect(getByText(option.label)).toBeInTheDocument()
-      )
+        expect(getByText(option.label)).toBeInTheDocument(),
+      ),
     );
 
     fireEvent.keyDown(document, { key: "Escape" });
     await waitFor(() =>
       dropdownOptions.every(option =>
-        expect(queryByText(option.label)).not.toBeInTheDocument()
-      )
+        expect(queryByText(option.label)).not.toBeInTheDocument(),
+      ),
     );
   });
 
@@ -99,31 +99,31 @@ describe("Dropdown", () => {
         type="default"
         list={dropdownOptions}
         render={renderDefaultItem}
-      />
+      />,
     );
     const button = getByRole("button");
     button.click();
     await waitFor(() =>
       dropdownOptions.every(option =>
-        expect(getByText(option.label)).toBeInTheDocument()
-      )
+        expect(getByText(option.label)).toBeInTheDocument(),
+      ),
     );
     const dropdownList = Array.from(
-      container.getElementsByClassName(DROPDOWN_ITEM)
+      container.getElementsByClassName(DROPDOWN_ITEM),
     );
 
     fireEvent.keyDown(button, { key: "ArrowDown" });
     await waitFor(() => expect(dropdownList.at(0)).toHaveClass(FOCUSED));
     fireEvent.keyDown(button, { key: "ArrowUp" });
     await waitFor(() =>
-      expect(dropdownList.at(dropdownList.length - 1)).toHaveClass(FOCUSED)
+      expect(dropdownList.at(dropdownList.length - 1)).toHaveClass(FOCUSED),
     );
     fireEvent.keyDown(button, { key: "Enter" });
 
     await waitFor(() =>
       dropdownOptions.every(option =>
-        expect(queryByText(option.label)).not.toBeInTheDocument()
-      )
+        expect(queryByText(option.label)).not.toBeInTheDocument(),
+      ),
     );
   });
 });
