@@ -31,7 +31,7 @@ const config: StorybookConfig = {
     "@storybook/addon-interactions",
     "@storybook/addon-mdx-gfm",
     "@chromatic-com/storybook",
-    "@storybook/addon-themes"
+    "@storybook/addon-themes",
   ],
 
   framework: {
@@ -47,10 +47,7 @@ const config: StorybookConfig = {
       plugins: [svgr()],
       resolve: {
         ...config.resolve,
-        alias: {
-          ...config.resolve?.alias,
-          ...pathsToModuleNameMapper(compilerOptions.paths),
-        },
+        alias: pathsToModuleNameMapper(compilerOptions.paths),
       },
     });
   },

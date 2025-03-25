@@ -1,7 +1,10 @@
 import styled from "@themes/styled";
 import font from "@themes/font";
 
-const TypefaceINVAIZ = styled.p`
+type INVAIZFontType = keyof typeof font.systems.invaiz;
+const TypefaceINVAIZ = styled.p<{
+  textStyle: INVAIZFontType;
+}>`
   ${({ theme }) => theme.font.fontFace.invaiz};
   ${({ theme, textStyle }) => theme.font.systems.invaiz[textStyle]};
 `;
@@ -10,7 +13,7 @@ function INVAIZTextSystems() {
   return (
     <>
       {Object.keys(font.systems.invaiz).map(textStyle => (
-        <TypefaceINVAIZ textStyle={textStyle} key={textStyle}>
+        <TypefaceINVAIZ textStyle={textStyle as INVAIZFontType} key={textStyle}>
           {textStyle}
         </TypefaceINVAIZ>
       ))}
@@ -18,7 +21,10 @@ function INVAIZTextSystems() {
   );
 }
 
-const TypefaceKopub = styled.p`
+type KopubFontType = keyof typeof font.systems.kopub;
+const TypefaceKopub = styled.p<{
+  textStyle: KopubFontType;
+}>`
   ${({ theme }) => theme.font.fontFace.kopub};
   ${({ theme, textStyle }) => theme.font.systems.kopub[textStyle]};
 `;
@@ -27,7 +33,7 @@ function KopubTextSystems() {
   return (
     <>
       {Object.keys(font.systems.kopub).map(textStyle => (
-        <TypefaceKopub textStyle={textStyle} key={textStyle}>
+        <TypefaceKopub textStyle={textStyle as KopubFontType} key={textStyle}>
           {textStyle}
         </TypefaceKopub>
       ))}
@@ -35,7 +41,10 @@ function KopubTextSystems() {
   );
 }
 
-const TypefaceNotoSans = styled.p`
+type NotoSansFontType = keyof typeof font.systems.notoSans;
+const TypefaceNotoSans = styled.p<{
+  textStyle: NotoSansFontType;
+}>`
   ${({ theme }) => theme.font.fontFace.notoSans};
   ${({ theme, textStyle }) => theme.font.systems.notoSans[textStyle]};
 `;
@@ -44,7 +53,10 @@ function NotoSansTextSystems() {
   return (
     <>
       {Object.keys(font.systems.notoSans).map(textStyle => (
-        <TypefaceNotoSans textStyle={textStyle} key={textStyle}>
+        <TypefaceNotoSans
+          textStyle={textStyle as NotoSansFontType}
+          key={textStyle}
+        >
           {textStyle}
         </TypefaceNotoSans>
       ))}

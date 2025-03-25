@@ -10,6 +10,8 @@ import border from "../src/themes/border";
 import whiteSpace from "../src/themes/whiteSpace";
 
 const basicThemes = {
+  normal,
+  inverse,
   font,
   border,
   whiteSpace,
@@ -67,17 +69,7 @@ export const decorators = [
 ];
 
 export const parameters = {
-  themes: {
-    default: "light",
-    values: [
-      { name: "light", value: "#fff" },
-      {
-        name: "dark",
-        value: "#000",
-      },
-    ],
-  },
-  actions: { argTypesRegex: "^on[A-Z].*" },
+  actions: { argTypesRegex: "^on.*" },
   controls: {
     matchers: {
       color: /(background|color)$/i,
