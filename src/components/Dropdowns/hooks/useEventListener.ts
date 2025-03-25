@@ -8,7 +8,6 @@ function useEventListener<K extends keyof WindowEventMap>(
   options?: boolean | AddEventListenerOptions,
 ): void;
 // Element Event based useEventListener interface
-// eslint-disable-next-line no-redeclare
 function useEventListener<
   K extends keyof HTMLElementEventMap,
   T extends HTMLElement = HTMLDivElement,
@@ -19,14 +18,12 @@ function useEventListener<
   options?: boolean | AddEventListenerOptions,
 ): void;
 // Document Event based useEventListener interface
-// eslint-disable-next-line no-redeclare
 function useEventListener<K extends keyof DocumentEventMap>(
   eventName: K,
   handler: (event: DocumentEventMap[K]) => void,
   element: Document,
   options?: boolean | AddEventListenerOptions,
 ): void;
-// eslint-disable-next-line no-redeclare
 function useEventListener<
   KW extends keyof WindowEventMap,
   KH extends keyof HTMLElementEventMap,

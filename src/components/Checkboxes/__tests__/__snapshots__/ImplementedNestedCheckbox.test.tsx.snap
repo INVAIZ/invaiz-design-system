@@ -1,5 +1,700 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`ImplementedNestedCheckbox Snapshot 1`] = `null`;
+exports[`ImplementedNestedCheckbox Snapshot 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div>
+        <label
+          class="css-9ncwx"
+        >
+          <span
+            class="css-1u8zmlt"
+          >
+            <input
+              class="css-1gyy7tz"
+              type="checkbox"
+            />
+            <div
+              class="css-3xhjcj"
+            >
+              <svg
+                class="visible css-15h4xjp"
+                height="20"
+                viewBox="0 0 24 24"
+                width="20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M6.3999 11.9999C6.3999 11.6685 6.66853 11.3999 6.9999 11.3999H16.9999C17.3313 11.3999 17.5999 11.6685 17.5999 11.9999C17.5999 12.3313 17.3313 12.5999 16.9999 12.5999H6.9999C6.66853 12.5999 6.3999 12.3313 6.3999 11.9999Z"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </div>
+          </span>
+          <p
+            class="css-1k6xh2w"
+          >
+            Parent Checkbox
+          </p>
+        </label>
+        <ul
+          class="css-1tsmip4"
+        >
+          <li
+            class="css-llbbcb"
+          >
+            <label
+              class="css-9ncwx"
+            >
+              <span
+                class="css-1u8zmlt"
+              >
+                <input
+                  checked=""
+                  class="css-1gyy7tz"
+                  id="1"
+                  type="checkbox"
+                />
+                <div
+                  class="css-3xhjcj"
+                >
+                  <svg
+                    class="css-15h4xjp"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    width="20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M19.6446 7.37163C19.9915 7.72756 19.9842 8.29736 19.6283 8.64432L11.4214 16.6443C11.0719 16.985 10.5145 16.985 10.165 16.6443L4.37188 10.9973C4.01595 10.6503 4.00867 10.0805 4.35563 9.72457C4.70259 9.36864 5.27239 9.36137 5.62832 9.70833L10.7932 14.743L18.3719 7.35539C18.7278 7.00843 19.2976 7.0157 19.6446 7.37163Z"
+                    />
+                  </svg>
+                </div>
+              </span>
+              <p
+                class="css-1k6xh2w"
+              >
+                Children
+              </p>
+            </label>
+          </li>
+          <li
+            class="css-llbbcb"
+          >
+            <label
+              class="css-9ncwx"
+            >
+              <span
+                class="css-1u8zmlt"
+              >
+                <input
+                  class="css-1gyy7tz"
+                  id="2"
+                  type="checkbox"
+                />
+                <div
+                  class="css-3xhjcj"
+                >
+                  <svg
+                    class="css-15h4xjp"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    width="20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M19.6446 7.37163C19.9915 7.72756 19.9842 8.29736 19.6283 8.64432L11.4214 16.6443C11.0719 16.985 10.5145 16.985 10.165 16.6443L4.37188 10.9973C4.01595 10.6503 4.00867 10.0805 4.35563 9.72457C4.70259 9.36864 5.27239 9.36137 5.62832 9.70833L10.7932 14.743L18.3719 7.35539C18.7278 7.00843 19.2976 7.0157 19.6446 7.37163Z"
+                    />
+                  </svg>
+                </div>
+              </span>
+              <p
+                class="css-1k6xh2w"
+              >
+                Children
+              </p>
+            </label>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div>
+      <label
+        class="css-9ncwx"
+      >
+        <span
+          class="css-1u8zmlt"
+        >
+          <input
+            class="css-1gyy7tz"
+            type="checkbox"
+          />
+          <div
+            class="css-3xhjcj"
+          >
+            <svg
+              class="visible css-15h4xjp"
+              height="20"
+              viewBox="0 0 24 24"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M6.3999 11.9999C6.3999 11.6685 6.66853 11.3999 6.9999 11.3999H16.9999C17.3313 11.3999 17.5999 11.6685 17.5999 11.9999C17.5999 12.3313 17.3313 12.5999 16.9999 12.5999H6.9999C6.66853 12.5999 6.3999 12.3313 6.3999 11.9999Z"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </div>
+        </span>
+        <p
+          class="css-1k6xh2w"
+        >
+          Parent Checkbox
+        </p>
+      </label>
+      <ul
+        class="css-1tsmip4"
+      >
+        <li
+          class="css-llbbcb"
+        >
+          <label
+            class="css-9ncwx"
+          >
+            <span
+              class="css-1u8zmlt"
+            >
+              <input
+                checked=""
+                class="css-1gyy7tz"
+                id="1"
+                type="checkbox"
+              />
+              <div
+                class="css-3xhjcj"
+              >
+                <svg
+                  class="css-15h4xjp"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  width="20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M19.6446 7.37163C19.9915 7.72756 19.9842 8.29736 19.6283 8.64432L11.4214 16.6443C11.0719 16.985 10.5145 16.985 10.165 16.6443L4.37188 10.9973C4.01595 10.6503 4.00867 10.0805 4.35563 9.72457C4.70259 9.36864 5.27239 9.36137 5.62832 9.70833L10.7932 14.743L18.3719 7.35539C18.7278 7.00843 19.2976 7.0157 19.6446 7.37163Z"
+                  />
+                </svg>
+              </div>
+            </span>
+            <p
+              class="css-1k6xh2w"
+            >
+              Children
+            </p>
+          </label>
+        </li>
+        <li
+          class="css-llbbcb"
+        >
+          <label
+            class="css-9ncwx"
+          >
+            <span
+              class="css-1u8zmlt"
+            >
+              <input
+                class="css-1gyy7tz"
+                id="2"
+                type="checkbox"
+              />
+              <div
+                class="css-3xhjcj"
+              >
+                <svg
+                  class="css-15h4xjp"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  width="20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M19.6446 7.37163C19.9915 7.72756 19.9842 8.29736 19.6283 8.64432L11.4214 16.6443C11.0719 16.985 10.5145 16.985 10.165 16.6443L4.37188 10.9973C4.01595 10.6503 4.00867 10.0805 4.35563 9.72457C4.70259 9.36864 5.27239 9.36137 5.62832 9.70833L10.7932 14.743L18.3719 7.35539C18.7278 7.00843 19.2976 7.0157 19.6446 7.37163Z"
+                  />
+                </svg>
+              </div>
+            </span>
+            <p
+              class="css-1k6xh2w"
+            >
+              Children
+            </p>
+          </label>
+        </li>
+      </ul>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
 
-exports[`ImplementedNestedCheckbox Snapshot 2`] = `null`;
+exports[`ImplementedNestedCheckbox Snapshot 2`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div>
+        <label
+          class="css-9ncwx"
+        >
+          <span
+            class="css-1u8zmlt"
+          >
+            <input
+              class="css-1gyy7tz"
+              type="checkbox"
+            />
+            <div
+              class="css-3xhjcj"
+            >
+              <svg
+                class="visible css-15h4xjp"
+                height="20"
+                viewBox="0 0 24 24"
+                width="20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M6.3999 11.9999C6.3999 11.6685 6.66853 11.3999 6.9999 11.3999H16.9999C17.3313 11.3999 17.5999 11.6685 17.5999 11.9999C17.5999 12.3313 17.3313 12.5999 16.9999 12.5999H6.9999C6.66853 12.5999 6.3999 12.3313 6.3999 11.9999Z"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </div>
+          </span>
+          <p
+            class="css-1k6xh2w"
+          >
+            Parent Checkbox
+          </p>
+        </label>
+        <ul
+          class="css-1tsmip4"
+        >
+          <li
+            class="css-llbbcb"
+          >
+            <label
+              class="css-9ncwx"
+            >
+              <span
+                class="css-1u8zmlt"
+              >
+                <input
+                  checked=""
+                  class="css-1gyy7tz"
+                  id="1"
+                  type="checkbox"
+                />
+                <div
+                  class="css-3xhjcj"
+                >
+                  <svg
+                    class="css-15h4xjp"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    width="20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M19.6446 7.37163C19.9915 7.72756 19.9842 8.29736 19.6283 8.64432L11.4214 16.6443C11.0719 16.985 10.5145 16.985 10.165 16.6443L4.37188 10.9973C4.01595 10.6503 4.00867 10.0805 4.35563 9.72457C4.70259 9.36864 5.27239 9.36137 5.62832 9.70833L10.7932 14.743L18.3719 7.35539C18.7278 7.00843 19.2976 7.0157 19.6446 7.37163Z"
+                    />
+                  </svg>
+                </div>
+              </span>
+              <p
+                class="css-1k6xh2w"
+              >
+                Children
+              </p>
+            </label>
+          </li>
+          <li
+            class="css-llbbcb"
+          >
+            <label
+              class="css-9ncwx"
+            >
+              <span
+                class="css-1u8zmlt"
+              >
+                <input
+                  class="css-1gyy7tz"
+                  id="2"
+                  type="checkbox"
+                />
+                <div
+                  class="css-3xhjcj"
+                >
+                  <svg
+                    class="css-15h4xjp"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    width="20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M19.6446 7.37163C19.9915 7.72756 19.9842 8.29736 19.6283 8.64432L11.4214 16.6443C11.0719 16.985 10.5145 16.985 10.165 16.6443L4.37188 10.9973C4.01595 10.6503 4.00867 10.0805 4.35563 9.72457C4.70259 9.36864 5.27239 9.36137 5.62832 9.70833L10.7932 14.743L18.3719 7.35539C18.7278 7.00843 19.2976 7.0157 19.6446 7.37163Z"
+                    />
+                  </svg>
+                </div>
+              </span>
+              <p
+                class="css-1k6xh2w"
+              >
+                Children
+              </p>
+            </label>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <div>
+        <label
+          class="css-9ncwx"
+        >
+          <span
+            class="css-1u8zmlt"
+          >
+            <input
+              class="css-1gyy7tz"
+              type="checkbox"
+            />
+            <div
+              class="css-3xhjcj"
+            >
+              <svg
+                class="css-15h4xjp"
+                height="20"
+                viewBox="0 0 24 24"
+                width="20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M19.6446 7.37163C19.9915 7.72756 19.9842 8.29736 19.6283 8.64432L11.4214 16.6443C11.0719 16.985 10.5145 16.985 10.165 16.6443L4.37188 10.9973C4.01595 10.6503 4.00867 10.0805 4.35563 9.72457C4.70259 9.36864 5.27239 9.36137 5.62832 9.70833L10.7932 14.743L18.3719 7.35539C18.7278 7.00843 19.2976 7.0157 19.6446 7.37163Z"
+                />
+              </svg>
+            </div>
+          </span>
+          <p
+            class="css-1k6xh2w"
+          >
+            Parent Checkbox
+          </p>
+        </label>
+        <ul
+          class="css-1tsmip4"
+        >
+          <li
+            class="css-llbbcb"
+          >
+            <label
+              class="css-9ncwx"
+            >
+              <span
+                class="css-1u8zmlt"
+              >
+                <input
+                  checked=""
+                  class="css-1gyy7tz"
+                  id="1"
+                  type="checkbox"
+                />
+                <div
+                  class="css-3xhjcj"
+                >
+                  <svg
+                    class="css-15h4xjp"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    width="20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M19.6446 7.37163C19.9915 7.72756 19.9842 8.29736 19.6283 8.64432L11.4214 16.6443C11.0719 16.985 10.5145 16.985 10.165 16.6443L4.37188 10.9973C4.01595 10.6503 4.00867 10.0805 4.35563 9.72457C4.70259 9.36864 5.27239 9.36137 5.62832 9.70833L10.7932 14.743L18.3719 7.35539C18.7278 7.00843 19.2976 7.0157 19.6446 7.37163Z"
+                    />
+                  </svg>
+                </div>
+              </span>
+              <p
+                class="css-1k6xh2w"
+              >
+                Children
+              </p>
+            </label>
+          </li>
+          <li
+            class="css-llbbcb"
+          >
+            <label
+              class="css-9ncwx"
+            >
+              <span
+                class="css-1u8zmlt"
+              >
+                <input
+                  class="css-1gyy7tz"
+                  id="2"
+                  type="checkbox"
+                />
+                <div
+                  class="css-3xhjcj"
+                >
+                  <svg
+                    class="css-15h4xjp"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    width="20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M19.6446 7.37163C19.9915 7.72756 19.9842 8.29736 19.6283 8.64432L11.4214 16.6443C11.0719 16.985 10.5145 16.985 10.165 16.6443L4.37188 10.9973C4.01595 10.6503 4.00867 10.0805 4.35563 9.72457C4.70259 9.36864 5.27239 9.36137 5.62832 9.70833L10.7932 14.743L18.3719 7.35539C18.7278 7.00843 19.2976 7.0157 19.6446 7.37163Z"
+                    />
+                  </svg>
+                </div>
+              </span>
+              <p
+                class="css-1k6xh2w"
+              >
+                Children
+              </p>
+            </label>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div>
+      <label
+        class="css-9ncwx"
+      >
+        <span
+          class="css-1u8zmlt"
+        >
+          <input
+            class="css-1gyy7tz"
+            type="checkbox"
+          />
+          <div
+            class="css-3xhjcj"
+          >
+            <svg
+              class="css-15h4xjp"
+              height="20"
+              viewBox="0 0 24 24"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M19.6446 7.37163C19.9915 7.72756 19.9842 8.29736 19.6283 8.64432L11.4214 16.6443C11.0719 16.985 10.5145 16.985 10.165 16.6443L4.37188 10.9973C4.01595 10.6503 4.00867 10.0805 4.35563 9.72457C4.70259 9.36864 5.27239 9.36137 5.62832 9.70833L10.7932 14.743L18.3719 7.35539C18.7278 7.00843 19.2976 7.0157 19.6446 7.37163Z"
+              />
+            </svg>
+          </div>
+        </span>
+        <p
+          class="css-1k6xh2w"
+        >
+          Parent Checkbox
+        </p>
+      </label>
+      <ul
+        class="css-1tsmip4"
+      >
+        <li
+          class="css-llbbcb"
+        >
+          <label
+            class="css-9ncwx"
+          >
+            <span
+              class="css-1u8zmlt"
+            >
+              <input
+                checked=""
+                class="css-1gyy7tz"
+                id="1"
+                type="checkbox"
+              />
+              <div
+                class="css-3xhjcj"
+              >
+                <svg
+                  class="css-15h4xjp"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  width="20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M19.6446 7.37163C19.9915 7.72756 19.9842 8.29736 19.6283 8.64432L11.4214 16.6443C11.0719 16.985 10.5145 16.985 10.165 16.6443L4.37188 10.9973C4.01595 10.6503 4.00867 10.0805 4.35563 9.72457C4.70259 9.36864 5.27239 9.36137 5.62832 9.70833L10.7932 14.743L18.3719 7.35539C18.7278 7.00843 19.2976 7.0157 19.6446 7.37163Z"
+                  />
+                </svg>
+              </div>
+            </span>
+            <p
+              class="css-1k6xh2w"
+            >
+              Children
+            </p>
+          </label>
+        </li>
+        <li
+          class="css-llbbcb"
+        >
+          <label
+            class="css-9ncwx"
+          >
+            <span
+              class="css-1u8zmlt"
+            >
+              <input
+                class="css-1gyy7tz"
+                id="2"
+                type="checkbox"
+              />
+              <div
+                class="css-3xhjcj"
+              >
+                <svg
+                  class="css-15h4xjp"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  width="20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M19.6446 7.37163C19.9915 7.72756 19.9842 8.29736 19.6283 8.64432L11.4214 16.6443C11.0719 16.985 10.5145 16.985 10.165 16.6443L4.37188 10.9973C4.01595 10.6503 4.00867 10.0805 4.35563 9.72457C4.70259 9.36864 5.27239 9.36137 5.62832 9.70833L10.7932 14.743L18.3719 7.35539C18.7278 7.00843 19.2976 7.0157 19.6446 7.37163Z"
+                  />
+                </svg>
+              </div>
+            </span>
+            <p
+              class="css-1k6xh2w"
+            >
+              Children
+            </p>
+          </label>
+        </li>
+      </ul>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

@@ -13,15 +13,14 @@ const initialState: AlertProps = {
   title: "",
   description: "",
   confirmButtonLabel: "확인",
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
   onConfirm: () => {},
 };
 
 type AlertContextProps = (alertProps: AlertProps) => void;
 
-// eslint-disable-next-line @typescript-eslint/no-empty-function
 const AlertContext = createContext<AlertContextProps>(() => {});
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useAlert = () => {
   const openAlert = useContext(AlertContext);
 

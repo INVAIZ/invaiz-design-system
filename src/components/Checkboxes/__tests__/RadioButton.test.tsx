@@ -1,5 +1,4 @@
 import { render } from "@tests/test-utils";
-import { create } from "react-test-renderer";
 // test utils
 
 import RadioButton from "@components/Checkboxes/RadioButton";
@@ -50,14 +49,14 @@ describe("RadioButton", () => {
 });
 
 test("RadioButton Snapshot", () => {
-  const checked = create(
+  const checked = render(
     <GlobalThemeProvider>
       <RadioButton checked />
     </GlobalThemeProvider>,
   );
   expect(checked).toMatchSnapshot();
 
-  const unChecked = create(
+  const unChecked = render(
     <GlobalThemeProvider>
       <RadioButton />
     </GlobalThemeProvider>,

@@ -1,5 +1,4 @@
 import { render } from "@tests/test-utils";
-import { create } from "react-test-renderer";
 // test utils
 
 import OutlineCheckbox from "@components/Checkboxes/OutlineCheckbox";
@@ -69,14 +68,14 @@ describe("OutlineCheckbox", () => {
 });
 
 test("OutlineCheckbox Snapshot", () => {
-  const checked = create(
+  const checked = render(
     <GlobalThemeProvider>
       <OutlineCheckbox text={OUTLINE_TEXT} checked />
     </GlobalThemeProvider>,
   );
   expect(checked).toMatchSnapshot();
 
-  const unChecked = create(
+  const unChecked = render(
     <GlobalThemeProvider>
       <OutlineCheckbox text={OUTLINE_TEXT} />
     </GlobalThemeProvider>,

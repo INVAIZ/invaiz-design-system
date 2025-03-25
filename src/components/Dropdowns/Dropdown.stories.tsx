@@ -13,9 +13,7 @@ interface Props {
   itemType: keyof typeof DropdownItem;
 }
 
-const Template: Story<ComponentProps<typeof Dropdown> & Props> = ({
-  itemType = "Default",
-}) => {
+const Template: Story<Props> = ({ itemType = "Default" }) => {
   const [{ value }, setSelected] = useState({ value: 0, label: "item" });
   const options = [
     { value: 0, label: "item0" },

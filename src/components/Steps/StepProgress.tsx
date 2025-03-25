@@ -1,7 +1,6 @@
 import styled from "@themes/styled";
-import { HTMLAttributes } from "react";
 
-export interface StepProgressProps extends HTMLAttributes<HTMLDivElement> {
+export interface StepProgressProps {
   currentStep: number;
   totalSteps: number;
   stepWidth?: number;
@@ -19,7 +18,6 @@ export default function StepProgress({
   totalSteps,
   stepWidth = 32,
   stepHeight = 8,
-  ...props
 }: StepProgressProps) {
   return (
     <StepProgressContainer>

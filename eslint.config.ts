@@ -25,13 +25,10 @@ export default ts.config({
     prettier: eslintPluginPrettier,
     "react-hooks": eslintPluginReactHooks,
     "react-refresh": eslintPluginReactRefresh,
-    "jest": eslintPluginJest,
+    jest: eslintPluginJest,
     "testing-library": eslintPluginTestingLibrary,
   },
-  extends: [
-    js.configs.recommended,
-    ...ts.configs.recommended,
-  ],
+  extends: [js.configs.recommended, ...ts.configs.recommended],
   rules: {
     ...eslintPluginReactHooks.configs.recommended.rules,
     ...eslintPluginTestingLibrary.configs.react.rules,
@@ -63,5 +60,6 @@ export default ts.config({
     "@types",
     "**/__tests__/**",
     "**/tests/**",
+    "**/*.stories.tsx",
   ],
 });

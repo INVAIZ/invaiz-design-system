@@ -1,5 +1,4 @@
 import { render } from "@tests/test-utils";
-import { create } from "react-test-renderer";
 // test utils
 
 import ImplementedNestedCheckbox from "@components/Checkboxes/ImplementedNestedCheckbox";
@@ -166,7 +165,7 @@ test("ImplementedNestedCheckbox Snapshot", () => {
     { id: 2, checked: false, text: CHILDREN_TEXT },
   ];
 
-  const indeterminate = create(
+  const indeterminate = render(
     <GlobalThemeProvider>
       <ImplementedNestedCheckbox
         text={PARENT_TEXT}
@@ -177,7 +176,7 @@ test("ImplementedNestedCheckbox Snapshot", () => {
   );
   expect(indeterminate).toMatchSnapshot();
 
-  const determinate = create(
+  const determinate = render(
     <GlobalThemeProvider>
       <ImplementedNestedCheckbox
         text={PARENT_TEXT}

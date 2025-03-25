@@ -1,5 +1,4 @@
 import { render } from "@tests/test-utils";
-import { create } from "react-test-renderer";
 // test utils
 
 import FillCheckbox from "@components/Checkboxes/FillCheckbox";
@@ -50,14 +49,14 @@ describe("FillCheckbox", () => {
 });
 
 test("FillCheckbox Snapshot", () => {
-  const checked = create(
+  const checked = render(
     <GlobalThemeProvider>
       <FillCheckbox checked />
     </GlobalThemeProvider>,
   );
   expect(checked).toMatchSnapshot();
 
-  const unChecked = create(
+  const unChecked = render(
     <GlobalThemeProvider>
       <FillCheckbox />
     </GlobalThemeProvider>,

@@ -13,6 +13,7 @@ import type { EmotionTheme } from "@themes/emotion-theme";
 
 import _styled from "@emotion/styled";
 
+// eslint-disable-next-line react-refresh/only-export-components
 export * from "@emotion/react";
 // styled
 
@@ -78,16 +79,12 @@ export interface FilteringStyledOptions<
   target?: string;
 }
 
-export interface StyledOptions<Props = Record<string, any>> {
+interface StyledOptions {
   label?: string;
   shouldForwardProp?: (propName: string) => boolean;
   target?: string;
 }
 
-/**
- * @typeparam ComponentProps  Props which will be included when withComponent is called
- * @typeparam SpecificComponentProps  Props which will *not* be included when withComponent is called
- */
 export interface StyledComponent<
   ComponentProps extends {},
   SpecificComponentProps extends {} = {},
@@ -109,18 +106,11 @@ export interface StyledComponent<
   ): StyledComponent<ComponentProps, JSX.IntrinsicElements[Tag]>;
 }
 
-/**
- * @typeparam ComponentProps  Props which will be included when withComponent is called
- * @typeparam SpecificComponentProps  Props which will *not* be included when withComponent is called
- */
 export interface CreateStyledComponent<
   ComponentProps extends {},
   SpecificComponentProps extends {} = {},
   JSXProps extends {} = {},
 > {
-  /**
-   * @typeparam AdditionalProps  Additional props to add to your styled component
-   */
   <AdditionalProps extends {} = {}>(
     ...styles: Array<
       Interpolation<
@@ -144,9 +134,6 @@ export interface CreateStyledComponent<
     >
   ): StyledComponent<ComponentProps, SpecificComponentProps, JSXProps>;
 
-  /**
-   * @typeparam AdditionalProps  Additional props to add to your styled component
-   */
   <AdditionalProps extends {}>(
     template: TemplateStringsArray,
     ...styles: Array<
@@ -192,7 +179,7 @@ export interface BaseCreateStyled {
 
   <C extends ComponentClass<ComponentProps<C>>>(
     component: C,
-    options?: StyledOptions<ComponentProps<C>>,
+    options?: StyledOptions,
   ): CreateStyledComponent<
     PropsOf<C> & {
       theme?: EmotionTheme;
@@ -218,7 +205,7 @@ export interface BaseCreateStyled {
 
   <C extends ComponentType<ComponentProps<C>>>(
     component: C,
-    options?: StyledOptions<ComponentProps<C>>,
+    options?: StyledOptions,
   ): CreateStyledComponent<
     PropsOf<C> & {
       theme?: EmotionTheme;
@@ -239,7 +226,7 @@ export interface BaseCreateStyled {
 
   <Tag extends keyof JSX.IntrinsicElements>(
     tag: Tag,
-    options?: StyledOptions<JSX.IntrinsicElements[Tag]>,
+    options?: StyledOptions,
   ): CreateStyledComponent<
     { theme?: EmotionTheme; as?: ElementType },
     JSX.IntrinsicElements[Tag]

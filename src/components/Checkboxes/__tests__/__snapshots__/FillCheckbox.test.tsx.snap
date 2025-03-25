@@ -1,5 +1,247 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`FillCheckbox Snapshot 1`] = `null`;
+exports[`FillCheckbox Snapshot 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <span
+        class="css-srlyvc"
+      >
+        <input
+          checked=""
+          class="css-5eq3a5"
+          type="checkbox"
+        />
+        <div
+          class="css-1hzayjd"
+        >
+          <svg
+            class="css-nq324q"
+            height="20"
+            viewBox="0 0 24 24"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M19.6446 7.37163C19.9915 7.72756 19.9842 8.29736 19.6283 8.64432L11.4214 16.6443C11.0719 16.985 10.5145 16.985 10.165 16.6443L4.37188 10.9973C4.01595 10.6503 4.00867 10.0805 4.35563 9.72457C4.70259 9.36864 5.27239 9.36137 5.62832 9.70833L10.7932 14.743L18.3719 7.35539C18.7278 7.00843 19.2976 7.0157 19.6446 7.37163Z"
+            />
+          </svg>
+        </div>
+      </span>
+    </div>
+  </body>,
+  "container": <div>
+    <span
+      class="css-srlyvc"
+    >
+      <input
+        checked=""
+        class="css-5eq3a5"
+        type="checkbox"
+      />
+      <div
+        class="css-1hzayjd"
+      >
+        <svg
+          class="css-nq324q"
+          height="20"
+          viewBox="0 0 24 24"
+          width="20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M19.6446 7.37163C19.9915 7.72756 19.9842 8.29736 19.6283 8.64432L11.4214 16.6443C11.0719 16.985 10.5145 16.985 10.165 16.6443L4.37188 10.9973C4.01595 10.6503 4.00867 10.0805 4.35563 9.72457C4.70259 9.36864 5.27239 9.36137 5.62832 9.70833L10.7932 14.743L18.3719 7.35539C18.7278 7.00843 19.2976 7.0157 19.6446 7.37163Z"
+          />
+        </svg>
+      </div>
+    </span>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
 
-exports[`FillCheckbox Snapshot 2`] = `null`;
+exports[`FillCheckbox Snapshot 2`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <span
+        class="css-srlyvc"
+      >
+        <input
+          checked=""
+          class="css-5eq3a5"
+          type="checkbox"
+        />
+        <div
+          class="css-1hzayjd"
+        >
+          <svg
+            class="css-nq324q"
+            height="20"
+            viewBox="0 0 24 24"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M19.6446 7.37163C19.9915 7.72756 19.9842 8.29736 19.6283 8.64432L11.4214 16.6443C11.0719 16.985 10.5145 16.985 10.165 16.6443L4.37188 10.9973C4.01595 10.6503 4.00867 10.0805 4.35563 9.72457C4.70259 9.36864 5.27239 9.36137 5.62832 9.70833L10.7932 14.743L18.3719 7.35539C18.7278 7.00843 19.2976 7.0157 19.6446 7.37163Z"
+            />
+          </svg>
+        </div>
+      </span>
+    </div>
+    <div>
+      <span
+        class="css-srlyvc"
+      >
+        <input
+          class="css-5eq3a5"
+          type="checkbox"
+        />
+        <div
+          class="css-1hzayjd"
+        >
+          <svg
+            class="css-nq324q"
+            height="20"
+            viewBox="0 0 24 24"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M19.6446 7.37163C19.9915 7.72756 19.9842 8.29736 19.6283 8.64432L11.4214 16.6443C11.0719 16.985 10.5145 16.985 10.165 16.6443L4.37188 10.9973C4.01595 10.6503 4.00867 10.0805 4.35563 9.72457C4.70259 9.36864 5.27239 9.36137 5.62832 9.70833L10.7932 14.743L18.3719 7.35539C18.7278 7.00843 19.2976 7.0157 19.6446 7.37163Z"
+            />
+          </svg>
+        </div>
+      </span>
+    </div>
+  </body>,
+  "container": <div>
+    <span
+      class="css-srlyvc"
+    >
+      <input
+        class="css-5eq3a5"
+        type="checkbox"
+      />
+      <div
+        class="css-1hzayjd"
+      >
+        <svg
+          class="css-nq324q"
+          height="20"
+          viewBox="0 0 24 24"
+          width="20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M19.6446 7.37163C19.9915 7.72756 19.9842 8.29736 19.6283 8.64432L11.4214 16.6443C11.0719 16.985 10.5145 16.985 10.165 16.6443L4.37188 10.9973C4.01595 10.6503 4.00867 10.0805 4.35563 9.72457C4.70259 9.36864 5.27239 9.36137 5.62832 9.70833L10.7932 14.743L18.3719 7.35539C18.7278 7.00843 19.2976 7.0157 19.6446 7.37163Z"
+          />
+        </svg>
+      </div>
+    </span>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

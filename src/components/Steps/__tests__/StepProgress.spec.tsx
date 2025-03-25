@@ -1,5 +1,4 @@
-import { render } from "@testing-library/react";
-import { create } from "react-test-renderer";
+import { render } from "@tests/test-utils";
 import StepProgress from "@components/Steps/StepProgress";
 import GlobalThemeProvider from "@themes/GlobalThemeProvider";
 
@@ -44,17 +43,17 @@ describe("StepProgress", () => {
 });
 
 test("StepProgress Snapshot", () => {
-  const currentStep = create(
+  const currentStep = render(
     <GlobalThemeProvider>
       <StepProgress currentStep={0} totalSteps={5} />
     </GlobalThemeProvider>,
-  ).toJSON();
+  );
   expect(currentStep).toMatchSnapshot();
 
-  const color = create(
+  const color = render(
     <GlobalThemeProvider>
       <StepProgress currentStep={3} totalSteps={6} />
     </GlobalThemeProvider>,
-  ).toJSON();
+  );
   expect(color).toMatchSnapshot();
 });

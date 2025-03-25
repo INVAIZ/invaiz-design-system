@@ -1,6 +1,6 @@
-import Toggle from "@components/Toggles/Toggle";
 import { render } from "@tests/test-utils";
-import { create } from "react-test-renderer";
+
+import Toggle from "@components/Toggles/Toggle";
 import GlobalThemeProvider from "@themes/GlobalThemeProvider";
 
 describe("Toggle", () => {
@@ -37,17 +37,17 @@ describe("Toggle", () => {
 });
 
 test("Toggle Snapshot", () => {
-  const checked = create(
+  const checked = render(
     <GlobalThemeProvider>
       <Toggle checked />
     </GlobalThemeProvider>,
-  ).toJSON();
+  );
   expect(checked).toMatchSnapshot();
 
-  const unChecked = create(
+  const unChecked = render(
     <GlobalThemeProvider>
       <Toggle />
     </GlobalThemeProvider>,
-  ).toJSON();
+  );
   expect(unChecked).toMatchSnapshot();
 });
